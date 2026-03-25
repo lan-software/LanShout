@@ -24,7 +24,7 @@ services:
         depends_on:
             - pgsql
             - redis
-            - mailhog
+            - mailpit
     pgsql:
         image: 'postgres:18-alpine'
         ports:
@@ -65,8 +65,8 @@ services:
                 - ping
             retries: 3
             timeout: 5s
-    mailhog:
-        image: 'mailhog/mailhog:v1.0.1'
+    mailpit:
+        image: axllent/mailpit
         restart: unless-stopped
         ports:
           - '8025:8025'
