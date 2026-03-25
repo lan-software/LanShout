@@ -36,7 +36,7 @@ describe('ChatMessage', () => {
             },
         });
         const nameSpan = wrapper.find('span.font-medium');
-        expect(nameSpan.attributes('style')).toContain('color: rgb(255, 85, 0)');
+        expect(nameSpan.attributes('style')).toContain('color: #ff5500');
     });
 
     it('generates a hash-based color when no chat_color is set', () => {
