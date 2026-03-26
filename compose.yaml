@@ -69,7 +69,7 @@ services:
         image: axllent/mailpit
         restart: unless-stopped
         ports:
-          - '8025:8025'
+          - '8022:8025'
         networks:
           - sail
 
