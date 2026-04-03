@@ -17,29 +17,40 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
 
       - name: Install Dependencies
         run: |
-          composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-          npm install
+          composer install -q --no-ansi --no-interaction --no-progress --prefer-dist
+          npm ci
+
+      - name: Setup Environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Generate Wayfinder Routes
+        run: php artisan wayfinder:generate
+        env:
+          CACHE_STORE: array
+          SESSION_DRIVER: array
 
       - name: Run Pint
-        run: vendor/bin/pint
+        run: composer lint
 
       - name: Format Frontend
-        run: npm run format
+        run: npm run format:check
 
       - name: Lint Frontend
-        run: npm run lint
+        run: npm run lint:check
 
       # - name: Commit Changes
-      #   uses: stefanzweifel/git-auto-commit-action@v5
+      #   uses: stefanzweifel/git-auto-commit-action@v7
       #   with:
       #     commit_message: fix code style
       #     commit_options: '--no-verify'

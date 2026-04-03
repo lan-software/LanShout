@@ -1,4 +1,14 @@
-LanShout — Local Development Quick Start
+# LanShout
+
+<p align="center">
+  <a href="https://github.com/lan-software/LanShout/actions/workflows/tests.yml"><img src="https://github.com/lan-software/LanShout/actions/workflows/tests.yml/badge.svg" alt="Tests" /></a>
+  <a href="https://github.com/lan-software/LanShout/actions/workflows/frontend-tests.yml"><img src="https://github.com/lan-software/LanShout/actions/workflows/frontend-tests.yml/badge.svg" alt="Frontend Tests" /></a>
+  <a href="https://github.com/lan-software/LanShout/actions/workflows/lint.yml"><img src="https://github.com/lan-software/LanShout/actions/workflows/lint.yml/badge.svg" alt="Linter" /></a>
+  <a href="https://github.com/lan-software/LanShout/actions/workflows/docker-publish.yml"><img src="https://github.com/lan-software/LanShout/actions/workflows/docker-publish.yml/badge.svg" alt="Docker" /></a>
+  <a href="https://codecov.io/gh/lan-software/LanShout"><img src="https://codecov.io/gh/lan-software/LanShout/graph/badge.svg" alt="Coverage" /></a>
+</p>
+
+## Local Development Quick Start
 
 This guide helps you start the application locally using the included Docker infrastructure (Postgres, Redis, MailHog) while running Laravel and Vite on your host.
 
@@ -34,7 +44,7 @@ This repo already includes an .env configured for the Docker services:
 - MAIL_HOST=localhost
 - MAIL_PORT=1025
 
-If you don’t have an .env yet (fresh clone), copy from the example and generate an app key:
+If you don't have an .env yet (fresh clone), copy from the example and generate an app key:
 - cp .env.example .env
 - php artisan key:generate
 
@@ -97,4 +107,4 @@ Handy scripts
 - npm start — alias of dev:app
 - composer run dev — alternative dev runner with queue and logs (see composer.json)
 
-That’s it! If you hit any issues, file them with logs and your OS/PHP/Node versions.
+That's it! If you hit any issues, file them with logs and your OS/PHP/Node versions.
