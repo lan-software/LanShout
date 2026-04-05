@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\Auth\LanCoreAuthController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
@@ -14,10 +15,20 @@ Route::get('/', function () {
         return redirect()->route('chat');
     }
 
+    if (config('lancore.enabled') && ! session()->has('error')) {
+        return redirect()->route('auth.redirect');
+    }
+
     return Inertia::render('Landing', [
         'canRegister' => Features::enabled(Features::registration()),
     ]);
 })->name('home');
+
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::get('redirect', [LanCoreAuthController::class, 'redirect'])->name('redirect');
+    Route::get('callback', [LanCoreAuthController::class, 'callback'])->name('callback');
+    Route::get('status', [LanCoreAuthController::class, 'status'])->name('status');
+});
 
 Route::get('dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])

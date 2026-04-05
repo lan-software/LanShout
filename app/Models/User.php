@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'chat_color',
         'locale',
+        'lancore_user_id',
     ];
 
     /**
@@ -46,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'lancore_user_id' => 'integer',
         ];
     }
 
@@ -71,5 +73,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function hasAnyRole(array $roleNames): bool
     {
         return $this->roles()->whereIn('name', $roleNames)->exists();
+    }
+
+    public function isLanCoreUser(): bool
+    {
+        return $this->lancore_user_id !== null;
     }
 }
