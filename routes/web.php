@@ -19,7 +19,7 @@ Route::get('/', function () {
         return redirect()->route('auth.redirect');
     }
 
-    return Inertia::render('Landing', [
+    return Inertia::render('Welcome', [
         'canRegister' => Features::enabled(Features::registration()),
     ]);
 })->name('home');
