@@ -7,6 +7,16 @@ use Illuminate\Validation\Rule;
 
 class UpdateChatSettingsRequest extends FormRequest
 {
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'allow_urls' => $this->boolean('allow_urls'),
+            'slow_mode_enabled' => $this->boolean('slow_mode_enabled'),
+            'slow_mode_auto_enabled' => $this->boolean('slow_mode_auto_enabled'),
+            'nsfw_mode' => $this->boolean('nsfw_mode'),
+        ]);
+    }
+
     public function rules(): array
     {
         return [

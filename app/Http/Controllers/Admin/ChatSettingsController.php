@@ -42,8 +42,10 @@ class ChatSettingsController extends Controller
             403,
         );
 
-        $settings = ChatSetting::current();
-        $settings->update($request->validated());
+        // Fetch directly from DB (not cache) to ensure update works
+        $settings = ChatSetting::firstOrFail();
+        $settings->fill($request->validated());
+        $settings->save();
         $settings->clearCache();
 
         return back();

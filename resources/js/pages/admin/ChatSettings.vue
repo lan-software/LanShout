@@ -8,7 +8,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -79,6 +78,7 @@ const activeFilterPresets = ref<string[]>([...(props.settings.active_filter_pres
 const nsfwMode = ref(props.settings.nsfw_mode ?? false);
 
 const saving = ref(false);
+const saveError = ref<string | null>(null);
 
 function togglePreset(key: string) {
     const index = activeFilterPresets.value.indexOf(key);
@@ -126,6 +126,12 @@ function save() {
         },
         {
             preserveScroll: true,
+            onSuccess: () => {
+                saveError.value = null;
+            },
+            onError: (errors) => {
+                saveError.value = Object.values(errors).flat().join(', ');
+            },
             onFinish: () => {
                 saving.value = false;
             },
@@ -146,9 +152,12 @@ function save() {
                         <Badge variant="secondary">Read-only</Badge>
                     </p>
                 </div>
-                <Button v-if="canEdit" :disabled="saving" @click="save">
-                    {{ saving ? $t('common.loading') : $t('common.save') }}
-                </Button>
+                <div class="flex items-center gap-3">
+                    <p v-if="saveError" class="text-sm text-red-600 dark:text-red-400">{{ saveError }}</p>
+                    <Button v-if="canEdit" :disabled="saving" @click="save">
+                        {{ saving ? $t('common.loading') : $t('common.save') }}
+                    </Button>
+                </div>
             </div>
 
             <div class="grid gap-4 lg:grid-cols-2">
@@ -221,11 +230,15 @@ function save() {
                         </div>
 
                         <div class="flex items-center gap-2">
-                            <Checkbox
-                                v-model:checked="allowUrls"
+                            <input
+                                id="allow_urls"
+                                type="checkbox"
+                                :checked="allowUrls"
                                 :disabled="!canEdit"
+                                class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
+                                @change="allowUrls = ($event.target as HTMLInputElement).checked"
                             />
-                            <Label>{{ $t('chatSettings.contentFiltering.allowUrls') }}</Label>
+                            <Label for="allow_urls">{{ $t('chatSettings.contentFiltering.allowUrls') }}</Label>
                         </div>
                         <p class="text-muted-foreground text-xs">
                             {{ $t('chatSettings.contentFiltering.allowUrlsHelp') }}
@@ -241,10 +254,14 @@ function save() {
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div v-for="preset in filterPresets" :key="preset.key" class="flex items-start gap-3 rounded-md border p-3">
-                            <Checkbox
+                            <input
+                                type="checkbox"
+                                :id="`preset-${preset.key}`"
+                                :value="preset.key"
                                 :checked="activeFilterPresets.includes(preset.key)"
                                 :disabled="!canEdit"
-                                @update:checked="() => togglePreset(preset.key)"
+                                class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
+                                @change="togglePreset(preset.key)"
                             />
                             <div class="flex-1">
                                 <div class="flex items-center gap-2">
@@ -262,9 +279,13 @@ function save() {
 
                         <div class="border-t pt-4">
                             <div class="flex items-center gap-2">
-                                <Checkbox
-                                    v-model:checked="nsfwMode"
+                                <input
+                                    id="nsfw_mode"
+                                    type="checkbox"
+                                    :checked="nsfwMode"
                                     :disabled="!canEdit"
+                                    class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
+                                    @change="nsfwMode = ($event.target as HTMLInputElement).checked"
                                 />
                                 <div>
                                     <Label>{{ $t('chatSettings.presets.nsfwMode') }}</Label>
@@ -358,11 +379,15 @@ function save() {
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div class="flex items-center gap-2">
-                            <Checkbox
-                                v-model:checked="slowModeEnabled"
+                            <input
+                                id="slow_mode_enabled"
+                                type="checkbox"
+                                :checked="slowModeEnabled"
                                 :disabled="!canEdit"
+                                class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
+                                @change="slowModeEnabled = ($event.target as HTMLInputElement).checked"
                             />
-                            <Label>{{ $t('chatSettings.slowMode.enabled') }}</Label>
+                            <Label for="slow_mode_enabled">{{ $t('chatSettings.slowMode.enabled') }}</Label>
                         </div>
 
                         <div>
@@ -382,9 +407,13 @@ function save() {
 
                         <div class="border-t pt-4">
                             <div class="flex items-center gap-2">
-                                <Checkbox
-                                    v-model:checked="slowModeAutoEnabled"
+                                <input
+                                    id="slow_mode_auto_enabled"
+                                    type="checkbox"
+                                    :checked="slowModeAutoEnabled"
                                     :disabled="!canEdit"
+                                    class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
+                                    @change="slowModeAutoEnabled = ($event.target as HTMLInputElement).checked"
                                 />
                                 <Label>{{ $t('chatSettings.slowMode.autoEnabled') }}</Label>
                             </div>
