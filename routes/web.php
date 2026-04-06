@@ -5,7 +5,9 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\Auth\LanCoreAuthController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\Admin\ChatSettingsController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserMuteController;
 use App\Http\Controllers\DashboardController;
 use App\Models\User;
 use App\Models\Message;
@@ -50,6 +52,14 @@ Route::post('/messages', [MessageController::class, 'store'])
     ->middleware(['auth'])
     ->name('messages.store');
 
+Route::post('/chat/heartbeat', [MessageController::class, 'heartbeat'])
+    ->middleware(['auth'])
+    ->name('chat.heartbeat');
+
+Route::get('/chat/active-users', [MessageController::class, 'activeUsers'])
+    ->middleware(['auth'])
+    ->name('chat.active-users');
+
 // Admin area routes
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     // Admin dashboard (accessible to moderator, admin, super_admin)
@@ -61,6 +71,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // User management routes (Admin and Super Admin only - authorization in controller)
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+
+    // Chat settings
+    Route::get('/chat-settings', [ChatSettingsController::class, 'index'])->name('chat-settings.index');
+    Route::put('/chat-settings', [ChatSettingsController::class, 'update'])->name('chat-settings.update');
+
+    // User mute management
+    Route::post('/users/{user}/mute', [UserMuteController::class, 'store'])->name('users.mute');
+    Route::delete('/mutes/{mute}', [UserMuteController::class, 'destroy'])->name('mutes.destroy');
 });
 
 require __DIR__.'/settings.php';

@@ -53,6 +53,8 @@ class HandleInertiaRequests extends Middleware
                 ] : null,
             ],
             'isAdmin' => $user?->hasAnyRole(['super_admin', 'admin']) ?? false,
+            'isModerator' => $user?->hasAnyRole(['super_admin', 'admin', 'moderator']) ?? false,
+            'lancoreBaseUrl' => config('lancore.base_url'),
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
     }

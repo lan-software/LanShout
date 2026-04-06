@@ -118,7 +118,80 @@
     "loadingMessages": "Nachrichten werden geladen...",
     "errorLoading": "Fehler beim Laden der Nachrichten",
     "errorSending": "Fehler beim Senden der Nachricht",
-    "retry": "Wiederholen"
+    "retry": "Wiederholen",
+    "slowModeActive": "Langsamer Modus ist aktiv. Du kannst in {seconds} Sekunden eine Nachricht senden.",
+    "rateLimited": "Du sendest Nachrichten zu schnell. Bitte warte.",
+    "messageBlocked": "Deine Nachricht wurde vom Inhaltsfilter blockiert."
+  },
+  "chatSettings": {
+    "title": "Chat-Einstellungen",
+    "contentFiltering": {
+      "title": "Inhaltsfilter",
+      "blockedWords": "Blockierte Wörter",
+      "blockedWordsHelp": "Wörter zum Blockieren eingeben, eines pro Zeile",
+      "regexFilters": "Regex-Filter",
+      "regexFiltersHelp": "Erweiterte musterbasierte Filter",
+      "addFilter": "Filter hinzufügen",
+      "pattern": "Muster",
+      "filterAction": "Filteraktion",
+      "block": "Nachricht blockieren",
+      "censor": "Zensieren (mit *** ersetzen)",
+      "flag": "Zur Überprüfung markieren",
+      "allowUrls": "URLs erlauben",
+      "allowUrlsHelp": "Wenn deaktiviert, werden Nachrichten mit URLs gefiltert"
+    },
+    "spam": {
+      "title": "Spam-Erkennung",
+      "repeatThreshold": "Wiederholungsschwelle",
+      "repeatThresholdHelp": "Anzahl identischer Nachrichten, bevor als Spam erkannt",
+      "windowSeconds": "Erkennungsfenster (Sekunden)",
+      "windowSecondsHelp": "Zeitfenster für die Zählung wiederholter Nachrichten"
+    },
+    "rateLimiting": {
+      "title": "Ratenbegrenzung",
+      "messages": "Nachrichten pro Fenster",
+      "messagesHelp": "Maximale Nachrichten, die ein Benutzer pro Fenster senden kann",
+      "windowSeconds": "Fensterdauer (Sekunden)",
+      "windowSecondsHelp": "Zeitfenster für die Ratenbegrenzung"
+    },
+    "slowMode": {
+      "title": "Langsamer Modus",
+      "enabled": "Langsamen Modus aktivieren",
+      "cooldownSeconds": "Abklingzeit (Sekunden)",
+      "cooldownSecondsHelp": "Mindestzeit zwischen Nachrichten pro Benutzer",
+      "autoEnabled": "Langsamen Modus automatisch aktivieren",
+      "autoThreshold": "Auto-Auslöseschwelle",
+      "autoThresholdHelp": "Nachrichten pro Minute aller Benutzer zum automatischen Auslösen"
+    },
+    "presets": {
+      "title": "Filter-Vorlagen",
+      "description": "Aktiviere vorgefertigte Filterkategorien, um unangemessene Inhalte automatisch zu blockieren",
+      "words": "Wörter",
+      "alwaysActive": "Immer aktiv",
+      "nsfwMode": "NSFW-Modus",
+      "nsfwModeHelp": "Wenn aktiviert, werden Schimpfwort- und sexuelle Inhaltsfilter gelockert, während Kindersicherheit, Tierschutz, rassistische/politische und Gewaltfilter aktiv bleiben."
+    },
+    "saved": "Chat-Einstellungen erfolgreich gespeichert"
+  },
+  "activeUsers": {
+    "title": "Aktive Benutzer",
+    "noUsers": "Keine aktiven Benutzer",
+    "muteTimed": "Stummschalten (zeitlich)",
+    "mutePermanent": "Dauerhaft stummschalten",
+    "muteReason": "Grund",
+    "muteDuration": "Dauer (Minuten)",
+    "showInLanCore": "In LanCore anzeigen",
+    "unmute": "Stummschaltung aufheben",
+    "muteSuccess": "Benutzer wurde stummgeschaltet",
+    "unmuteSuccess": "Stummschaltung wurde aufgehoben",
+    "actions": "Aktionen"
+  },
+  "muted": {
+    "title": "Du bist stummgeschaltet",
+    "reason": "Grund: {reason}",
+    "until": "Bis: {until}",
+    "permanent": "Diese Stummschaltung ist dauerhaft",
+    "contact": "Kontaktiere einen Moderator für weitere Informationen"
   },
   "dashboard": {
     "title": "Dashboard",

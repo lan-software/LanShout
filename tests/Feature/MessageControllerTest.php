@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\ChatPresence;
+use App\Models\ChatSetting;
 use App\Models\Message;
 use App\Models\User;
+use App\Models\UserMute;
 
 // --- MessageController@index ---
 
@@ -171,4 +174,166 @@ test('unverified user is redirected from chat page', function () {
     $response = $this->actingAs($user)->get(route('chat'));
 
     $response->assertRedirect(route('verification.notice'));
+});
+
+// --- Mute enforcement ---
+
+test('muted user cannot post a message', function () {
+    $user = User::factory()->create();
+    ChatSetting::create([
+        'blocked_words' => [],
+        'regex_filters' => [],
+        'filter_action' => 'block',
+        'allow_urls' => true,
+        'spam_repeat_threshold' => 3,
+        'spam_window_seconds' => 60,
+        'rate_limit_messages' => 10,
+        'rate_limit_window_seconds' => 60,
+        'slow_mode_enabled' => false,
+        'slow_mode_cooldown_seconds' => 5,
+        'slow_mode_auto_enabled' => false,
+        'slow_mode_auto_threshold' => 50,
+    ]);
+
+    UserMute::create([
+        'user_id' => $user->id,
+        'muted_by' => $user->id,
+        'reason' => 'Spamming',
+        'expires_at' => now()->addHour(),
+    ]);
+
+    $response = $this->actingAs($user)->postJson(route('messages.store'), [
+        'body' => 'I am muted',
+    ]);
+
+    $response->assertForbidden();
+    $response->assertJsonPath('message', 'You are muted.');
+    $response->assertJsonPath('mute.reason', 'Spamming');
+});
+
+test('expired mute allows posting', function () {
+    $user = User::factory()->create();
+    ChatSetting::create([
+        'blocked_words' => [],
+        'regex_filters' => [],
+        'filter_action' => 'block',
+        'allow_urls' => true,
+        'spam_repeat_threshold' => 3,
+        'spam_window_seconds' => 60,
+        'rate_limit_messages' => 10,
+        'rate_limit_window_seconds' => 60,
+        'slow_mode_enabled' => false,
+        'slow_mode_cooldown_seconds' => 5,
+        'slow_mode_auto_enabled' => false,
+        'slow_mode_auto_threshold' => 50,
+    ]);
+
+    UserMute::create([
+        'user_id' => $user->id,
+        'muted_by' => $user->id,
+        'reason' => 'Old mute',
+        'expires_at' => now()->subMinute(),
+    ]);
+
+    $response = $this->actingAs($user)->postJson(route('messages.store'), [
+        'body' => 'I am no longer muted',
+    ]);
+
+    $response->assertCreated();
+});
+
+// --- Heartbeat and presence ---
+
+test('heartbeat updates chat presence', function () {
+    $user = User::factory()->create();
+
+    $response = $this->actingAs($user)->postJson(route('chat.heartbeat'));
+
+    $response->assertOk();
+    $response->assertJsonStructure(['slowModeActive']);
+
+    $this->assertDatabaseHas('chat_presences', [
+        'user_id' => $user->id,
+    ]);
+});
+
+test('active users returns users with recent presence', function () {
+    $user1 = User::factory()->create(['name' => 'ActiveUser']);
+    $user2 = User::factory()->create(['name' => 'StaleUser']);
+
+    ChatPresence::create([
+        'user_id' => $user1->id,
+        'last_seen_at' => now(),
+    ]);
+
+    ChatPresence::create([
+        'user_id' => $user2->id,
+        'last_seen_at' => now()->subMinutes(10),
+    ]);
+
+    $response = $this->actingAs($user1)->getJson(route('chat.active-users'));
+
+    $response->assertOk();
+
+    $names = collect($response->json('data'))->pluck('name')->toArray();
+    expect($names)->toContain('ActiveUser');
+    expect($names)->not->toContain('StaleUser');
+});
+
+// --- Spam check (DB-dependent) ---
+
+test('checkSpam returns true when threshold exceeded', function () {
+    $user = User::factory()->create();
+    ChatSetting::create([
+        'blocked_words' => [],
+        'regex_filters' => [],
+        'filter_action' => 'block',
+        'allow_urls' => true,
+        'spam_repeat_threshold' => 3,
+        'spam_window_seconds' => 60,
+        'rate_limit_messages' => 10,
+        'rate_limit_window_seconds' => 60,
+        'slow_mode_enabled' => false,
+        'slow_mode_cooldown_seconds' => 5,
+        'slow_mode_auto_enabled' => false,
+        'slow_mode_auto_threshold' => 50,
+    ]);
+
+    // Create 3 identical messages within the window
+    Message::factory()->count(3)->create([
+        'user_id' => $user->id,
+        'body' => 'spam message',
+        'created_at' => now(),
+    ]);
+
+    $moderation = new \App\Services\ContentModeration();
+    expect($moderation->checkSpam($user->id, 'spam message'))->toBeTrue();
+});
+
+test('checkSpam returns false below threshold', function () {
+    $user = User::factory()->create();
+    ChatSetting::create([
+        'blocked_words' => [],
+        'regex_filters' => [],
+        'filter_action' => 'block',
+        'allow_urls' => true,
+        'spam_repeat_threshold' => 3,
+        'spam_window_seconds' => 60,
+        'rate_limit_messages' => 10,
+        'rate_limit_window_seconds' => 60,
+        'slow_mode_enabled' => false,
+        'slow_mode_cooldown_seconds' => 5,
+        'slow_mode_auto_enabled' => false,
+        'slow_mode_auto_threshold' => 50,
+    ]);
+
+    // Create only 2 identical messages (below threshold of 3)
+    Message::factory()->count(2)->create([
+        'user_id' => $user->id,
+        'body' => 'repeated message',
+        'created_at' => now(),
+    ]);
+
+    $moderation = new \App\Services\ContentModeration();
+    expect($moderation->checkSpam($user->id, 'repeated message'))->toBeFalse();
 });

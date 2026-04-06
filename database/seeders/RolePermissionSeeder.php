@@ -22,6 +22,8 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'delete_user', 'display_name' => 'Delete User', 'description' => 'Can delete users'],
             ['name' => 'edit_chat_configuration', 'display_name' => 'Edit Chat Configuration', 'description' => 'Can edit chat configuration'],
             ['name' => 'edit_system_configuration', 'display_name' => 'Edit System Configuration', 'description' => 'Can edit system configuration'],
+            ['name' => 'mute_user', 'display_name' => 'Mute User', 'description' => 'Can mute chat users'],
+            ['name' => 'view_chat_configuration', 'display_name' => 'View Chat Configuration', 'description' => 'Can view chat configuration'],
         ];
 
         foreach ($permissions as $permission) {
@@ -64,7 +66,9 @@ class RolePermissionSeeder extends Seeder
             'view_chat',
             'send_chat_message',
             'delete_chat_message',
-            'edit_user'
+            'edit_user',
+            'mute_user',
+            'view_chat_configuration',
         ])->get();
         $moderator->permissions()->sync($moderatorPermissions);
 

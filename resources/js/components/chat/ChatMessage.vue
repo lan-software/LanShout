@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { getUserColor, needsPillBackground } from '@/composables/useChatColor'
+import { useAppearance } from '@/composables/useAppearance'
 
 type User = {
   id: number
@@ -18,27 +20,31 @@ const props = defineProps<{
   message: Message
 }>()
 
-// Hash function to generate a color from a username
-function hashStringToColor(str: string): string {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash)
-  }
-
-  // Convert hash to HSL color (varied hue, consistent saturation and lightness)
-  const hue = Math.abs(hash % 360)
-  const saturation = 65 + (Math.abs(hash) % 20) // 65-85%
-  const lightness = 45 + (Math.abs(hash >> 8) % 15) // 45-60%
-
-  return `hsl(${hue}, ${saturation}%, ${lightness}%)`
-}
+const { appearance } = useAppearance()
 
 const usernameColor = computed(() => {
-  // Use custom color if set, otherwise hash the username
-  if (props.message.user?.chat_color) {
-    return props.message.user.chat_color
+  return getUserColor(props.message.user?.name ?? 'User', props.message.user?.chat_color)
+})
+
+const isDarkMode = computed(() => {
+  if (appearance.value === 'dark') return true
+  if (appearance.value === 'light') return false
+  // System preference
+  return typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches
+})
+
+const pillBackground = computed(() => {
+  return needsPillBackground(usernameColor.value, isDarkMode.value)
+})
+
+const nameStyle = computed(() => {
+  const style: Record<string, string> = { color: usernameColor.value }
+  if (pillBackground.value) {
+    style.backgroundColor = pillBackground.value
+    style.padding = '1px 6px'
+    style.borderRadius = '9999px'
   }
-  return hashStringToColor(props.message.user?.name ?? 'User')
+  return style
 })
 
 const formattedTime = computed(() => {
@@ -51,7 +57,7 @@ const formattedTime = computed(() => {
     <div class="text-xs text-muted-foreground">
       <span
         class="font-medium"
-        :style="{ color: usernameColor }"
+        :style="nameStyle"
       >
         {{ message.user?.name ?? 'User' }}
       </span>

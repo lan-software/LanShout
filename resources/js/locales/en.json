@@ -118,7 +118,80 @@
     "loadingMessages": "Loading messages...",
     "errorLoading": "Failed to load messages",
     "errorSending": "Failed to post message",
-    "retry": "Retry"
+    "retry": "Retry",
+    "slowModeActive": "Slow mode is active. You can send a message in {seconds} seconds.",
+    "rateLimited": "You are sending messages too quickly. Please wait.",
+    "messageBlocked": "Your message was blocked by content filters."
+  },
+  "chatSettings": {
+    "title": "Chat Settings",
+    "contentFiltering": {
+      "title": "Content Filtering",
+      "blockedWords": "Blocked Words",
+      "blockedWordsHelp": "Enter words to block, one per line",
+      "regexFilters": "Regex Filters",
+      "regexFiltersHelp": "Advanced pattern-based filters",
+      "addFilter": "Add Filter",
+      "pattern": "Pattern",
+      "filterAction": "Filter Action",
+      "block": "Block Message",
+      "censor": "Censor (Replace with ***)",
+      "flag": "Flag for Review",
+      "allowUrls": "Allow URLs",
+      "allowUrlsHelp": "When disabled, messages containing URLs will be filtered"
+    },
+    "spam": {
+      "title": "Spam Detection",
+      "repeatThreshold": "Repeat Threshold",
+      "repeatThresholdHelp": "Number of identical messages before flagging as spam",
+      "windowSeconds": "Detection Window (seconds)",
+      "windowSecondsHelp": "Time window for counting repeated messages"
+    },
+    "rateLimiting": {
+      "title": "Rate Limiting",
+      "messages": "Messages per Window",
+      "messagesHelp": "Maximum messages a user can send per window",
+      "windowSeconds": "Window Duration (seconds)",
+      "windowSecondsHelp": "Time window for rate limiting"
+    },
+    "slowMode": {
+      "title": "Slow Mode",
+      "enabled": "Enable Slow Mode",
+      "cooldownSeconds": "Cooldown (seconds)",
+      "cooldownSecondsHelp": "Minimum time between messages per user",
+      "autoEnabled": "Auto-Enable Slow Mode",
+      "autoThreshold": "Auto-Trigger Threshold",
+      "autoThresholdHelp": "Messages per minute across all users to auto-trigger slow mode"
+    },
+    "presets": {
+      "title": "Filter Presets",
+      "description": "Enable pre-built filter categories to automatically block inappropriate content",
+      "words": "words",
+      "alwaysActive": "Always active",
+      "nsfwMode": "NSFW Mode",
+      "nsfwModeHelp": "When enabled, relaxes profanity and sexual content filters while keeping child safety, animal safety, racial/political, and violence filters active."
+    },
+    "saved": "Chat settings saved successfully"
+  },
+  "activeUsers": {
+    "title": "Active Users",
+    "noUsers": "No active users",
+    "muteTimed": "Mute (Timed)",
+    "mutePermanent": "Mute Permanently",
+    "muteReason": "Reason",
+    "muteDuration": "Duration (minutes)",
+    "showInLanCore": "Show in LanCore",
+    "unmute": "Unmute",
+    "muteSuccess": "User has been muted",
+    "unmuteSuccess": "User has been unmuted",
+    "actions": "Actions"
+  },
+  "muted": {
+    "title": "You are muted",
+    "reason": "Reason: {reason}",
+    "until": "Until: {until}",
+    "permanent": "This mute is permanent",
+    "contact": "Contact a moderator for more information"
   },
   "dashboard": {
     "title": "Dashboard",

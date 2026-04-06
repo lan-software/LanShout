@@ -2,27 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Message extends Model
+class ChatPresence extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    public $timestamps = false;
 
     protected $fillable = [
         'user_id',
-        'body',
-        'flagged',
-        'flag_reason',
+        'last_seen_at',
     ];
 
     protected function casts(): array
     {
         return [
-            'flagged' => 'boolean',
+            'last_seen_at' => 'datetime',
         ];
     }
 

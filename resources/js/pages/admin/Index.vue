@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/vue3';
-import { Users, Settings, Shield } from 'lucide-vue-next';
+import { Users, Settings, Shield, MessageSquare } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -22,6 +22,7 @@ const hasAnyRole = (roles: string[]): boolean => {
 };
 
 const canManageUsers = computed(() => hasAnyRole(['admin', 'super_admin']));
+const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', 'moderator']));
 </script>
 
 <template>
@@ -53,6 +54,23 @@ const canManageUsers = computed(() => hasAnyRole(['admin', 'super_admin']));
                     </p>
                 </Link>
 
+                <!-- Chat Settings Card -->
+                <Link
+                    v-if="canViewChatSettings"
+                    href="/admin/chat-settings"
+                    class="group relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 transition-all hover:border-primary hover:shadow-md dark:border-sidebar-border"
+                >
+                    <div class="flex items-start justify-between">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <MessageSquare class="h-6 w-6" />
+                        </div>
+                    </div>
+                    <h3 class="mt-4 text-lg font-semibold">Chat Settings</h3>
+                    <p class="mt-2 text-sm text-muted-foreground">
+                        Configure message filters, rate limits, and slow mode
+                    </p>
+                </Link>
+
                 <!-- Roles & Permissions Card (Placeholder) -->
                 <div
                     class="relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 opacity-50 dark:border-sidebar-border"
@@ -63,21 +81,6 @@ const canManageUsers = computed(() => hasAnyRole(['admin', 'super_admin']));
                         </div>
                     </div>
                     <h3 class="mt-4 text-lg font-semibold">Roles & Permissions</h3>
-                    <p class="mt-2 text-sm text-muted-foreground">
-                        Coming soon
-                    </p>
-                </div>
-
-                <!-- System Settings Card (Placeholder) -->
-                <div
-                    class="relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 opacity-50 dark:border-sidebar-border"
-                >
-                    <div class="flex items-start justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-muted-foreground">
-                            <Settings class="h-6 w-6" />
-                        </div>
-                    </div>
-                    <h3 class="mt-4 text-lg font-semibold">System Settings</h3>
                     <p class="mt-2 text-sm text-muted-foreground">
                         Coming soon
                     </p>
