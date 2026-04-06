@@ -63,30 +63,28 @@ class DashboardController extends Controller
     private function getMessagesData(string $resolution): array
     {
         $formatMap = [
-            'hour' => '%Y-%m-%d %H:00:00',
-            'day' => '%Y-%m-%d',
-            'week' => '%Y-%u',
+            'hour' => 'YYYY-MM-DD HH24:00:00',
+            'day' => 'YYYY-MM-DD',
+            'week' => 'IYYY-IW',
         ];
 
         $intervalMap = [
-            'hour' => 24, // last 24 hours
-            'day' => 30, // last 30 days
-            'week' => 12, // last 12 weeks
+            'hour' => 24,
+            'day' => 30,
+            'week' => 12,
         ];
 
         $format = $formatMap[$resolution];
         $periods = $intervalMap[$resolution];
 
-        // Get the starting point
         $startDate = match ($resolution) {
             'hour' => now()->subHours($periods - 1),
             'day' => now()->subDays($periods - 1),
             'week' => now()->subWeeks($periods - 1),
         };
 
-        // Query messages grouped by time period
         $results = Message::select(
-            DB::raw("DATE_FORMAT(created_at, '$format') as period"),
+            DB::raw("to_char(created_at, '$format') as period"),
             DB::raw('COUNT(*) as count')
         )
             ->where('created_at', '>=', $startDate)
@@ -95,7 +93,6 @@ class DashboardController extends Controller
             ->get()
             ->keyBy('period');
 
-        // Generate all time periods and fill in data
         return $this->fillTimePeriods($resolution, $periods, $results);
     }
 
@@ -105,9 +102,9 @@ class DashboardController extends Controller
     private function getUsersData(string $resolution): array
     {
         $formatMap = [
-            'hour' => '%Y-%m-%d %H:00:00',
-            'day' => '%Y-%m-%d',
-            'week' => '%Y-%u',
+            'hour' => 'YYYY-MM-DD HH24:00:00',
+            'day' => 'YYYY-MM-DD',
+            'week' => 'IYYY-IW',
         ];
 
         $intervalMap = [
@@ -126,7 +123,7 @@ class DashboardController extends Controller
         };
 
         $results = User::select(
-            DB::raw("DATE_FORMAT(created_at, '$format') as period"),
+            DB::raw("to_char(created_at, '$format') as period"),
             DB::raw('COUNT(*) as count')
         )
             ->where('created_at', '>=', $startDate)
@@ -144,9 +141,9 @@ class DashboardController extends Controller
     private function getSessionsData(string $resolution): array
     {
         $formatMap = [
-            'hour' => '%Y-%m-%d %H:00:00',
-            'day' => '%Y-%m-%d',
-            'week' => '%Y-%u',
+            'hour' => 'YYYY-MM-DD HH24:00:00',
+            'day' => 'YYYY-MM-DD',
+            'week' => 'IYYY-IW',
         ];
 
         $intervalMap = [
@@ -164,9 +161,8 @@ class DashboardController extends Controller
             'week' => now()->subWeeks($periods - 1),
         };
 
-        // Count distinct users who posted messages in each period
         $results = Message::select(
-            DB::raw("DATE_FORMAT(created_at, '$format') as period"),
+            DB::raw("to_char(created_at, '$format') as period"),
             DB::raw('COUNT(DISTINCT user_id) as count')
         )
             ->where('created_at', '>=', $startDate)
@@ -196,7 +192,7 @@ class DashboardController extends Controller
             $periodKey = match ($resolution) {
                 'hour' => $date->format('Y-m-d H:00:00'),
                 'day' => $date->format('Y-m-d'),
-                'week' => $date->format('Y-W'),
+                'week' => $date->format('o-W'),
             };
 
             $label = match ($resolution) {
