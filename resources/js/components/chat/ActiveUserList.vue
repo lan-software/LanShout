@@ -31,14 +31,12 @@ import {
     VolumeX,
 } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 
 const props = defineProps<{
     activeUsers: ActiveUser[];
     lancoreBaseUrl?: string;
 }>();
 
-const { t } = useI18n();
 const page = usePage();
 
 const { appearance } = useAppearance();
