@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppLayout from '@/layouts/AppLayout.vue';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
     Table,
@@ -9,7 +9,7 @@ import {
     TableHeader,
     TableRow,
 } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
+import AppLayout from '@/layouts/AppLayout.vue';
 import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
@@ -77,13 +77,15 @@ const formatDate = (dateString: string) => {
             <div class="flex items-center justify-between">
                 <div>
                     <h1 class="text-2xl font-bold">Users</h1>
-                    <p class="text-muted-foreground mt-1">
+                    <p class="mt-1 text-muted-foreground">
                         Manage user accounts and roles
                     </p>
                 </div>
             </div>
 
-            <div class="rounded-lg border border-sidebar-border/70 bg-card dark:border-sidebar-border">
+            <div
+                class="rounded-lg border border-sidebar-border/70 bg-card dark:border-sidebar-border"
+            >
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -108,42 +110,55 @@ const formatDate = (dateString: string) => {
                                     <Badge
                                         v-for="role in user.roles"
                                         :key="role.id"
-                                        :variant="getRoleBadgeVariant(role.name)"
+                                        :variant="
+                                            getRoleBadgeVariant(role.name)
+                                        "
                                         class="text-xs"
                                     >
                                         {{ role.display_name }}
                                     </Badge>
-                                    <Badge v-if="user.roles.length === 0" variant="outline" class="text-xs">
+                                    <Badge
+                                        v-if="user.roles.length === 0"
+                                        variant="outline"
+                                        class="text-xs"
+                                    >
                                         No roles
                                     </Badge>
                                 </div>
                             </TableCell>
                             <TableCell>
                                 <Badge
-                                    :variant="user.email_verified_at ? 'default' : 'secondary'"
+                                    :variant="
+                                        user.email_verified_at
+                                            ? 'default'
+                                            : 'secondary'
+                                    "
                                     class="text-xs"
                                 >
-                                    {{ user.email_verified_at ? 'Verified' : 'Unverified' }}
+                                    {{
+                                        user.email_verified_at
+                                            ? 'Verified'
+                                            : 'Unverified'
+                                    }}
                                 </Badge>
                             </TableCell>
                             <TableCell class="text-muted-foreground">
                                 {{ formatDate(user.created_at) }}
                             </TableCell>
                             <TableCell class="text-right">
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    as-child
-                                >
+                                <Button variant="ghost" size="sm" as-child>
                                     <Link :href="`/admin/users/${user.id}`">
-                                        <Eye class="h-4 w-4 mr-1" />
+                                        <Eye class="mr-1 h-4 w-4" />
                                         View
                                     </Link>
                                 </Button>
                             </TableCell>
                         </TableRow>
                         <TableRow v-if="users.length === 0">
-                            <TableCell colspan="6" class="text-center text-muted-foreground py-8">
+                            <TableCell
+                                colspan="6"
+                                class="py-8 text-center text-muted-foreground"
+                            >
                                 No users found
                             </TableCell>
                         </TableRow>

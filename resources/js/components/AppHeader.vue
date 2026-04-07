@@ -31,8 +31,8 @@ import {
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { getInitials } from '@/composables/useInitials';
 import { urlIsActive } from '@/lib/utils';
-import admin from '@/routes/admin';
 import { dashboard } from '@/routes';
+import admin from '@/routes/admin';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 import { Github, LayoutGrid, Menu, Shield } from 'lucide-vue-next';
@@ -62,7 +62,7 @@ const activeItemStyles = computed(
 
 const hasAnyRole = (roles: string[]): boolean => {
     const userRoles = auth.value?.user?.roles || [];
-    return roles.some(role => userRoles.includes(role));
+    return roles.some((role) => userRoles.includes(role));
 };
 
 const mainNavItems = computed<NavItem[]>(() => {
@@ -99,11 +99,10 @@ const rightNavItems: NavItem[] = [
         title: 'GitHub',
         href: 'https://github.com/LANShout/lanshout',
         icon: Github,
-    }
+    },
 ];
 
 const toUrl = (href: string) => href;
-
 </script>
 
 <template>

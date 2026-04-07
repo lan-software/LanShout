@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { createI18n } from 'vue-i18n';
 import ChatWall from './ChatWall.vue';
 
@@ -104,7 +104,10 @@ describe('ChatWall', () => {
     it('does not show messages container when error is set', () => {
         const wrapper = mountWall({ error: 'Something wrong' });
         // Error div is shown instead of messages container
-        expect(wrapper.find('.text-red-600').exists() || wrapper.find('.text-red-400').exists()).toBe(true);
+        expect(
+            wrapper.find('.text-red-600').exists() ||
+                wrapper.find('.text-red-400').exists(),
+        ).toBe(true);
     });
 
     it('renders many messages in order', () => {

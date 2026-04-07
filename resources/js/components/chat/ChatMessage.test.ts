@@ -22,7 +22,11 @@ describe('ChatMessage', () => {
 
     it('renders the username', () => {
         const wrapper = mount(ChatMessage, {
-            props: { message: makeMessage({ user: { id: 1, name: 'Bob', chat_color: null } }) },
+            props: {
+                message: makeMessage({
+                    user: { id: 1, name: 'Bob', chat_color: null },
+                }),
+            },
         });
         expect(wrapper.text()).toContain('Bob');
     });
@@ -55,7 +59,9 @@ describe('ChatMessage', () => {
     });
 
     it('uses consistent hash color for same username', () => {
-        const msg = makeMessage({ user: { id: 1, name: 'ConsistentUser', chat_color: null } });
+        const msg = makeMessage({
+            user: { id: 1, name: 'ConsistentUser', chat_color: null },
+        });
         const w1 = mount(ChatMessage, { props: { message: msg } });
         const w2 = mount(ChatMessage, { props: { message: msg } });
         const color1 = w1.find('span.font-medium').attributes('style');
@@ -65,10 +71,18 @@ describe('ChatMessage', () => {
 
     it('uses different hash colors for different usernames', () => {
         const w1 = mount(ChatMessage, {
-            props: { message: makeMessage({ user: { id: 1, name: 'UserAlpha', chat_color: null } }) },
+            props: {
+                message: makeMessage({
+                    user: { id: 1, name: 'UserAlpha', chat_color: null },
+                }),
+            },
         });
         const w2 = mount(ChatMessage, {
-            props: { message: makeMessage({ user: { id: 2, name: 'UserBeta', chat_color: null } }) },
+            props: {
+                message: makeMessage({
+                    user: { id: 2, name: 'UserBeta', chat_color: null },
+                }),
+            },
         });
         const color1 = w1.find('span.font-medium').attributes('style');
         const color2 = w2.find('span.font-medium').attributes('style');
@@ -77,7 +91,11 @@ describe('ChatMessage', () => {
 
     it('formats the timestamp', () => {
         const wrapper = mount(ChatMessage, {
-            props: { message: makeMessage({ created_at: '2025-06-15T14:30:00.000Z' }) },
+            props: {
+                message: makeMessage({
+                    created_at: '2025-06-15T14:30:00.000Z',
+                }),
+            },
         });
         // Should display a time string (format varies by locale)
         const text = wrapper.text();
@@ -92,7 +110,11 @@ describe('ChatMessage', () => {
                     id: 1,
                     body: 'Message text',
                     created_at: '2025-01-01T00:00:00.000Z',
-                    user: { id: 0, name: undefined as unknown as string, chat_color: null },
+                    user: {
+                        id: 0,
+                        name: undefined as unknown as string,
+                        chat_color: null,
+                    },
                 },
             },
         });

@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { usePage } from '@inertiajs/vue3';
-import { useI18n } from 'vue-i18n';
-import { getUserColor, needsPillBackground } from '@/composables/useChatColor';
-import { useAppearance } from '@/composables/useAppearance';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,20 +13,25 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuTrigger,
     DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import {
-    MoreVertical,
-    VolumeX,
-    Volume2,
-    ExternalLink,
-    Users,
-} from 'lucide-vue-next';
+import { useAppearance } from '@/composables/useAppearance';
+import { getUserColor, needsPillBackground } from '@/composables/useChatColor';
 import type { ActiveUser } from '@/composables/useChatPresence';
+import { usePage } from '@inertiajs/vue3';
+import {
+    ExternalLink,
+    MoreVertical,
+    Users,
+    Volume2,
+    VolumeX,
+} from 'lucide-vue-next';
+import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const props = defineProps<{
     activeUsers: ActiveUser[];
@@ -46,7 +46,10 @@ const { appearance } = useAppearance();
 const isDarkMode = computed(() => {
     if (appearance.value === 'dark') return true;
     if (appearance.value === 'light') return false;
-    return typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+    return (
+        typeof window !== 'undefined' &&
+        window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    );
 });
 
 function getNameStyle(user: ActiveUser): Record<string, string> {
@@ -158,17 +161,26 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
 </script>
 
 <template>
-    <div class="flex h-full flex-col rounded-md border border-sidebar-border/70 dark:border-sidebar-border">
-        <div class="flex items-center gap-2 border-b border-sidebar-border/70 p-3 dark:border-sidebar-border">
+    <div
+        class="flex h-full flex-col rounded-md border border-sidebar-border/70 dark:border-sidebar-border"
+    >
+        <div
+            class="flex items-center gap-2 border-b border-sidebar-border/70 p-3 dark:border-sidebar-border"
+        >
             <Users class="h-4 w-4 text-muted-foreground" />
             <span class="text-sm font-medium">
                 {{ $t('activeUsers.title') }}
-                <span class="text-muted-foreground">({{ activeUsers.length }})</span>
+                <span class="text-muted-foreground"
+                    >({{ activeUsers.length }})</span
+                >
             </span>
         </div>
 
         <div class="flex-1 overflow-y-auto p-2">
-            <div v-if="activeUsers.length === 0" class="flex items-center justify-center p-4 text-sm text-muted-foreground">
+            <div
+                v-if="activeUsers.length === 0"
+                class="flex items-center justify-center p-4 text-sm text-muted-foreground"
+            >
                 {{ $t('activeUsers.noUsers') }}
             </div>
 
@@ -186,8 +198,10 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
                     </span>
                     <Badge
                         v-if="getHighestRole(user.roles)"
-                        :variant="getRoleBadgeVariant(getHighestRole(user.roles)!)"
-                        class="shrink-0 text-[10px] px-1 py-0"
+                        :variant="
+                            getRoleBadgeVariant(getHighestRole(user.roles)!)
+                        "
+                        class="shrink-0 px-1 py-0 text-[10px]"
                     >
                         {{ getRoleDisplay(getHighestRole(user.roles)!) }}
                     </Badge>
@@ -212,7 +226,9 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
                             <Volume2 class="mr-2 h-4 w-4" />
                             {{ $t('activeUsers.mutePermanent') }}
                         </DropdownMenuItem>
-                        <DropdownMenuSeparator v-if="getLanCoreUrl(user.lancore_user_id)" />
+                        <DropdownMenuSeparator
+                            v-if="getLanCoreUrl(user.lancore_user_id)"
+                        />
                         <DropdownMenuItem
                             v-if="getLanCoreUrl(user.lancore_user_id)"
                             as="a"
@@ -233,7 +249,11 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>
-                    {{ mutePermanent ? $t('activeUsers.mutePermanent') : $t('activeUsers.muteTimed') }}
+                    {{
+                        mutePermanent
+                            ? $t('activeUsers.mutePermanent')
+                            : $t('activeUsers.muteTimed')
+                    }}
                 </DialogTitle>
                 <DialogDescription>
                     {{ muteTarget?.name }}
@@ -253,11 +273,7 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
                 </div>
                 <div>
                     <Label>{{ $t('activeUsers.muteReason') }}</Label>
-                    <Textarea
-                        v-model="muteReason"
-                        rows="3"
-                        class="mt-1"
-                    />
+                    <Textarea v-model="muteReason" rows="3" class="mt-1" />
                 </div>
             </div>
 
@@ -270,7 +286,13 @@ function getLanCoreUrl(userId: number | null | undefined): string | null {
                     :disabled="muting || (!mutePermanent && !muteDuration)"
                     @click="submitMute"
                 >
-                    {{ muting ? $t('common.loading') : (mutePermanent ? $t('activeUsers.mutePermanent') : $t('activeUsers.muteTimed')) }}
+                    {{
+                        muting
+                            ? $t('common.loading')
+                            : mutePermanent
+                              ? $t('activeUsers.mutePermanent')
+                              : $t('activeUsers.muteTimed')
+                    }}
                 </Button>
             </DialogFooter>
         </DialogContent>

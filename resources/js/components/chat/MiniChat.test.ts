@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { createI18n } from 'vue-i18n';
 import { ref } from 'vue';
+import { createI18n } from 'vue-i18n';
 
 // Mock @inertiajs/vue3 before importing the component
 vi.mock('@inertiajs/vue3', () => ({
@@ -68,7 +68,11 @@ describe('MiniChat', () => {
 
         // Mock fetch for loadMoreMessages
         global.fetch = vi.fn().mockResolvedValue({
-            json: () => Promise.resolve({ data: [], meta: { current_page: 1, last_page: 1 } }),
+            json: () =>
+                Promise.resolve({
+                    data: [],
+                    meta: { current_page: 1, last_page: 1 },
+                }),
         });
 
         // Click the toggle button (last button, as it's the floating action button)
@@ -83,7 +87,11 @@ describe('MiniChat', () => {
         const wrapper = mountMiniChat();
 
         global.fetch = vi.fn().mockResolvedValue({
-            json: () => Promise.resolve({ data: [], meta: { current_page: 1, last_page: 1 } }),
+            json: () =>
+                Promise.resolve({
+                    data: [],
+                    meta: { current_page: 1, last_page: 1 },
+                }),
         });
 
         // Open
@@ -92,7 +100,9 @@ describe('MiniChat', () => {
         await vi.dynamicImportSettled();
 
         // Find and click close (X) button in the header
-        const closeBtn = wrapper.findAll('button').find((b) => b.text().includes('X'));
+        const closeBtn = wrapper
+            .findAll('button')
+            .find((b) => b.text().includes('X'));
         if (closeBtn) {
             await closeBtn.trigger('click');
             // Panel should close (transition may be involved)
@@ -104,7 +114,11 @@ describe('MiniChat', () => {
         const wrapper = mountMiniChat();
 
         global.fetch = vi.fn().mockResolvedValue({
-            json: () => Promise.resolve({ data: [], meta: { current_page: 1, last_page: 1 } }),
+            json: () =>
+                Promise.resolve({
+                    data: [],
+                    meta: { current_page: 1, last_page: 1 },
+                }),
         });
 
         const buttons = wrapper.findAll('button');

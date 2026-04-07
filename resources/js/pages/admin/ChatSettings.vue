@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppLayout from '@/layouts/AppLayout.vue';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -11,13 +11,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
+import AppLayout from '@/layouts/AppLayout.vue';
 import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, router } from '@inertiajs/vue3';
-import { ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { Plus, Trash2 } from 'lucide-vue-next';
+import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
@@ -74,7 +74,9 @@ const slowModeEnabled = ref(props.settings.slow_mode_enabled);
 const slowModeCooldownSeconds = ref(props.settings.slow_mode_cooldown_seconds);
 const slowModeAutoEnabled = ref(props.settings.slow_mode_auto_enabled);
 const slowModeAutoThreshold = ref(props.settings.slow_mode_auto_threshold);
-const activeFilterPresets = ref<string[]>([...(props.settings.active_filter_presets ?? [])]);
+const activeFilterPresets = ref<string[]>([
+    ...(props.settings.active_filter_presets ?? []),
+]);
 const nsfwMode = ref(props.settings.nsfw_mode ?? false);
 
 const saving = ref(false);
@@ -110,7 +112,9 @@ function save() {
         '/admin/chat-settings',
         {
             blocked_words: blockedWords.value,
-            regex_filters: regexFilters.value.filter((f) => f.pattern.trim() !== ''),
+            regex_filters: regexFilters.value.filter(
+                (f) => f.pattern.trim() !== '',
+            ),
             filter_action: filterAction.value,
             allow_urls: allowUrls.value,
             spam_repeat_threshold: spamRepeatThreshold.value,
@@ -147,13 +151,20 @@ function save() {
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold">{{ $t('chatSettings.title') }}</h1>
-                    <p v-if="!canEdit" class="text-muted-foreground mt-1">
+                    <h1 class="text-2xl font-bold">
+                        {{ $t('chatSettings.title') }}
+                    </h1>
+                    <p v-if="!canEdit" class="mt-1 text-muted-foreground">
                         <Badge variant="secondary">Read-only</Badge>
                     </p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <p v-if="saveError" class="text-sm text-red-600 dark:text-red-400">{{ saveError }}</p>
+                    <p
+                        v-if="saveError"
+                        class="text-sm text-red-600 dark:text-red-400"
+                    >
+                        {{ saveError }}
+                    </p>
                     <Button v-if="canEdit" :disabled="saving" @click="save">
                         {{ saving ? $t('common.loading') : $t('common.save') }}
                     </Button>
@@ -164,24 +175,38 @@ function save() {
                 <!-- Content Filtering -->
                 <Card>
                     <CardHeader>
-                        <CardTitle>{{ $t('chatSettings.contentFiltering.title') }}</CardTitle>
-                        <CardDescription>{{ $t('chatSettings.contentFiltering.blockedWordsHelp') }}</CardDescription>
+                        <CardTitle>{{
+                            $t('chatSettings.contentFiltering.title')
+                        }}</CardTitle>
+                        <CardDescription>{{
+                            $t('chatSettings.contentFiltering.blockedWordsHelp')
+                        }}</CardDescription>
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div>
-                            <Label>{{ $t('chatSettings.contentFiltering.blockedWords') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.contentFiltering.blockedWords')
+                            }}</Label>
                             <Textarea
                                 v-model="blockedWordsText"
                                 :disabled="!canEdit"
                                 rows="5"
                                 class="mt-1 font-mono text-sm"
-                                :placeholder="$t('chatSettings.contentFiltering.blockedWordsHelp')"
+                                :placeholder="
+                                    $t(
+                                        'chatSettings.contentFiltering.blockedWordsHelp',
+                                    )
+                                "
                             />
                         </div>
 
                         <div>
                             <div class="flex items-center justify-between">
-                                <Label>{{ $t('chatSettings.contentFiltering.regexFilters') }}</Label>
+                                <Label>{{
+                                    $t(
+                                        'chatSettings.contentFiltering.regexFilters',
+                                    )
+                                }}</Label>
                                 <Button
                                     v-if="canEdit"
                                     variant="outline"
@@ -189,18 +214,34 @@ function save() {
                                     @click="addRegexFilter"
                                 >
                                     <Plus class="mr-1 h-3 w-3" />
-                                    {{ $t('chatSettings.contentFiltering.addFilter') }}
+                                    {{
+                                        $t(
+                                            'chatSettings.contentFiltering.addFilter',
+                                        )
+                                    }}
                                 </Button>
                             </div>
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.contentFiltering.regexFiltersHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t(
+                                        'chatSettings.contentFiltering.regexFiltersHelp',
+                                    )
+                                }}
                             </p>
-                            <div v-for="(filter, index) in regexFilters" :key="index" class="mt-2 flex items-center gap-2">
+                            <div
+                                v-for="(filter, index) in regexFilters"
+                                :key="index"
+                                class="mt-2 flex items-center gap-2"
+                            >
                                 <Input
                                     v-model="filter.pattern"
                                     :disabled="!canEdit"
                                     class="flex-1 font-mono text-sm"
-                                    :placeholder="$t('chatSettings.contentFiltering.pattern')"
+                                    :placeholder="
+                                        $t(
+                                            'chatSettings.contentFiltering.pattern',
+                                        )
+                                    "
                                 />
                                 <Button
                                     v-if="canEdit"
@@ -214,9 +255,19 @@ function save() {
                         </div>
 
                         <div>
-                            <Label>{{ $t('chatSettings.contentFiltering.filterAction') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.contentFiltering.filterAction')
+                            }}</Label>
                             <div class="mt-2 flex gap-4">
-                                <label v-for="action in ['block', 'censor', 'flag']" :key="action" class="flex items-center gap-2">
+                                <label
+                                    v-for="action in [
+                                        'block',
+                                        'censor',
+                                        'flag',
+                                    ]"
+                                    :key="action"
+                                    class="flex items-center gap-2"
+                                >
                                     <input
                                         type="radio"
                                         :value="action"
@@ -224,7 +275,11 @@ function save() {
                                         :disabled="!canEdit"
                                         class="accent-primary"
                                     />
-                                    <span class="text-sm">{{ $t(`chatSettings.contentFiltering.${action}`) }}</span>
+                                    <span class="text-sm">{{
+                                        $t(
+                                            `chatSettings.contentFiltering.${action}`,
+                                        )
+                                    }}</span>
                                 </label>
                             </div>
                         </div>
@@ -236,12 +291,22 @@ function save() {
                                 :checked="allowUrls"
                                 :disabled="!canEdit"
                                 class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                @change="allowUrls = ($event.target as HTMLInputElement).checked"
+                                @change="
+                                    allowUrls = (
+                                        $event.target as HTMLInputElement
+                                    ).checked
+                                "
                             />
-                            <Label for="allow_urls">{{ $t('chatSettings.contentFiltering.allowUrls') }}</Label>
+                            <Label for="allow_urls">{{
+                                $t('chatSettings.contentFiltering.allowUrls')
+                            }}</Label>
                         </div>
-                        <p class="text-muted-foreground text-xs">
-                            {{ $t('chatSettings.contentFiltering.allowUrlsHelp') }}
+                        <p class="text-xs text-muted-foreground">
+                            {{
+                                $t(
+                                    'chatSettings.contentFiltering.allowUrlsHelp',
+                                )
+                            }}
                         </p>
                     </CardContent>
                 </Card>
@@ -249,31 +314,57 @@ function save() {
                 <!-- Filter Presets -->
                 <Card>
                     <CardHeader>
-                        <CardTitle>{{ $t('chatSettings.presets.title') }}</CardTitle>
-                        <CardDescription>{{ $t('chatSettings.presets.description') }}</CardDescription>
+                        <CardTitle>{{
+                            $t('chatSettings.presets.title')
+                        }}</CardTitle>
+                        <CardDescription>{{
+                            $t('chatSettings.presets.description')
+                        }}</CardDescription>
                     </CardHeader>
                     <CardContent class="space-y-4">
-                        <div v-for="preset in filterPresets" :key="preset.key" class="flex items-start gap-3 rounded-md border p-3">
+                        <div
+                            v-for="preset in filterPresets"
+                            :key="preset.key"
+                            class="flex items-start gap-3 rounded-md border p-3"
+                        >
                             <input
                                 type="checkbox"
                                 :id="`preset-${preset.key}`"
                                 :value="preset.key"
-                                :checked="activeFilterPresets.includes(preset.key)"
+                                :checked="
+                                    activeFilterPresets.includes(preset.key)
+                                "
                                 :disabled="!canEdit"
                                 class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
                                 @change="togglePreset(preset.key)"
                             />
                             <div class="flex-1">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium">{{ preset.label }}</span>
-                                    <Badge variant="outline" class="text-[10px]">
-                                        {{ preset.wordCount }} {{ $t('chatSettings.presets.words') }}
+                                    <span class="text-sm font-medium">{{
+                                        preset.label
+                                    }}</span>
+                                    <Badge
+                                        variant="outline"
+                                        class="text-[10px]"
+                                    >
+                                        {{ preset.wordCount }}
+                                        {{ $t('chatSettings.presets.words') }}
                                     </Badge>
-                                    <Badge v-if="preset.alwaysActiveInNsfw" variant="secondary" class="text-[10px]">
-                                        {{ $t('chatSettings.presets.alwaysActive') }}
+                                    <Badge
+                                        v-if="preset.alwaysActiveInNsfw"
+                                        variant="secondary"
+                                        class="text-[10px]"
+                                    >
+                                        {{
+                                            $t(
+                                                'chatSettings.presets.alwaysActive',
+                                            )
+                                        }}
                                     </Badge>
                                 </div>
-                                <p class="text-muted-foreground mt-1 text-xs">{{ preset.description }}</p>
+                                <p class="mt-1 text-xs text-muted-foreground">
+                                    {{ preset.description }}
+                                </p>
                             </div>
                         </div>
 
@@ -285,12 +376,22 @@ function save() {
                                     :checked="nsfwMode"
                                     :disabled="!canEdit"
                                     class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                    @change="nsfwMode = ($event.target as HTMLInputElement).checked"
+                                    @change="
+                                        nsfwMode = (
+                                            $event.target as HTMLInputElement
+                                        ).checked
+                                    "
                                 />
                                 <div>
-                                    <Label>{{ $t('chatSettings.presets.nsfwMode') }}</Label>
-                                    <p class="text-muted-foreground text-xs">
-                                        {{ $t('chatSettings.presets.nsfwModeHelp') }}
+                                    <Label>{{
+                                        $t('chatSettings.presets.nsfwMode')
+                                    }}</Label>
+                                    <p class="text-xs text-muted-foreground">
+                                        {{
+                                            $t(
+                                                'chatSettings.presets.nsfwModeHelp',
+                                            )
+                                        }}
                                     </p>
                                 </div>
                             </div>
@@ -301,11 +402,15 @@ function save() {
                 <!-- Spam Detection -->
                 <Card>
                     <CardHeader>
-                        <CardTitle>{{ $t('chatSettings.spam.title') }}</CardTitle>
+                        <CardTitle>{{
+                            $t('chatSettings.spam.title')
+                        }}</CardTitle>
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div>
-                            <Label>{{ $t('chatSettings.spam.repeatThreshold') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.spam.repeatThreshold')
+                            }}</Label>
                             <Input
                                 v-model.number="spamRepeatThreshold"
                                 :disabled="!canEdit"
@@ -314,12 +419,16 @@ function save() {
                                 max="100"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.spam.repeatThresholdHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t('chatSettings.spam.repeatThresholdHelp')
+                                }}
                             </p>
                         </div>
                         <div>
-                            <Label>{{ $t('chatSettings.spam.windowSeconds') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.spam.windowSeconds')
+                            }}</Label>
                             <Input
                                 v-model.number="spamWindowSeconds"
                                 :disabled="!canEdit"
@@ -328,7 +437,7 @@ function save() {
                                 max="600"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
+                            <p class="mt-1 text-xs text-muted-foreground">
                                 {{ $t('chatSettings.spam.windowSecondsHelp') }}
                             </p>
                         </div>
@@ -338,11 +447,15 @@ function save() {
                 <!-- Rate Limiting -->
                 <Card>
                     <CardHeader>
-                        <CardTitle>{{ $t('chatSettings.rateLimiting.title') }}</CardTitle>
+                        <CardTitle>{{
+                            $t('chatSettings.rateLimiting.title')
+                        }}</CardTitle>
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div>
-                            <Label>{{ $t('chatSettings.rateLimiting.messages') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.rateLimiting.messages')
+                            }}</Label>
                             <Input
                                 v-model.number="rateLimitMessages"
                                 :disabled="!canEdit"
@@ -351,12 +464,16 @@ function save() {
                                 max="100"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.rateLimiting.messagesHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t('chatSettings.rateLimiting.messagesHelp')
+                                }}
                             </p>
                         </div>
                         <div>
-                            <Label>{{ $t('chatSettings.rateLimiting.windowSeconds') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.rateLimiting.windowSeconds')
+                            }}</Label>
                             <Input
                                 v-model.number="rateLimitWindowSeconds"
                                 :disabled="!canEdit"
@@ -365,8 +482,12 @@ function save() {
                                 max="600"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.rateLimiting.windowSecondsHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t(
+                                        'chatSettings.rateLimiting.windowSecondsHelp',
+                                    )
+                                }}
                             </p>
                         </div>
                     </CardContent>
@@ -375,7 +496,9 @@ function save() {
                 <!-- Slow Mode -->
                 <Card>
                     <CardHeader>
-                        <CardTitle>{{ $t('chatSettings.slowMode.title') }}</CardTitle>
+                        <CardTitle>{{
+                            $t('chatSettings.slowMode.title')
+                        }}</CardTitle>
                     </CardHeader>
                     <CardContent class="space-y-4">
                         <div class="flex items-center gap-2">
@@ -385,13 +508,21 @@ function save() {
                                 :checked="slowModeEnabled"
                                 :disabled="!canEdit"
                                 class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                @change="slowModeEnabled = ($event.target as HTMLInputElement).checked"
+                                @change="
+                                    slowModeEnabled = (
+                                        $event.target as HTMLInputElement
+                                    ).checked
+                                "
                             />
-                            <Label for="slow_mode_enabled">{{ $t('chatSettings.slowMode.enabled') }}</Label>
+                            <Label for="slow_mode_enabled">{{
+                                $t('chatSettings.slowMode.enabled')
+                            }}</Label>
                         </div>
 
                         <div>
-                            <Label>{{ $t('chatSettings.slowMode.cooldownSeconds') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.slowMode.cooldownSeconds')
+                            }}</Label>
                             <Input
                                 v-model.number="slowModeCooldownSeconds"
                                 :disabled="!canEdit"
@@ -400,8 +531,12 @@ function save() {
                                 max="300"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.slowMode.cooldownSecondsHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t(
+                                        'chatSettings.slowMode.cooldownSecondsHelp',
+                                    )
+                                }}
                             </p>
                         </div>
 
@@ -413,14 +548,22 @@ function save() {
                                     :checked="slowModeAutoEnabled"
                                     :disabled="!canEdit"
                                     class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                    @change="slowModeAutoEnabled = ($event.target as HTMLInputElement).checked"
+                                    @change="
+                                        slowModeAutoEnabled = (
+                                            $event.target as HTMLInputElement
+                                        ).checked
+                                    "
                                 />
-                                <Label>{{ $t('chatSettings.slowMode.autoEnabled') }}</Label>
+                                <Label>{{
+                                    $t('chatSettings.slowMode.autoEnabled')
+                                }}</Label>
                             </div>
                         </div>
 
                         <div>
-                            <Label>{{ $t('chatSettings.slowMode.autoThreshold') }}</Label>
+                            <Label>{{
+                                $t('chatSettings.slowMode.autoThreshold')
+                            }}</Label>
                             <Input
                                 v-model.number="slowModeAutoThreshold"
                                 :disabled="!canEdit"
@@ -429,8 +572,12 @@ function save() {
                                 max="1000"
                                 class="mt-1"
                             />
-                            <p class="text-muted-foreground mt-1 text-xs">
-                                {{ $t('chatSettings.slowMode.autoThresholdHelp') }}
+                            <p class="mt-1 text-xs text-muted-foreground">
+                                {{
+                                    $t(
+                                        'chatSettings.slowMode.autoThresholdHelp',
+                                    )
+                                }}
                             </p>
                         </div>
                     </CardContent>

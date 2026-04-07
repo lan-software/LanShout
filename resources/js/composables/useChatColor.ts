@@ -11,7 +11,10 @@ export function hashStringToColor(str: string): string {
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
-export function getUserColor(name: string, customColor?: string | null): string {
+export function getUserColor(
+    name: string,
+    customColor?: string | null,
+): string {
     if (customColor) {
         return customColor;
     }
@@ -104,7 +107,10 @@ const MIN_CONTRAST = 3.0;
  * Check if a color needs a pill background for readability.
  * Returns the appropriate pill background color or null if not needed.
  */
-export function needsPillBackground(color: string, isDarkMode: boolean): string | null {
+export function needsPillBackground(
+    color: string,
+    isDarkMode: boolean,
+): string | null {
     const rgb = parseColorToRgb(color);
     if (!rgb) return null;
 

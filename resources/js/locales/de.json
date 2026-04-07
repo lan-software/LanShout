@@ -1,272 +1,272 @@
 {
-  "common": {
-    "appName": "LanShout",
-    "loading": "Lädt...",
-    "error": "Fehler",
-    "success": "Erfolg",
-    "save": "Speichern",
-    "cancel": "Abbrechen",
-    "delete": "Löschen",
-    "edit": "Bearbeiten",
-    "close": "Schließen",
-    "submit": "Absenden",
-    "search": "Suchen",
-    "settings": "Einstellungen",
-    "logout": "Abmelden",
-    "profile": "Profil",
-    "dashboard": "Dashboard",
-    "admin": "Admin",
-    "users": "Benutzer",
-    "back": "Zurück"
-  },
-  "landing": {
-    "title": "Willkommen bei LanShout",
-    "subtitle": "Eine einfache Echtzeit-Shoutbox für LAN-Partys und Events. Teile Nachrichten, koordiniere Spiele und bleibe während deines Events in Verbindung.",
-    "getStarted": "Jetzt starten",
-    "createAccount": "Konto erstellen",
-    "logIn": "Anmelden",
-    "register": "Registrieren",
-    "features": {
-      "title": "Funktionen",
-      "simpleMessaging": {
-        "title": "Einfache Nachrichten",
-        "description": "Versende schnelle Nachrichten und Updates, die alle auf deiner LAN sofort sehen können."
-      },
-      "realTimeUpdates": {
-        "title": "Echtzeit-Updates",
-        "description": "Nachrichten erscheinen sofort für alle Benutzer mit Echtzeit-Synchronisierung."
-      },
-      "builtForEvents": {
-        "title": "Für Events entwickelt",
-        "description": "Perfekt für LAN-Partys, Gaming-Events und Community-Treffen."
-      }
+    "common": {
+        "appName": "LanShout",
+        "loading": "Lädt...",
+        "error": "Fehler",
+        "success": "Erfolg",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "delete": "Löschen",
+        "edit": "Bearbeiten",
+        "close": "Schließen",
+        "submit": "Absenden",
+        "search": "Suchen",
+        "settings": "Einstellungen",
+        "logout": "Abmelden",
+        "profile": "Profil",
+        "dashboard": "Dashboard",
+        "admin": "Admin",
+        "users": "Benutzer",
+        "back": "Zurück"
     },
-    "cta": {
-      "title": "Bereit, dich mit deiner Community zu verbinden?",
-      "description": "Melde dich an, um zu chatten, oder erstelle ein Konto, um der Unterhaltung beizutreten.",
-      "button": "Zum Chat anmelden"
+    "landing": {
+        "title": "Willkommen bei LanShout",
+        "subtitle": "Eine einfache Echtzeit-Shoutbox für LAN-Partys und Events. Teile Nachrichten, koordiniere Spiele und bleibe während deines Events in Verbindung.",
+        "getStarted": "Jetzt starten",
+        "createAccount": "Konto erstellen",
+        "logIn": "Anmelden",
+        "register": "Registrieren",
+        "features": {
+            "title": "Funktionen",
+            "simpleMessaging": {
+                "title": "Einfache Nachrichten",
+                "description": "Versende schnelle Nachrichten und Updates, die alle auf deiner LAN sofort sehen können."
+            },
+            "realTimeUpdates": {
+                "title": "Echtzeit-Updates",
+                "description": "Nachrichten erscheinen sofort für alle Benutzer mit Echtzeit-Synchronisierung."
+            },
+            "builtForEvents": {
+                "title": "Für Events entwickelt",
+                "description": "Perfekt für LAN-Partys, Gaming-Events und Community-Treffen."
+            }
+        },
+        "cta": {
+            "title": "Bereit, dich mit deiner Community zu verbinden?",
+            "description": "Melde dich an, um zu chatten, oder erstelle ein Konto, um der Unterhaltung beizutreten.",
+            "button": "Zum Chat anmelden"
+        },
+        "footer": "LanShout - Einfache Echtzeit-Nachrichten für deine Events"
     },
-    "footer": "LanShout - Einfache Echtzeit-Nachrichten für deine Events"
-  },
-  "auth": {
-    "login": {
-      "title": "Bei deinem Konto anmelden",
-      "description": "Gib unten deine E-Mail-Adresse und dein Passwort ein, um dich anzumelden",
-      "email": "E-Mail-Adresse",
-      "password": "Passwort",
-      "rememberMe": "Angemeldet bleiben",
-      "forgotPassword": "Passwort vergessen?",
-      "button": "Anmelden",
-      "noAccount": "Noch kein Konto?",
-      "signUp": "Registrieren",
-      "emailPlaceholder": "email@beispiel.de",
-      "passwordPlaceholder": "Passwort"
+    "auth": {
+        "login": {
+            "title": "Bei deinem Konto anmelden",
+            "description": "Gib unten deine E-Mail-Adresse und dein Passwort ein, um dich anzumelden",
+            "email": "E-Mail-Adresse",
+            "password": "Passwort",
+            "rememberMe": "Angemeldet bleiben",
+            "forgotPassword": "Passwort vergessen?",
+            "button": "Anmelden",
+            "noAccount": "Noch kein Konto?",
+            "signUp": "Registrieren",
+            "emailPlaceholder": "email@beispiel.de",
+            "passwordPlaceholder": "Passwort"
+        },
+        "register": {
+            "title": "Konto erstellen",
+            "description": "Gib deine Informationen ein, um ein Konto zu erstellen",
+            "name": "Name",
+            "email": "E-Mail-Adresse",
+            "password": "Passwort",
+            "confirmPassword": "Passwort bestätigen",
+            "button": "Registrieren",
+            "hasAccount": "Bereits ein Konto?",
+            "logIn": "Anmelden",
+            "namePlaceholder": "Max Mustermann",
+            "emailPlaceholder": "email@beispiel.de",
+            "passwordPlaceholder": "Passwort"
+        },
+        "forgotPassword": {
+            "title": "Passwort vergessen?",
+            "description": "Gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen des Passworts.",
+            "email": "E-Mail-Adresse",
+            "button": "Link senden",
+            "backToLogin": "Zurück zur Anmeldung",
+            "emailPlaceholder": "email@beispiel.de"
+        },
+        "resetPassword": {
+            "title": "Passwort zurücksetzen",
+            "description": "Gib unten dein neues Passwort ein",
+            "email": "E-Mail-Adresse",
+            "password": "Passwort",
+            "confirmPassword": "Passwort bestätigen",
+            "button": "Passwort zurücksetzen",
+            "emailPlaceholder": "email@beispiel.de",
+            "passwordPlaceholder": "Passwort"
+        },
+        "verifyEmail": {
+            "title": "E-Mail-Adresse verifizieren",
+            "description": "Danke für deine Registrierung! Bevor du beginnst, kannst du bitte deine E-Mail-Adresse verifizieren, indem du auf den Link klickst, den wir dir gerade geschickt haben? Falls du die E-Mail nicht erhalten hast, senden wir dir gerne eine neue.",
+            "resendButton": "Bestätigungs-E-Mail erneut senden",
+            "linkSent": "Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet.",
+            "logout": "Abmelden"
+        },
+        "confirmPassword": {
+            "title": "Passwort bestätigen",
+            "description": "Dies ist ein geschützter Bereich der Anwendung. Bitte bestätige dein Passwort, bevor du fortfährst.",
+            "password": "Passwort",
+            "button": "Bestätigen",
+            "passwordPlaceholder": "Passwort"
+        }
     },
-    "register": {
-      "title": "Konto erstellen",
-      "description": "Gib deine Informationen ein, um ein Konto zu erstellen",
-      "name": "Name",
-      "email": "E-Mail-Adresse",
-      "password": "Passwort",
-      "confirmPassword": "Passwort bestätigen",
-      "button": "Registrieren",
-      "hasAccount": "Bereits ein Konto?",
-      "logIn": "Anmelden",
-      "namePlaceholder": "Max Mustermann",
-      "emailPlaceholder": "email@beispiel.de",
-      "passwordPlaceholder": "Passwort"
+    "chat": {
+        "title": "Chat",
+        "inputPlaceholder": "Schreibe eine Nachricht...",
+        "send": "Senden",
+        "noMessages": "Noch keine Nachrichten. Sei der Erste, der etwas sagt!",
+        "loadMore": "Weitere Nachrichten laden",
+        "loadingMessages": "Nachrichten werden geladen...",
+        "errorLoading": "Fehler beim Laden der Nachrichten",
+        "errorSending": "Fehler beim Senden der Nachricht",
+        "retry": "Wiederholen",
+        "slowModeActive": "Langsamer Modus ist aktiv. Du kannst in {seconds} Sekunden eine Nachricht senden.",
+        "rateLimited": "Du sendest Nachrichten zu schnell. Bitte warte.",
+        "messageBlocked": "Deine Nachricht wurde vom Inhaltsfilter blockiert."
     },
-    "forgotPassword": {
-      "title": "Passwort vergessen?",
-      "description": "Gib deine E-Mail-Adresse ein und wir senden dir einen Link zum Zurücksetzen des Passworts.",
-      "email": "E-Mail-Adresse",
-      "button": "Link senden",
-      "backToLogin": "Zurück zur Anmeldung",
-      "emailPlaceholder": "email@beispiel.de"
+    "chatSettings": {
+        "title": "Chat-Einstellungen",
+        "contentFiltering": {
+            "title": "Inhaltsfilter",
+            "blockedWords": "Blockierte Wörter",
+            "blockedWordsHelp": "Wörter zum Blockieren eingeben, eines pro Zeile",
+            "regexFilters": "Regex-Filter",
+            "regexFiltersHelp": "Erweiterte musterbasierte Filter",
+            "addFilter": "Filter hinzufügen",
+            "pattern": "Muster",
+            "filterAction": "Filteraktion",
+            "block": "Nachricht blockieren",
+            "censor": "Zensieren (mit *** ersetzen)",
+            "flag": "Zur Überprüfung markieren",
+            "allowUrls": "URLs erlauben",
+            "allowUrlsHelp": "Wenn deaktiviert, werden Nachrichten mit URLs gefiltert"
+        },
+        "spam": {
+            "title": "Spam-Erkennung",
+            "repeatThreshold": "Wiederholungsschwelle",
+            "repeatThresholdHelp": "Anzahl identischer Nachrichten, bevor als Spam erkannt",
+            "windowSeconds": "Erkennungsfenster (Sekunden)",
+            "windowSecondsHelp": "Zeitfenster für die Zählung wiederholter Nachrichten"
+        },
+        "rateLimiting": {
+            "title": "Ratenbegrenzung",
+            "messages": "Nachrichten pro Fenster",
+            "messagesHelp": "Maximale Nachrichten, die ein Benutzer pro Fenster senden kann",
+            "windowSeconds": "Fensterdauer (Sekunden)",
+            "windowSecondsHelp": "Zeitfenster für die Ratenbegrenzung"
+        },
+        "slowMode": {
+            "title": "Langsamer Modus",
+            "enabled": "Langsamen Modus aktivieren",
+            "cooldownSeconds": "Abklingzeit (Sekunden)",
+            "cooldownSecondsHelp": "Mindestzeit zwischen Nachrichten pro Benutzer",
+            "autoEnabled": "Langsamen Modus automatisch aktivieren",
+            "autoThreshold": "Auto-Auslöseschwelle",
+            "autoThresholdHelp": "Nachrichten pro Minute aller Benutzer zum automatischen Auslösen"
+        },
+        "presets": {
+            "title": "Filter-Vorlagen",
+            "description": "Aktiviere vorgefertigte Filterkategorien, um unangemessene Inhalte automatisch zu blockieren",
+            "words": "Wörter",
+            "alwaysActive": "Immer aktiv",
+            "nsfwMode": "NSFW-Modus",
+            "nsfwModeHelp": "Wenn aktiviert, werden Schimpfwort- und sexuelle Inhaltsfilter gelockert, während Kindersicherheit, Tierschutz, rassistische/politische und Gewaltfilter aktiv bleiben."
+        },
+        "saved": "Chat-Einstellungen erfolgreich gespeichert"
     },
-    "resetPassword": {
-      "title": "Passwort zurücksetzen",
-      "description": "Gib unten dein neues Passwort ein",
-      "email": "E-Mail-Adresse",
-      "password": "Passwort",
-      "confirmPassword": "Passwort bestätigen",
-      "button": "Passwort zurücksetzen",
-      "emailPlaceholder": "email@beispiel.de",
-      "passwordPlaceholder": "Passwort"
+    "activeUsers": {
+        "title": "Aktive Benutzer",
+        "noUsers": "Keine aktiven Benutzer",
+        "muteTimed": "Stummschalten (zeitlich)",
+        "mutePermanent": "Dauerhaft stummschalten",
+        "muteReason": "Grund",
+        "muteDuration": "Dauer (Minuten)",
+        "showInLanCore": "In LanCore anzeigen",
+        "unmute": "Stummschaltung aufheben",
+        "muteSuccess": "Benutzer wurde stummgeschaltet",
+        "unmuteSuccess": "Stummschaltung wurde aufgehoben",
+        "actions": "Aktionen"
     },
-    "verifyEmail": {
-      "title": "E-Mail-Adresse verifizieren",
-      "description": "Danke für deine Registrierung! Bevor du beginnst, kannst du bitte deine E-Mail-Adresse verifizieren, indem du auf den Link klickst, den wir dir gerade geschickt haben? Falls du die E-Mail nicht erhalten hast, senden wir dir gerne eine neue.",
-      "resendButton": "Bestätigungs-E-Mail erneut senden",
-      "linkSent": "Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet.",
-      "logout": "Abmelden"
+    "muted": {
+        "title": "Du bist stummgeschaltet",
+        "reason": "Grund: {reason}",
+        "until": "Bis: {until}",
+        "permanent": "Diese Stummschaltung ist dauerhaft",
+        "contact": "Kontaktiere einen Moderator für weitere Informationen"
     },
-    "confirmPassword": {
-      "title": "Passwort bestätigen",
-      "description": "Dies ist ein geschützter Bereich der Anwendung. Bitte bestätige dein Passwort, bevor du fortfährst.",
-      "password": "Passwort",
-      "button": "Bestätigen",
-      "passwordPlaceholder": "Passwort"
+    "dashboard": {
+        "title": "Dashboard",
+        "welcome": "Willkommen zurück!",
+        "stats": {
+            "totalUsers": "Benutzer gesamt",
+            "totalMessages": "Nachrichten gesamt",
+            "activeNow": "Aktuell aktiv"
+        }
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "profile": {
+            "title": "Profil",
+            "description": "Aktualisiere deine Profilinformationen",
+            "name": "Name",
+            "email": "E-Mail-Adresse",
+            "chatColor": "Chat-Farbe",
+            "updateButton": "Profil aktualisieren",
+            "updated": "Profil erfolgreich aktualisiert"
+        },
+        "password": {
+            "title": "Passwort ändern",
+            "description": "Stelle sicher, dass dein Konto ein langes, zufälliges Passwort verwendet, um sicher zu bleiben.",
+            "currentPassword": "Aktuelles Passwort",
+            "newPassword": "Neues Passwort",
+            "confirmPassword": "Passwort bestätigen",
+            "updateButton": "Passwort aktualisieren",
+            "updated": "Passwort erfolgreich aktualisiert"
+        },
+        "appearance": {
+            "title": "Erscheinungsbild",
+            "description": "Passe das Erscheinungsbild der Anwendung an",
+            "theme": "Thema",
+            "light": "Hell",
+            "dark": "Dunkel",
+            "system": "System",
+            "updated": "Erscheinungsbild erfolgreich aktualisiert"
+        }
+    },
+    "admin": {
+        "title": "Admin-Panel",
+        "users": {
+            "title": "Benutzer",
+            "list": "Benutzerliste",
+            "name": "Name",
+            "email": "E-Mail",
+            "role": "Rolle",
+            "createdAt": "Erstellt am",
+            "actions": "Aktionen",
+            "view": "Ansehen",
+            "edit": "Bearbeiten",
+            "delete": "Löschen",
+            "confirmDelete": "Bist du sicher, dass du diesen Benutzer löschen möchtest?",
+            "deleteSuccess": "Benutzer erfolgreich gelöscht",
+            "deleteError": "Fehler beim Löschen des Benutzers",
+            "noUsers": "Keine Benutzer gefunden"
+        }
+    },
+    "navigation": {
+        "home": "Startseite",
+        "chat": "Chat",
+        "dashboard": "Dashboard",
+        "settings": "Einstellungen",
+        "admin": "Admin",
+        "users": "Benutzer",
+        "profile": "Profil",
+        "appearance": "Erscheinungsbild",
+        "password": "Passwort"
+    },
+    "validation": {
+        "required": "Dieses Feld ist erforderlich",
+        "email": "Bitte gib eine gültige E-Mail-Adresse ein",
+        "minLength": "Muss mindestens {min} Zeichen lang sein",
+        "maxLength": "Darf höchstens {max} Zeichen lang sein",
+        "passwordMatch": "Passwörter müssen übereinstimmen"
     }
-  },
-  "chat": {
-    "title": "Chat",
-    "inputPlaceholder": "Schreibe eine Nachricht...",
-    "send": "Senden",
-    "noMessages": "Noch keine Nachrichten. Sei der Erste, der etwas sagt!",
-    "loadMore": "Weitere Nachrichten laden",
-    "loadingMessages": "Nachrichten werden geladen...",
-    "errorLoading": "Fehler beim Laden der Nachrichten",
-    "errorSending": "Fehler beim Senden der Nachricht",
-    "retry": "Wiederholen",
-    "slowModeActive": "Langsamer Modus ist aktiv. Du kannst in {seconds} Sekunden eine Nachricht senden.",
-    "rateLimited": "Du sendest Nachrichten zu schnell. Bitte warte.",
-    "messageBlocked": "Deine Nachricht wurde vom Inhaltsfilter blockiert."
-  },
-  "chatSettings": {
-    "title": "Chat-Einstellungen",
-    "contentFiltering": {
-      "title": "Inhaltsfilter",
-      "blockedWords": "Blockierte Wörter",
-      "blockedWordsHelp": "Wörter zum Blockieren eingeben, eines pro Zeile",
-      "regexFilters": "Regex-Filter",
-      "regexFiltersHelp": "Erweiterte musterbasierte Filter",
-      "addFilter": "Filter hinzufügen",
-      "pattern": "Muster",
-      "filterAction": "Filteraktion",
-      "block": "Nachricht blockieren",
-      "censor": "Zensieren (mit *** ersetzen)",
-      "flag": "Zur Überprüfung markieren",
-      "allowUrls": "URLs erlauben",
-      "allowUrlsHelp": "Wenn deaktiviert, werden Nachrichten mit URLs gefiltert"
-    },
-    "spam": {
-      "title": "Spam-Erkennung",
-      "repeatThreshold": "Wiederholungsschwelle",
-      "repeatThresholdHelp": "Anzahl identischer Nachrichten, bevor als Spam erkannt",
-      "windowSeconds": "Erkennungsfenster (Sekunden)",
-      "windowSecondsHelp": "Zeitfenster für die Zählung wiederholter Nachrichten"
-    },
-    "rateLimiting": {
-      "title": "Ratenbegrenzung",
-      "messages": "Nachrichten pro Fenster",
-      "messagesHelp": "Maximale Nachrichten, die ein Benutzer pro Fenster senden kann",
-      "windowSeconds": "Fensterdauer (Sekunden)",
-      "windowSecondsHelp": "Zeitfenster für die Ratenbegrenzung"
-    },
-    "slowMode": {
-      "title": "Langsamer Modus",
-      "enabled": "Langsamen Modus aktivieren",
-      "cooldownSeconds": "Abklingzeit (Sekunden)",
-      "cooldownSecondsHelp": "Mindestzeit zwischen Nachrichten pro Benutzer",
-      "autoEnabled": "Langsamen Modus automatisch aktivieren",
-      "autoThreshold": "Auto-Auslöseschwelle",
-      "autoThresholdHelp": "Nachrichten pro Minute aller Benutzer zum automatischen Auslösen"
-    },
-    "presets": {
-      "title": "Filter-Vorlagen",
-      "description": "Aktiviere vorgefertigte Filterkategorien, um unangemessene Inhalte automatisch zu blockieren",
-      "words": "Wörter",
-      "alwaysActive": "Immer aktiv",
-      "nsfwMode": "NSFW-Modus",
-      "nsfwModeHelp": "Wenn aktiviert, werden Schimpfwort- und sexuelle Inhaltsfilter gelockert, während Kindersicherheit, Tierschutz, rassistische/politische und Gewaltfilter aktiv bleiben."
-    },
-    "saved": "Chat-Einstellungen erfolgreich gespeichert"
-  },
-  "activeUsers": {
-    "title": "Aktive Benutzer",
-    "noUsers": "Keine aktiven Benutzer",
-    "muteTimed": "Stummschalten (zeitlich)",
-    "mutePermanent": "Dauerhaft stummschalten",
-    "muteReason": "Grund",
-    "muteDuration": "Dauer (Minuten)",
-    "showInLanCore": "In LanCore anzeigen",
-    "unmute": "Stummschaltung aufheben",
-    "muteSuccess": "Benutzer wurde stummgeschaltet",
-    "unmuteSuccess": "Stummschaltung wurde aufgehoben",
-    "actions": "Aktionen"
-  },
-  "muted": {
-    "title": "Du bist stummgeschaltet",
-    "reason": "Grund: {reason}",
-    "until": "Bis: {until}",
-    "permanent": "Diese Stummschaltung ist dauerhaft",
-    "contact": "Kontaktiere einen Moderator für weitere Informationen"
-  },
-  "dashboard": {
-    "title": "Dashboard",
-    "welcome": "Willkommen zurück!",
-    "stats": {
-      "totalUsers": "Benutzer gesamt",
-      "totalMessages": "Nachrichten gesamt",
-      "activeNow": "Aktuell aktiv"
-    }
-  },
-  "settings": {
-    "title": "Einstellungen",
-    "profile": {
-      "title": "Profil",
-      "description": "Aktualisiere deine Profilinformationen",
-      "name": "Name",
-      "email": "E-Mail-Adresse",
-      "chatColor": "Chat-Farbe",
-      "updateButton": "Profil aktualisieren",
-      "updated": "Profil erfolgreich aktualisiert"
-    },
-    "password": {
-      "title": "Passwort ändern",
-      "description": "Stelle sicher, dass dein Konto ein langes, zufälliges Passwort verwendet, um sicher zu bleiben.",
-      "currentPassword": "Aktuelles Passwort",
-      "newPassword": "Neues Passwort",
-      "confirmPassword": "Passwort bestätigen",
-      "updateButton": "Passwort aktualisieren",
-      "updated": "Passwort erfolgreich aktualisiert"
-    },
-    "appearance": {
-      "title": "Erscheinungsbild",
-      "description": "Passe das Erscheinungsbild der Anwendung an",
-      "theme": "Thema",
-      "light": "Hell",
-      "dark": "Dunkel",
-      "system": "System",
-      "updated": "Erscheinungsbild erfolgreich aktualisiert"
-    }
-  },
-  "admin": {
-    "title": "Admin-Panel",
-    "users": {
-      "title": "Benutzer",
-      "list": "Benutzerliste",
-      "name": "Name",
-      "email": "E-Mail",
-      "role": "Rolle",
-      "createdAt": "Erstellt am",
-      "actions": "Aktionen",
-      "view": "Ansehen",
-      "edit": "Bearbeiten",
-      "delete": "Löschen",
-      "confirmDelete": "Bist du sicher, dass du diesen Benutzer löschen möchtest?",
-      "deleteSuccess": "Benutzer erfolgreich gelöscht",
-      "deleteError": "Fehler beim Löschen des Benutzers",
-      "noUsers": "Keine Benutzer gefunden"
-    }
-  },
-  "navigation": {
-    "home": "Startseite",
-    "chat": "Chat",
-    "dashboard": "Dashboard",
-    "settings": "Einstellungen",
-    "admin": "Admin",
-    "users": "Benutzer",
-    "profile": "Profil",
-    "appearance": "Erscheinungsbild",
-    "password": "Passwort"
-  },
-  "validation": {
-    "required": "Dieses Feld ist erforderlich",
-    "email": "Bitte gib eine gültige E-Mail-Adresse ein",
-    "minLength": "Muss mindestens {min} Zeichen lang sein",
-    "maxLength": "Darf höchstens {max} Zeichen lang sein",
-    "passwordMatch": "Passwörter müssen übereinstimmen"
-  }
 }

@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { Button } from '@/components/ui/button';
+import { AreaChart } from '@/components/ui/chart-area';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import { AreaChart } from '@/components/ui/chart-area';
-import { Users, MessageSquare, Activity } from 'lucide-vue-next';
-import { ref, computed, watch, onMounted } from 'vue';
-import { Button } from '@/components/ui/button';
+import { Activity, MessageSquare, Users } from 'lucide-vue-next';
+import { computed, onMounted, ref, watch } from 'vue';
 
 interface Statistics {
     userCount: number;
@@ -50,10 +50,10 @@ async function fetchChartData() {
             `/dashboard/statistics?resolution=${selectedResolution.value}&metric=${selectedMetric.value}`,
             {
                 headers: {
-                    'Accept': 'application/json',
+                    Accept: 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
                 },
-            }
+            },
         );
 
         if (!response.ok) {
@@ -88,8 +88,12 @@ const metricLabels = computed(() => ({
 }));
 
 const chartTitle = computed(() => {
-    const resolutionText = selectedResolution.value === 'hour' ? 'Hourly' :
-                          selectedResolution.value === 'day' ? 'Daily' : 'Weekly';
+    const resolutionText =
+        selectedResolution.value === 'hour'
+            ? 'Hourly'
+            : selectedResolution.value === 'day'
+              ? 'Daily'
+              : 'Weekly';
     return `${resolutionText} ${metricLabels[selectedMetric.value]}`;
 });
 </script>
@@ -101,45 +105,77 @@ const chartTitle = computed(() => {
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div>
                 <h1 class="text-2xl font-bold">{{ $t('dashboard.title') }}</h1>
-                <p class="text-muted-foreground mt-2">{{ $t('dashboard.welcome') }}</p>
+                <p class="mt-2 text-muted-foreground">
+                    {{ $t('dashboard.welcome') }}
+                </p>
             </div>
 
             <!-- Statistics Cards -->
             <div class="grid gap-4 md:grid-cols-3">
                 <!-- User Count Card -->
-                <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
+                <div
+                    class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+                >
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-muted-foreground">{{ $t('dashboard.stats.totalUsers') }}</p>
-                            <h3 class="mt-2 text-3xl font-bold">{{ props.statistics.userCount }}</h3>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                {{ $t('dashboard.stats.totalUsers') }}
+                            </p>
+                            <h3 class="mt-2 text-3xl font-bold">
+                                {{ props.statistics.userCount }}
+                            </h3>
                         </div>
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500"
+                        >
                             <Users class="h-6 w-6" />
                         </div>
                     </div>
                 </div>
 
                 <!-- Message Count Card -->
-                <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
+                <div
+                    class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+                >
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-muted-foreground">{{ $t('dashboard.stats.totalMessages') }}</p>
-                            <h3 class="mt-2 text-3xl font-bold">{{ props.statistics.messageCount }}</h3>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                {{ $t('dashboard.stats.totalMessages') }}
+                            </p>
+                            <h3 class="mt-2 text-3xl font-bold">
+                                {{ props.statistics.messageCount }}
+                            </h3>
                         </div>
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500"
+                        >
                             <MessageSquare class="h-6 w-6" />
                         </div>
                     </div>
                 </div>
 
                 <!-- Active Sessions Card -->
-                <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
+                <div
+                    class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+                >
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-muted-foreground">{{ $t('dashboard.stats.activeNow') }}</p>
-                            <h3 class="mt-2 text-3xl font-bold">{{ props.statistics.activeSessions }}</h3>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                {{ $t('dashboard.stats.activeNow') }}
+                            </p>
+                            <h3 class="mt-2 text-3xl font-bold">
+                                {{ props.statistics.activeSessions }}
+                            </h3>
                         </div>
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500"
+                        >
                             <Activity class="h-6 w-6" />
                         </div>
                     </div>
@@ -147,16 +183,26 @@ const chartTitle = computed(() => {
             </div>
 
             <!-- Chart Section -->
-            <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
-                <div class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div
+                class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+            >
+                <div
+                    class="mb-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+                >
                     <h2 class="text-lg font-semibold">{{ chartTitle }}</h2>
 
                     <div class="flex flex-wrap gap-2">
                         <!-- Metric Selector -->
-                        <div class="flex gap-1 rounded-lg border border-sidebar-border/70 p-1">
+                        <div
+                            class="flex gap-1 rounded-lg border border-sidebar-border/70 p-1"
+                        >
                             <Button
                                 size="sm"
-                                :variant="selectedMetric === 'messages' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedMetric === 'messages'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedMetric = 'messages'"
                                 class="text-xs"
                             >
@@ -164,7 +210,11 @@ const chartTitle = computed(() => {
                             </Button>
                             <Button
                                 size="sm"
-                                :variant="selectedMetric === 'users' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedMetric === 'users'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedMetric = 'users'"
                                 class="text-xs"
                             >
@@ -172,7 +222,11 @@ const chartTitle = computed(() => {
                             </Button>
                             <Button
                                 size="sm"
-                                :variant="selectedMetric === 'sessions' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedMetric === 'sessions'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedMetric = 'sessions'"
                                 class="text-xs"
                             >
@@ -181,10 +235,16 @@ const chartTitle = computed(() => {
                         </div>
 
                         <!-- Resolution Selector -->
-                        <div class="flex gap-1 rounded-lg border border-sidebar-border/70 p-1">
+                        <div
+                            class="flex gap-1 rounded-lg border border-sidebar-border/70 p-1"
+                        >
                             <Button
                                 size="sm"
-                                :variant="selectedResolution === 'hour' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedResolution === 'hour'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedResolution = 'hour'"
                                 class="text-xs"
                             >
@@ -192,7 +252,11 @@ const chartTitle = computed(() => {
                             </Button>
                             <Button
                                 size="sm"
-                                :variant="selectedResolution === 'day' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedResolution === 'day'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedResolution = 'day'"
                                 class="text-xs"
                             >
@@ -200,7 +264,11 @@ const chartTitle = computed(() => {
                             </Button>
                             <Button
                                 size="sm"
-                                :variant="selectedResolution === 'week' ? 'default' : 'ghost'"
+                                :variant="
+                                    selectedResolution === 'week'
+                                        ? 'default'
+                                        : 'ghost'
+                                "
                                 @click="selectedResolution = 'week'"
                                 class="text-xs"
                             >
@@ -211,7 +279,10 @@ const chartTitle = computed(() => {
                 </div>
 
                 <div class="h-80">
-                    <div v-if="loading" class="flex h-full items-center justify-center text-muted-foreground">
+                    <div
+                        v-if="loading"
+                        class="flex h-full items-center justify-center text-muted-foreground"
+                    >
                         Loading chart data...
                     </div>
                     <AreaChart
@@ -220,7 +291,10 @@ const chartTitle = computed(() => {
                         index="name"
                         :categories="['value']"
                     />
-                    <div v-else class="flex h-full items-center justify-center text-muted-foreground">
+                    <div
+                        v-else
+                        class="flex h-full items-center justify-center text-muted-foreground"
+                    >
                         No data available
                     </div>
                 </div>

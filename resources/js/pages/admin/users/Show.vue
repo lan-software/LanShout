@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import AppLayout from '@/layouts/AppLayout.vue';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import AppLayout from '@/layouts/AppLayout.vue';
 import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowLeft, Mail, Calendar, CheckCircle, XCircle } from 'lucide-vue-next';
+import {
+    ArrowLeft,
+    Calendar,
+    CheckCircle,
+    Mail,
+    XCircle,
+} from 'lucide-vue-next';
 
 interface Permission {
     id: number;
@@ -92,7 +98,9 @@ const formatDate = (dateString: string) => {
                     </Button>
                     <div>
                         <h1 class="text-2xl font-bold">{{ user.name }}</h1>
-                        <p class="text-muted-foreground mt-1 flex items-center gap-2">
+                        <p
+                            class="mt-1 flex items-center gap-2 text-muted-foreground"
+                        >
                             <Mail class="h-4 w-4" />
                             {{ user.email }}
                         </p>
@@ -101,22 +109,38 @@ const formatDate = (dateString: string) => {
             </div>
 
             <!-- User Info Card -->
-            <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
-                <h2 class="text-lg font-semibold mb-4">User Information</h2>
+            <div
+                class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+            >
+                <h2 class="mb-4 text-lg font-semibold">User Information</h2>
 
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">Email Verification</span>
+                        <span class="text-sm text-muted-foreground"
+                            >Email Verification</span
+                        >
                         <div class="flex items-center gap-2">
                             <Badge
-                                :variant="user.email_verified_at ? 'default' : 'secondary'"
+                                :variant="
+                                    user.email_verified_at
+                                        ? 'default'
+                                        : 'secondary'
+                                "
                                 class="flex items-center gap-1"
                             >
                                 <component
-                                    :is="user.email_verified_at ? CheckCircle : XCircle"
+                                    :is="
+                                        user.email_verified_at
+                                            ? CheckCircle
+                                            : XCircle
+                                    "
                                     class="h-3 w-3"
                                 />
-                                {{ user.email_verified_at ? 'Verified' : 'Unverified' }}
+                                {{
+                                    user.email_verified_at
+                                        ? 'Verified'
+                                        : 'Unverified'
+                                }}
                             </Badge>
                         </div>
                     </div>
@@ -124,7 +148,9 @@ const formatDate = (dateString: string) => {
                     <Separator />
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">Member Since</span>
+                        <span class="text-sm text-muted-foreground"
+                            >Member Since</span
+                        >
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.created_at) }}
@@ -132,7 +158,9 @@ const formatDate = (dateString: string) => {
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">Last Updated</span>
+                        <span class="text-sm text-muted-foreground"
+                            >Last Updated</span
+                        >
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.updated_at) }}
@@ -142,11 +170,17 @@ const formatDate = (dateString: string) => {
             </div>
 
             <!-- Roles Card -->
-            <div class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border">
-                <h2 class="text-lg font-semibold mb-4">Roles</h2>
+            <div
+                class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
+            >
+                <h2 class="mb-4 text-lg font-semibold">Roles</h2>
 
                 <div v-if="user.roles.length > 0" class="space-y-4">
-                    <div v-for="role in user.roles" :key="role.id" class="space-y-2">
+                    <div
+                        v-for="role in user.roles"
+                        :key="role.id"
+                        class="space-y-2"
+                    >
                         <div class="flex items-center gap-2">
                             <Badge :variant="getRoleBadgeVariant(role.name)">
                                 {{ role.display_name }}
@@ -157,8 +191,15 @@ const formatDate = (dateString: string) => {
                         </p>
 
                         <!-- Permissions for this role -->
-                        <div v-if="role.permissions.length > 0" class="ml-4 mt-2">
-                            <p class="text-xs font-medium text-muted-foreground mb-2">Permissions:</p>
+                        <div
+                            v-if="role.permissions.length > 0"
+                            class="mt-2 ml-4"
+                        >
+                            <p
+                                class="mb-2 text-xs font-medium text-muted-foreground"
+                            >
+                                Permissions:
+                            </p>
                             <div class="flex flex-wrap gap-1">
                                 <Badge
                                     v-for="permission in role.permissions"
@@ -171,10 +212,15 @@ const formatDate = (dateString: string) => {
                             </div>
                         </div>
 
-                        <Separator v-if="user.roles.indexOf(role) < user.roles.length - 1" class="mt-4" />
+                        <Separator
+                            v-if="
+                                user.roles.indexOf(role) < user.roles.length - 1
+                            "
+                            class="mt-4"
+                        />
                     </div>
                 </div>
-                <div v-else class="text-center text-muted-foreground py-4">
+                <div v-else class="py-4 text-center text-muted-foreground">
                     No roles assigned
                 </div>
             </div>

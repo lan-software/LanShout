@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/vue3';
-import { Users, Settings, Shield, MessageSquare } from 'lucide-vue-next';
+import { MessageSquare, Shield, Users } from 'lucide-vue-next';
 import { computed } from 'vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -18,11 +18,13 @@ const auth = computed(() => page.props.auth);
 
 const hasAnyRole = (roles: string[]): boolean => {
     const userRoles = auth.value?.user?.roles || [];
-    return roles.some(role => userRoles.includes(role));
+    return roles.some((role) => userRoles.includes(role));
 };
 
 const canManageUsers = computed(() => hasAnyRole(['admin', 'super_admin']));
-const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', 'moderator']));
+const canViewChatSettings = computed(() =>
+    hasAnyRole(['admin', 'super_admin', 'moderator']),
+);
 </script>
 
 <template>
@@ -32,7 +34,9 @@ const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', '
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div>
                 <h1 class="text-2xl font-bold">Admin Panel</h1>
-                <p class="text-muted-foreground mt-2">Manage your LanShout instance</p>
+                <p class="mt-2 text-muted-foreground">
+                    Manage your LanShout instance
+                </p>
             </div>
 
             <!-- Management Cards -->
@@ -44,7 +48,9 @@ const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', '
                     class="group relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 transition-all hover:border-primary hover:shadow-md dark:border-sidebar-border"
                 >
                     <div class="flex items-start justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary"
+                        >
                             <Users class="h-6 w-6" />
                         </div>
                     </div>
@@ -61,7 +67,9 @@ const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', '
                     class="group relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 transition-all hover:border-primary hover:shadow-md dark:border-sidebar-border"
                 >
                     <div class="flex items-start justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary"
+                        >
                             <MessageSquare class="h-6 w-6" />
                         </div>
                     </div>
@@ -76,11 +84,15 @@ const canViewChatSettings = computed(() => hasAnyRole(['admin', 'super_admin', '
                     class="relative overflow-hidden rounded-lg border border-sidebar-border/70 bg-card p-6 opacity-50 dark:border-sidebar-border"
                 >
                     <div class="flex items-start justify-between">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-muted-foreground"
+                        >
                             <Shield class="h-6 w-6" />
                         </div>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold">Roles & Permissions</h3>
+                    <h3 class="mt-4 text-lg font-semibold">
+                        Roles & Permissions
+                    </h3>
                     <p class="mt-2 text-sm text-muted-foreground">
                         Coming soon
                     </p>

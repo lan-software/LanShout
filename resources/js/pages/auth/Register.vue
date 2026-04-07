@@ -55,7 +55,9 @@ import { LoaderCircle } from 'lucide-vue-next';
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password">{{ $t('auth.register.password') }}</Label>
+                    <Label for="password">{{
+                        $t('auth.register.password')
+                    }}</Label>
                     <Input
                         id="password"
                         type="password"
@@ -69,7 +71,9 @@ import { LoaderCircle } from 'lucide-vue-next';
                 </div>
 
                 <div class="grid gap-2">
-                    <Label for="password_confirmation">{{ $t('auth.register.confirmPassword') }}</Label>
+                    <Label for="password_confirmation">{{
+                        $t('auth.register.confirmPassword')
+                    }}</Label>
                     <Input
                         id="password_confirmation"
                         type="password"

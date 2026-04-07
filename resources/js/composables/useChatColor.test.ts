@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { hashStringToColor, getUserColor } from './useChatColor';
+import { getUserColor, hashStringToColor } from './useChatColor';
 
 describe('useChatColor', () => {
     describe('hashStringToColor', () => {

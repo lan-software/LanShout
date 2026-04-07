@@ -33,7 +33,9 @@ describe('MiniChatInput', () => {
 
     it('has placeholder text', () => {
         const wrapper = mountMiniInput();
-        expect(wrapper.find('input').attributes('placeholder')).toBe('Type a message...');
+        expect(wrapper.find('input').attributes('placeholder')).toBe(
+            'Type a message...',
+        );
     });
 
     it('submit button is disabled when input is empty', () => {

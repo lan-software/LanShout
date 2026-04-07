@@ -21,7 +21,10 @@ createServer(
             setup: ({ App, props, plugin }) => {
                 // Set user's locale preference if available
                 const userLocale = props.initialPage.props.auth?.user?.locale;
-                if (userLocale && i18n.global.availableLocales.includes(userLocale)) {
+                if (
+                    userLocale &&
+                    i18n.global.availableLocales.includes(userLocale)
+                ) {
                     i18n.global.locale.value = userLocale;
                 }
 

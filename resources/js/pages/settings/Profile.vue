@@ -88,7 +88,8 @@ const user = page.props.auth.user;
                                 value="#fafafafa"
                             />
                             <span class="text-sm text-muted-foreground">
-                                Choose a color for your username in chat messages
+                                Choose a color for your username in chat
+                                messages
                             </span>
                         </div>
                         <InputError class="mt-2" :message="errors.chat_color" />
@@ -99,7 +100,7 @@ const user = page.props.auth.user;
                         <select
                             id="locale"
                             name="locale"
-                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                             :value="user.locale || 'en'"
                         >
                             <option value="en">🇬🇧 English</option>

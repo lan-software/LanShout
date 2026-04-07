@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 export interface ActiveUser {
     id: number;
@@ -16,7 +16,11 @@ export function useChatPresence() {
 
     async function sendHeartbeat() {
         try {
-            const token = (document.querySelector('meta[name="csrf-token"]') as HTMLMetaElement)?.content;
+            const token = (
+                document.querySelector(
+                    'meta[name="csrf-token"]',
+                ) as HTMLMetaElement
+            )?.content;
             const res = await fetch('/chat/heartbeat', {
                 method: 'POST',
                 headers: {

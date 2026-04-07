@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { createI18n } from 'vue-i18n';
 import { ref } from 'vue';
+import { createI18n } from 'vue-i18n';
 import ActiveUserList from './ActiveUserList.vue';
 
 const i18n = createI18n({
@@ -42,9 +42,27 @@ vi.mock('@inertiajs/vue3', () => ({
 import { vi } from 'vitest';
 
 const sampleUsers = [
-    { id: 1, name: 'Alice', chat_color: '#ff0000', lancore_user_id: 100, roles: ['admin'] },
-    { id: 2, name: 'Bob', chat_color: null, lancore_user_id: null, roles: ['user'] },
-    { id: 3, name: 'Carol', chat_color: '#00ff00', lancore_user_id: 200, roles: ['moderator'] },
+    {
+        id: 1,
+        name: 'Alice',
+        chat_color: '#ff0000',
+        lancore_user_id: 100,
+        roles: ['admin'],
+    },
+    {
+        id: 2,
+        name: 'Bob',
+        chat_color: null,
+        lancore_user_id: null,
+        roles: ['user'],
+    },
+    {
+        id: 3,
+        name: 'Carol',
+        chat_color: '#00ff00',
+        lancore_user_id: 200,
+        roles: ['moderator'],
+    },
 ];
 
 function mountList(props: Record<string, unknown> = {}) {
@@ -101,7 +119,9 @@ describe('ActiveUserList', () => {
         const wrapper = mountList();
         // No dropdown trigger buttons should be present
         const buttons = wrapper.findAll('button');
-        const dropdownButtons = buttons.filter((b) => b.classes().includes('opacity-0'));
+        const dropdownButtons = buttons.filter((b) =>
+            b.classes().includes('opacity-0'),
+        );
         expect(dropdownButtons.length).toBe(0);
     });
 
