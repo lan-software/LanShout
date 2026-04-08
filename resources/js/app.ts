@@ -6,6 +6,7 @@ import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
 import i18n from './i18n';
+import DemoShell from '@/components/demo/DemoShell.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -23,7 +24,10 @@ createInertiaApp({
             i18n.global.locale.value = userLocale;
         }
 
-        createApp({ render: () => h(App, props) })
+        createApp({
+            render: () =>
+                h(DemoShell, null, { default: () => h(App, props) }),
+        })
             .use(plugin)
             .use(i18n)
             .mount(el);
