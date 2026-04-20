@@ -11,7 +11,7 @@ use App\Models\User;
 test('user has correct fillable attributes', function () {
     $user = new User();
 
-    expect($user->getFillable())->toBe(['name', 'email', 'password', 'chat_color', 'locale']);
+    expect($user->getFillable())->toBe(['name', 'email', 'password', 'chat_color', 'locale', 'lancore_user_id']);
 });
 
 test('user has correct hidden attributes', function () {

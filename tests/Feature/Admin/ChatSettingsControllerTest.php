@@ -87,6 +87,8 @@ test('admin can update chat settings', function () {
         'slow_mode_cooldown_seconds' => 10,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
+        'active_filter_presets' => [],
+        'nsfw_mode' => false,
     ]);
 
     $response->assertRedirect();
@@ -116,6 +118,8 @@ test('moderator cannot update chat settings', function () {
         'slow_mode_cooldown_seconds' => 5,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
+        'active_filter_presets' => [],
+        'nsfw_mode' => false,
     ]);
 
     $response->assertForbidden();
@@ -138,6 +142,8 @@ test('validation rejects invalid chat settings', function () {
         'slow_mode_cooldown_seconds' => 5,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
+        'active_filter_presets' => [],
+        'nsfw_mode' => false,
     ]);
 
     $response->assertUnprocessable();
@@ -161,6 +167,8 @@ test('settings changes are persisted', function () {
         'slow_mode_cooldown_seconds' => 15,
         'slow_mode_auto_enabled' => true,
         'slow_mode_auto_threshold' => 100,
+        'active_filter_presets' => [],
+        'nsfw_mode' => false,
     ]);
 
     $settings = ChatSetting::first();

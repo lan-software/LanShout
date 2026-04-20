@@ -8,10 +8,16 @@ beforeEach(function () {
     Cache::flush();
 });
 
+// The chat_settings migration seeds a row with default values, so tests update
+// that row instead of creating a second one (ChatSetting::current() returns the
+// first record).
+function updateChatSettings(array $attributes): void
+{
+    ChatSetting::query()->firstOrFail()->update($attributes);
+}
+
 test('slow mode is inactive by default', function () {
-    ChatSetting::create([
-        'blocked_words' => [],
-        'regex_filters' => [],
+    updateChatSettings([
         'slow_mode_enabled' => false,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
@@ -24,9 +30,7 @@ test('slow mode is inactive by default', function () {
 });
 
 test('slow mode is active when manually enabled', function () {
-    ChatSetting::create([
-        'blocked_words' => [],
-        'regex_filters' => [],
+    updateChatSettings([
         'slow_mode_enabled' => true,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
@@ -39,9 +43,7 @@ test('slow mode is active when manually enabled', function () {
 });
 
 test('user can send when no recent message', function () {
-    ChatSetting::create([
-        'blocked_words' => [],
-        'regex_filters' => [],
+    updateChatSettings([
         'slow_mode_enabled' => true,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
@@ -54,9 +56,7 @@ test('user can send when no recent message', function () {
 });
 
 test('user is blocked during cooldown period', function () {
-    ChatSetting::create([
-        'blocked_words' => [],
-        'regex_filters' => [],
+    updateChatSettings([
         'slow_mode_enabled' => true,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
@@ -74,9 +74,7 @@ test('user is blocked during cooldown period', function () {
 });
 
 test('cooldown expires correctly', function () {
-    ChatSetting::create([
-        'blocked_words' => [],
-        'regex_filters' => [],
+    updateChatSettings([
         'slow_mode_enabled' => true,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,

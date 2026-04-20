@@ -31,13 +31,15 @@ test('seeder creates all expected permissions', function () {
         'delete_user',
         'edit_chat_configuration',
         'edit_system_configuration',
+        'mute_user',
+        'view_chat_configuration',
     ];
 
     foreach ($expectedPermissions as $perm) {
         expect(Permission::where('name', $perm)->exists())->toBeTrue("Permission '{$perm}' should exist");
     }
 
-    expect(Permission::count())->toBe(7);
+    expect(Permission::count())->toBe(9);
 });
 
 test('super admin has all permissions', function () {
@@ -45,7 +47,7 @@ test('super admin has all permissions', function () {
 
     $superAdmin = Role::where('name', 'super_admin')->first();
 
-    expect($superAdmin->permissions)->toHaveCount(7);
+    expect($superAdmin->permissions)->toHaveCount(9);
 });
 
 test('admin has all permissions except system configuration', function () {
@@ -55,7 +57,7 @@ test('admin has all permissions except system configuration', function () {
     $permissionNames = $admin->permissions->pluck('name')->toArray();
 
     expect($permissionNames)->not->toContain('edit_system_configuration');
-    expect($admin->permissions)->toHaveCount(6);
+    expect($admin->permissions)->toHaveCount(8);
 });
 
 test('moderator has correct permissions', function () {
@@ -68,7 +70,9 @@ test('moderator has correct permissions', function () {
     expect($permissionNames)->toContain('send_chat_message');
     expect($permissionNames)->toContain('delete_chat_message');
     expect($permissionNames)->toContain('edit_user');
-    expect($moderator->permissions)->toHaveCount(4);
+    expect($permissionNames)->toContain('mute_user');
+    expect($permissionNames)->toContain('view_chat_configuration');
+    expect($moderator->permissions)->toHaveCount(6);
 });
 
 test('user role has only view and send chat permissions', function () {
@@ -87,5 +91,5 @@ test('seeder is idempotent', function () {
     $this->seed(RolePermissionSeeder::class);
 
     expect(Role::count())->toBe(4);
-    expect(Permission::count())->toBe(7);
+    expect(Permission::count())->toBe(9);
 });

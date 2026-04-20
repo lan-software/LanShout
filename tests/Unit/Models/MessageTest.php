@@ -12,7 +12,7 @@ use App\Models\User;
 test('message has correct fillable attributes', function () {
     $message = new Message();
 
-    expect($message->getFillable())->toBe(['user_id', 'body']);
+    expect($message->getFillable())->toBe(['user_id', 'body', 'flagged', 'flag_reason']);
 });
 
 test('message uses soft deletes trait', function () {
