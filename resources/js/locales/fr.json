@@ -1,0 +1,272 @@
+{
+    "common": {
+        "appName": "LanShout",
+        "loading": "Chargement...",
+        "error": "Erreur",
+        "success": "Succès",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "close": "Fermer",
+        "submit": "Envoyer",
+        "search": "Rechercher",
+        "settings": "Paramètres",
+        "logout": "Se déconnecter",
+        "profile": "Profil",
+        "dashboard": "Tableau de bord",
+        "admin": "Admin",
+        "users": "Utilisateurs",
+        "back": "Retour"
+    },
+    "landing": {
+        "title": "Bienvenue sur LanShout",
+        "subtitle": "Une shoutbox simple et en temps réel, conçue pour les LAN parties et les événements. Partagez des messages, coordonnez des parties et restez en contact pendant votre événement.",
+        "getStarted": "Commencer",
+        "createAccount": "Créer un compte",
+        "logIn": "Se connecter",
+        "register": "S'inscrire",
+        "features": {
+            "title": "Fonctionnalités",
+            "simpleMessaging": {
+                "title": "Messages simples",
+                "description": "Publiez des messages rapides que tout le monde à votre LAN peut voir instantanément."
+            },
+            "realTimeUpdates": {
+                "title": "Mises à jour en temps réel",
+                "description": "Les messages apparaissent instantanément pour tous les utilisateurs grâce à la synchronisation en temps réel."
+            },
+            "builtForEvents": {
+                "title": "Conçu pour les événements",
+                "description": "Parfait pour les LAN parties, les événements gaming et les rencontres communautaires."
+            }
+        },
+        "cta": {
+            "title": "Prêt à rejoindre votre communauté ?",
+            "description": "Connectez-vous pour discuter ou créez un compte pour participer à la conversation.",
+            "button": "Se connecter au chat"
+        },
+        "footer": "LanShout - Messagerie simple en temps réel pour vos événements"
+    },
+    "auth": {
+        "login": {
+            "title": "Connectez-vous à votre compte",
+            "description": "Saisissez votre e-mail et votre mot de passe ci-dessous pour vous connecter",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "rememberMe": "Se souvenir de moi",
+            "forgotPassword": "Mot de passe oublié ?",
+            "button": "Se connecter",
+            "noAccount": "Pas encore de compte ?",
+            "signUp": "S'inscrire",
+            "emailPlaceholder": "email@exemple.fr",
+            "passwordPlaceholder": "Mot de passe"
+        },
+        "register": {
+            "title": "Créer un compte",
+            "description": "Saisissez vos informations pour créer un compte",
+            "name": "Nom",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "confirmPassword": "Confirmer le mot de passe",
+            "button": "S'inscrire",
+            "hasAccount": "Déjà un compte ?",
+            "logIn": "Se connecter",
+            "namePlaceholder": "Jean Dupont",
+            "emailPlaceholder": "email@exemple.fr",
+            "passwordPlaceholder": "Mot de passe"
+        },
+        "forgotPassword": {
+            "title": "Mot de passe oublié ?",
+            "description": "Saisissez votre adresse e-mail et nous vous enverrons un lien de réinitialisation.",
+            "email": "Adresse e-mail",
+            "button": "Envoyer le lien",
+            "backToLogin": "Retour à la connexion",
+            "emailPlaceholder": "email@exemple.fr"
+        },
+        "resetPassword": {
+            "title": "Réinitialiser votre mot de passe",
+            "description": "Saisissez votre nouveau mot de passe ci-dessous",
+            "email": "Adresse e-mail",
+            "password": "Mot de passe",
+            "confirmPassword": "Confirmer le mot de passe",
+            "button": "Réinitialiser le mot de passe",
+            "emailPlaceholder": "email@exemple.fr",
+            "passwordPlaceholder": "Mot de passe"
+        },
+        "verifyEmail": {
+            "title": "Vérifier votre adresse e-mail",
+            "description": "Merci pour votre inscription ! Avant de commencer, pourriez-vous vérifier votre adresse e-mail en cliquant sur le lien que nous venons de vous envoyer ? Si vous ne l'avez pas reçu, nous vous en enverrons un autre avec plaisir.",
+            "resendButton": "Renvoyer l'e-mail de vérification",
+            "linkSent": "Un nouveau lien de vérification a été envoyé à votre adresse e-mail.",
+            "logout": "Se déconnecter"
+        },
+        "confirmPassword": {
+            "title": "Confirmer votre mot de passe",
+            "description": "Il s'agit d'une zone sécurisée de l'application. Veuillez confirmer votre mot de passe avant de continuer.",
+            "password": "Mot de passe",
+            "button": "Confirmer",
+            "passwordPlaceholder": "Mot de passe"
+        }
+    },
+    "chat": {
+        "title": "Chat",
+        "inputPlaceholder": "Écrivez un message...",
+        "send": "Envoyer",
+        "noMessages": "Aucun message pour le moment. Soyez le premier à dire quelque chose !",
+        "loadMore": "Charger plus de messages",
+        "loadingMessages": "Chargement des messages...",
+        "errorLoading": "Impossible de charger les messages",
+        "errorSending": "Impossible d'envoyer le message",
+        "retry": "Réessayer",
+        "slowModeActive": "Le mode lent est actif. Vous pourrez envoyer un message dans {seconds} secondes.",
+        "rateLimited": "Vous envoyez des messages trop rapidement. Veuillez patienter.",
+        "messageBlocked": "Votre message a été bloqué par les filtres de contenu."
+    },
+    "chatSettings": {
+        "title": "Paramètres du chat",
+        "contentFiltering": {
+            "title": "Filtrage du contenu",
+            "blockedWords": "Mots bloqués",
+            "blockedWordsHelp": "Saisissez les mots à bloquer, un par ligne",
+            "regexFilters": "Filtres regex",
+            "regexFiltersHelp": "Filtres avancés basés sur des motifs",
+            "addFilter": "Ajouter un filtre",
+            "pattern": "Motif",
+            "filterAction": "Action du filtre",
+            "block": "Bloquer le message",
+            "censor": "Censurer (remplacer par ***)",
+            "flag": "Signaler pour examen",
+            "allowUrls": "Autoriser les URL",
+            "allowUrlsHelp": "Si désactivé, les messages contenant des URL seront filtrés"
+        },
+        "spam": {
+            "title": "Détection de spam",
+            "repeatThreshold": "Seuil de répétition",
+            "repeatThresholdHelp": "Nombre de messages identiques avant d'être signalés comme spam",
+            "windowSeconds": "Fenêtre de détection (secondes)",
+            "windowSecondsHelp": "Fenêtre de temps pour compter les messages répétés"
+        },
+        "rateLimiting": {
+            "title": "Limitation de débit",
+            "messages": "Messages par fenêtre",
+            "messagesHelp": "Nombre maximum de messages qu'un utilisateur peut envoyer par fenêtre",
+            "windowSeconds": "Durée de la fenêtre (secondes)",
+            "windowSecondsHelp": "Fenêtre de temps pour la limitation de débit"
+        },
+        "slowMode": {
+            "title": "Mode lent",
+            "enabled": "Activer le mode lent",
+            "cooldownSeconds": "Temps de recharge (secondes)",
+            "cooldownSecondsHelp": "Temps minimum entre les messages par utilisateur",
+            "autoEnabled": "Activer le mode lent automatiquement",
+            "autoThreshold": "Seuil de déclenchement automatique",
+            "autoThresholdHelp": "Messages par minute pour tous les utilisateurs avant de déclencher automatiquement le mode lent"
+        },
+        "presets": {
+            "title": "Préréglages de filtres",
+            "description": "Activez des catégories de filtres préconfigurées pour bloquer automatiquement le contenu inapproprié",
+            "words": "mots",
+            "alwaysActive": "Toujours actif",
+            "nsfwMode": "Mode NSFW",
+            "nsfwModeHelp": "Lorsqu'il est activé, assouplit les filtres de grossièretés et de contenu sexuel tout en gardant actifs les filtres de sécurité des enfants, de protection des animaux, raciaux/politiques et de violence."
+        },
+        "saved": "Paramètres du chat enregistrés avec succès"
+    },
+    "activeUsers": {
+        "title": "Utilisateurs actifs",
+        "noUsers": "Aucun utilisateur actif",
+        "muteTimed": "Muter (temporaire)",
+        "mutePermanent": "Muter définitivement",
+        "muteReason": "Motif",
+        "muteDuration": "Durée (minutes)",
+        "showInLanCore": "Afficher dans LanCore",
+        "unmute": "Démuter",
+        "muteSuccess": "L'utilisateur a été muté",
+        "unmuteSuccess": "L'utilisateur a été démuté",
+        "actions": "Actions"
+    },
+    "muted": {
+        "title": "Vous êtes muté",
+        "reason": "Motif : {reason}",
+        "until": "Jusqu'au : {until}",
+        "permanent": "Cette mise en sourdine est permanente",
+        "contact": "Contactez un modérateur pour plus d'informations"
+    },
+    "dashboard": {
+        "title": "Tableau de bord",
+        "welcome": "Bon retour !",
+        "stats": {
+            "totalUsers": "Utilisateurs totaux",
+            "totalMessages": "Messages totaux",
+            "activeNow": "Actifs maintenant"
+        }
+    },
+    "settings": {
+        "title": "Paramètres",
+        "profile": {
+            "title": "Profil",
+            "description": "Mettez à jour vos informations de profil",
+            "name": "Nom",
+            "email": "Adresse e-mail",
+            "chatColor": "Couleur du chat",
+            "updateButton": "Mettre à jour le profil",
+            "updated": "Profil mis à jour avec succès"
+        },
+        "password": {
+            "title": "Mettre à jour le mot de passe",
+            "description": "Assurez-vous que votre compte utilise un mot de passe long et aléatoire pour rester sécurisé.",
+            "currentPassword": "Mot de passe actuel",
+            "newPassword": "Nouveau mot de passe",
+            "confirmPassword": "Confirmer le mot de passe",
+            "updateButton": "Mettre à jour le mot de passe",
+            "updated": "Mot de passe mis à jour avec succès"
+        },
+        "appearance": {
+            "title": "Apparence",
+            "description": "Personnalisez l'apparence de l'application",
+            "theme": "Thème",
+            "light": "Clair",
+            "dark": "Sombre",
+            "system": "Système",
+            "updated": "Apparence mise à jour avec succès"
+        }
+    },
+    "admin": {
+        "title": "Panneau d'administration",
+        "users": {
+            "title": "Utilisateurs",
+            "list": "Liste des utilisateurs",
+            "name": "Nom",
+            "email": "E-mail",
+            "role": "Rôle",
+            "createdAt": "Créé le",
+            "actions": "Actions",
+            "view": "Voir",
+            "edit": "Modifier",
+            "delete": "Supprimer",
+            "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+            "deleteSuccess": "Utilisateur supprimé avec succès",
+            "deleteError": "Échec de la suppression de l'utilisateur",
+            "noUsers": "Aucun utilisateur trouvé"
+        }
+    },
+    "navigation": {
+        "home": "Accueil",
+        "chat": "Chat",
+        "dashboard": "Tableau de bord",
+        "settings": "Paramètres",
+        "admin": "Admin",
+        "users": "Utilisateurs",
+        "profile": "Profil",
+        "appearance": "Apparence",
+        "password": "Mot de passe"
+    },
+    "validation": {
+        "required": "Ce champ est obligatoire",
+        "email": "Veuillez saisir une adresse e-mail valide",
+        "minLength": "Doit contenir au moins {min} caractères",
+        "maxLength": "Ne doit pas dépasser {max} caractères",
+        "passwordMatch": "Les mots de passe doivent correspondre"
+    }
+}

@@ -44,12 +44,15 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'name' => config('app.name'),
+            'locale' => fn () => app()->getLocale(),
+            'availableLocales' => SetLocale::AVAILABLE,
             'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
                 'user' => $user ? [
                     'id' => $user->id,
                     'name' => $user->name,
                     'email' => $user->email,
+                    'locale' => $user->locale,
                     'roles' => $user->roles->pluck('name')->toArray(),
                 ] : null,
             ],

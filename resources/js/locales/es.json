@@ -1,0 +1,272 @@
+{
+    "common": {
+        "appName": "LanShout",
+        "loading": "Cargando...",
+        "error": "Error",
+        "success": "Éxito",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "close": "Cerrar",
+        "submit": "Enviar",
+        "search": "Buscar",
+        "settings": "Ajustes",
+        "logout": "Cerrar sesión",
+        "profile": "Perfil",
+        "dashboard": "Panel",
+        "admin": "Admin",
+        "users": "Usuarios",
+        "back": "Atrás"
+    },
+    "landing": {
+        "title": "Bienvenido a LanShout",
+        "subtitle": "Un shoutbox simple en tiempo real, diseñado para LAN parties y eventos. Comparte mensajes, coordina partidas y mantente conectado durante tu evento.",
+        "getStarted": "Empezar",
+        "createAccount": "Crear cuenta",
+        "logIn": "Iniciar sesión",
+        "register": "Registrarse",
+        "features": {
+            "title": "Funciones",
+            "simpleMessaging": {
+                "title": "Mensajería simple",
+                "description": "Publica mensajes rápidos que todos en tu LAN pueden ver al instante."
+            },
+            "realTimeUpdates": {
+                "title": "Actualizaciones en tiempo real",
+                "description": "Los mensajes aparecen al instante para todos los usuarios con sincronización en tiempo real."
+            },
+            "builtForEvents": {
+                "title": "Diseñado para eventos",
+                "description": "Perfecto para LAN parties, eventos de gaming y reuniones comunitarias."
+            }
+        },
+        "cta": {
+            "title": "¿Listo para conectar con tu comunidad?",
+            "description": "Inicia sesión para chatear o crea una cuenta para unirte a la conversación.",
+            "button": "Iniciar sesión en el chat"
+        },
+        "footer": "LanShout - Mensajería simple en tiempo real para tus eventos"
+    },
+    "auth": {
+        "login": {
+            "title": "Inicia sesión en tu cuenta",
+            "description": "Introduce tu correo electrónico y contraseña a continuación para iniciar sesión",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "rememberMe": "Recuérdame",
+            "forgotPassword": "¿Olvidaste tu contraseña?",
+            "button": "Iniciar sesión",
+            "noAccount": "¿No tienes cuenta?",
+            "signUp": "Registrarse",
+            "emailPlaceholder": "email@ejemplo.es",
+            "passwordPlaceholder": "Contraseña"
+        },
+        "register": {
+            "title": "Crear una cuenta",
+            "description": "Introduce tus datos para crear una cuenta",
+            "name": "Nombre",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "button": "Registrarse",
+            "hasAccount": "¿Ya tienes cuenta?",
+            "logIn": "Iniciar sesión",
+            "namePlaceholder": "Juan Pérez",
+            "emailPlaceholder": "email@ejemplo.es",
+            "passwordPlaceholder": "Contraseña"
+        },
+        "forgotPassword": {
+            "title": "¿Olvidaste tu contraseña?",
+            "description": "Introduce tu correo electrónico y te enviaremos un enlace para restablecer la contraseña.",
+            "email": "Correo electrónico",
+            "button": "Enviar enlace",
+            "backToLogin": "Volver al inicio de sesión",
+            "emailPlaceholder": "email@ejemplo.es"
+        },
+        "resetPassword": {
+            "title": "Restablecer tu contraseña",
+            "description": "Introduce tu nueva contraseña a continuación",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "button": "Restablecer contraseña",
+            "emailPlaceholder": "email@ejemplo.es",
+            "passwordPlaceholder": "Contraseña"
+        },
+        "verifyEmail": {
+            "title": "Verificar tu correo electrónico",
+            "description": "¡Gracias por registrarte! Antes de empezar, ¿podrías verificar tu correo electrónico haciendo clic en el enlace que te acabamos de enviar? Si no recibiste el correo, te enviaremos otro con gusto.",
+            "resendButton": "Reenviar correo de verificación",
+            "linkSent": "Se ha enviado un nuevo enlace de verificación a tu correo electrónico.",
+            "logout": "Cerrar sesión"
+        },
+        "confirmPassword": {
+            "title": "Confirmar tu contraseña",
+            "description": "Esta es un área segura de la aplicación. Confirma tu contraseña antes de continuar.",
+            "password": "Contraseña",
+            "button": "Confirmar",
+            "passwordPlaceholder": "Contraseña"
+        }
+    },
+    "chat": {
+        "title": "Chat",
+        "inputPlaceholder": "Escribe un mensaje...",
+        "send": "Enviar",
+        "noMessages": "Aún no hay mensajes. ¡Sé el primero en decir algo!",
+        "loadMore": "Cargar más mensajes",
+        "loadingMessages": "Cargando mensajes...",
+        "errorLoading": "Error al cargar los mensajes",
+        "errorSending": "Error al enviar el mensaje",
+        "retry": "Reintentar",
+        "slowModeActive": "El modo lento está activo. Podrás enviar un mensaje en {seconds} segundos.",
+        "rateLimited": "Estás enviando mensajes demasiado rápido. Espera un momento.",
+        "messageBlocked": "Tu mensaje fue bloqueado por los filtros de contenido."
+    },
+    "chatSettings": {
+        "title": "Ajustes del chat",
+        "contentFiltering": {
+            "title": "Filtrado de contenido",
+            "blockedWords": "Palabras bloqueadas",
+            "blockedWordsHelp": "Introduce palabras a bloquear, una por línea",
+            "regexFilters": "Filtros regex",
+            "regexFiltersHelp": "Filtros avanzados basados en patrones",
+            "addFilter": "Añadir filtro",
+            "pattern": "Patrón",
+            "filterAction": "Acción del filtro",
+            "block": "Bloquear mensaje",
+            "censor": "Censurar (reemplazar con ***)",
+            "flag": "Marcar para revisión",
+            "allowUrls": "Permitir URL",
+            "allowUrlsHelp": "Si se desactiva, los mensajes con URL serán filtrados"
+        },
+        "spam": {
+            "title": "Detección de spam",
+            "repeatThreshold": "Umbral de repetición",
+            "repeatThresholdHelp": "Número de mensajes idénticos antes de marcarlos como spam",
+            "windowSeconds": "Ventana de detección (segundos)",
+            "windowSecondsHelp": "Ventana de tiempo para contar mensajes repetidos"
+        },
+        "rateLimiting": {
+            "title": "Limitación de velocidad",
+            "messages": "Mensajes por ventana",
+            "messagesHelp": "Máximo de mensajes que un usuario puede enviar por ventana",
+            "windowSeconds": "Duración de la ventana (segundos)",
+            "windowSecondsHelp": "Ventana de tiempo para la limitación de velocidad"
+        },
+        "slowMode": {
+            "title": "Modo lento",
+            "enabled": "Activar modo lento",
+            "cooldownSeconds": "Tiempo de espera (segundos)",
+            "cooldownSecondsHelp": "Tiempo mínimo entre mensajes por usuario",
+            "autoEnabled": "Activar modo lento automáticamente",
+            "autoThreshold": "Umbral de activación automática",
+            "autoThresholdHelp": "Mensajes por minuto entre todos los usuarios para activar automáticamente el modo lento"
+        },
+        "presets": {
+            "title": "Ajustes preestablecidos de filtros",
+            "description": "Activa categorías de filtros preconfigurados para bloquear automáticamente contenido inapropiado",
+            "words": "palabras",
+            "alwaysActive": "Siempre activo",
+            "nsfwMode": "Modo NSFW",
+            "nsfwModeHelp": "Cuando está activado, relaja los filtros de lenguaje ofensivo y contenido sexual, manteniendo activos los filtros de seguridad infantil, protección animal, raciales/políticos y de violencia."
+        },
+        "saved": "Ajustes del chat guardados correctamente"
+    },
+    "activeUsers": {
+        "title": "Usuarios activos",
+        "noUsers": "No hay usuarios activos",
+        "muteTimed": "Silenciar (temporal)",
+        "mutePermanent": "Silenciar permanentemente",
+        "muteReason": "Motivo",
+        "muteDuration": "Duración (minutos)",
+        "showInLanCore": "Mostrar en LanCore",
+        "unmute": "Quitar silencio",
+        "muteSuccess": "El usuario ha sido silenciado",
+        "unmuteSuccess": "El silencio ha sido retirado",
+        "actions": "Acciones"
+    },
+    "muted": {
+        "title": "Estás silenciado",
+        "reason": "Motivo: {reason}",
+        "until": "Hasta: {until}",
+        "permanent": "Este silencio es permanente",
+        "contact": "Contacta a un moderador para más información"
+    },
+    "dashboard": {
+        "title": "Panel",
+        "welcome": "¡Bienvenido de nuevo!",
+        "stats": {
+            "totalUsers": "Usuarios totales",
+            "totalMessages": "Mensajes totales",
+            "activeNow": "Activos ahora"
+        }
+    },
+    "settings": {
+        "title": "Ajustes",
+        "profile": {
+            "title": "Perfil",
+            "description": "Actualiza la información de tu perfil",
+            "name": "Nombre",
+            "email": "Correo electrónico",
+            "chatColor": "Color del chat",
+            "updateButton": "Actualizar perfil",
+            "updated": "Perfil actualizado correctamente"
+        },
+        "password": {
+            "title": "Actualizar contraseña",
+            "description": "Asegúrate de que tu cuenta use una contraseña larga y aleatoria para mantenerse segura.",
+            "currentPassword": "Contraseña actual",
+            "newPassword": "Nueva contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "updateButton": "Actualizar contraseña",
+            "updated": "Contraseña actualizada correctamente"
+        },
+        "appearance": {
+            "title": "Apariencia",
+            "description": "Personaliza la apariencia de la aplicación",
+            "theme": "Tema",
+            "light": "Claro",
+            "dark": "Oscuro",
+            "system": "Sistema",
+            "updated": "Apariencia actualizada correctamente"
+        }
+    },
+    "admin": {
+        "title": "Panel de administración",
+        "users": {
+            "title": "Usuarios",
+            "list": "Lista de usuarios",
+            "name": "Nombre",
+            "email": "Correo",
+            "role": "Rol",
+            "createdAt": "Creado el",
+            "actions": "Acciones",
+            "view": "Ver",
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "confirmDelete": "¿Estás seguro de que quieres eliminar este usuario?",
+            "deleteSuccess": "Usuario eliminado correctamente",
+            "deleteError": "Error al eliminar el usuario",
+            "noUsers": "No se encontraron usuarios"
+        }
+    },
+    "navigation": {
+        "home": "Inicio",
+        "chat": "Chat",
+        "dashboard": "Panel",
+        "settings": "Ajustes",
+        "admin": "Admin",
+        "users": "Usuarios",
+        "profile": "Perfil",
+        "appearance": "Apariencia",
+        "password": "Contraseña"
+    },
+    "validation": {
+        "required": "Este campo es obligatorio",
+        "email": "Introduce una dirección de correo electrónico válida",
+        "minLength": "Debe tener al menos {min} caracteres",
+        "maxLength": "No debe superar los {max} caracteres",
+        "passwordMatch": "Las contraseñas deben coincidir"
+    }
+}

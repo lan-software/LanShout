@@ -132,7 +132,7 @@ test('profile update rejects invalid locale', function () {
     $response = $this->actingAs($user)->patch(route('profile.update'), [
         'name' => 'Updated',
         'email' => $user->email,
-        'locale' => 'fr',
+        'locale' => 'zz',
     ]);
 
     $response->assertSessionHasErrors('locale');
