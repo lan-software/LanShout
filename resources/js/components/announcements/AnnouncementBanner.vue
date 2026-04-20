@@ -15,12 +15,16 @@ type SharedAnnouncement = {
 
 const page = usePage<{ announcements: SharedAnnouncement[] | null }>();
 
-const initial = computed<SharedAnnouncement[]>(() => page.props.announcements ?? []);
+const initial = computed<SharedAnnouncement[]>(
+    () => page.props.announcements ?? [],
+);
 const dismissedIds = ref<Set<number>>(new Set());
 const local = ref<SharedAnnouncement[]>([...initial.value]);
 
 watch(initial, (next: SharedAnnouncement[]): void => {
-    local.value = next.filter((a: SharedAnnouncement) => !dismissedIds.value.has(a.id));
+    local.value = next.filter(
+        (a: SharedAnnouncement) => !dismissedIds.value.has(a.id),
+    );
 });
 
 const classesFor = (severity: string | null): string => {
@@ -36,7 +40,9 @@ const classesFor = (severity: string | null): string => {
 
 const dismiss = (announcement: SharedAnnouncement): void => {
     dismissedIds.value.add(announcement.id);
-    local.value = local.value.filter((a: SharedAnnouncement) => a.id !== announcement.id);
+    local.value = local.value.filter(
+        (a: SharedAnnouncement) => a.id !== announcement.id,
+    );
 };
 </script>
 
@@ -51,7 +57,9 @@ const dismiss = (announcement: SharedAnnouncement): void => {
         >
             <div class="flex-1">
                 <p class="font-semibold">{{ announcement.title }}</p>
-                <p v-if="announcement.body" class="mt-0.5 opacity-90">{{ announcement.body }}</p>
+                <p v-if="announcement.body" class="mt-0.5 opacity-90">
+                    {{ announcement.body }}
+                </p>
             </div>
             <button
                 v-if="announcement.dismissible"

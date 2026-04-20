@@ -1,12 +1,12 @@
 import '../css/app.css';
 
+import DemoShell from '@/components/demo/DemoShell.vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
 import { initializeTheme } from './composables/useAppearance';
 import i18n from './i18n';
-import DemoShell from '@/components/demo/DemoShell.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -25,8 +25,7 @@ createInertiaApp({
         }
 
         createApp({
-            render: () =>
-                h(DemoShell, null, { default: () => h(App, props) }),
+            render: () => h(DemoShell, null, { default: () => h(App, props) }),
         })
             .use(plugin)
             .use(i18n)
