@@ -1,0 +1,302 @@
+{
+    "common": {
+        "appName": "LanShout",
+        "loading": "ghoStaH...",
+        "error": "Qagh",
+        "success": "Qapla'",
+        "save": "pol",
+        "cancel": "qIl",
+        "delete": "Qaw'",
+        "edit": "choH",
+        "close": "SoQmoH",
+        "submit": "nob",
+        "search": "nej",
+        "settings": "nabmey",
+        "logout": "mej",
+        "profile": "pong De'",
+        "dashboard": "De' jIH",
+        "admin": "che'wI'",
+        "users": "lo'wI'pu'",
+        "back": "tlhoS"
+    },
+    "landing": {
+        "title": "LanShout nuqneH",
+        "subtitle": "LAN qep 'ej wanI' QojmeH ja'chuq nom. Hoch ja'chuq, Qoj bI' 'ej wanI'lIj tay' jIv.",
+        "getStarted": "taghmoH",
+        "createAccount": "De'wI' chen",
+        "logIn": "'el",
+        "register": "chen",
+        "features": {
+            "title": "nab Dotlh",
+            "simpleMessaging": {
+                "title": "ja'chuq nom",
+                "description": "LANlIjDaq Hoch leghlaH ja'chuq nom ghItlh 'ej chu' De'."
+            },
+            "realTimeUpdates": {
+                "title": "Sum poH chu'ghachmey",
+                "description": "Hoch lo'wI'vaD ja'chuq chel 'ej Sum poH tay'moH."
+            },
+            "builtForEvents": {
+                "title": "wanI'vaD chenlu'pu'",
+                "description": "LAN qepmey, QojmeH wanI'mey 'ej ghomchuq qepmeyvaD batlh."
+            }
+        },
+        "cta": {
+            "title": "ghomlIjvaD tay'meH DaDIl'a'?",
+            "description": "jatlh taghmeH yI'el pagh De'wI' chen ghomvamDaq SuD.",
+            "button": "'el 'ej jatlh"
+        },
+        "footer": "LanShout — wanI'meylIjvaD Sum poH ja'chuq nom"
+    },
+    "auth": {
+        "login": {
+            "title": "De'wI' tIja'ta' 'el",
+            "description": "De'ghaj 'ej vo'ral tIja'ta' 'elmeH",
+            "email": "De'wI' ngeb",
+            "password": "vo'ral",
+            "rememberMe": "jIH qaw",
+            "forgotPassword": "vo'ral DalIjpu''a'?",
+            "button": "'el",
+            "noAccount": "De'wI' Daghajbe''a'?",
+            "signUp": "chen",
+            "emailPlaceholder": "email@example.com",
+            "passwordPlaceholder": "vo'ral"
+        },
+        "register": {
+            "title": "De'wI' chen",
+            "description": "De'wI' chenmeH De'lIj yIja'",
+            "name": "pong",
+            "email": "De'wI' ngeb",
+            "password": "vo'ral",
+            "confirmPassword": "vo'ral luH",
+            "button": "chen",
+            "hasAccount": "De'wI' Daghaj'a'?",
+            "logIn": "'el",
+            "namePlaceholder": "Qang vatlhnga'",
+            "emailPlaceholder": "email@example.com",
+            "passwordPlaceholder": "vo'ral"
+        },
+        "forgotPassword": {
+            "title": "vo'ral DalIjpu''a'?",
+            "description": "De'wI' ngeblIj yIja' 'ej vo'ral choHmeH yIn wItlheSmoH.",
+            "email": "De'wI' ngeb",
+            "button": "yIn ngeH",
+            "backToLogin": "'elmeH tlhoS",
+            "emailPlaceholder": "email@example.com"
+        },
+        "resetPassword": {
+            "title": "vo'ral chu' nob",
+            "description": "vo'ral chu'lIj yIja'",
+            "email": "De'wI' ngeb",
+            "password": "vo'ral",
+            "confirmPassword": "vo'ral luH",
+            "button": "vo'ral choHmoH",
+            "emailPlaceholder": "email@example.com",
+            "passwordPlaceholder": "vo'ral"
+        },
+        "verifyEmail": {
+            "title": "De'wI' ngeblIj yIngu'",
+            "description": "Dachu'qa'moH batlh qatlho'! DachaghtaH mojpa', yIn wIngeHpu'bogh DachelmeH De'wI' ngeblIj yIngu'. De'wI' DaHevbe'pu'chugh, latlh wIngeHbej.",
+            "resendButton": "De'wI' ngu'meH De' ngeHqa'",
+            "linkSent": "De'wI' ngu'meH De' chu' ngeHta'.",
+            "logout": "mej"
+        },
+        "confirmPassword": {
+            "title": "vo'ralIj yIlu'",
+            "description": "Hup Hol 'oH naDev'e'. DataH pa' vo'ralIj yIlu'.",
+            "password": "vo'ral",
+            "button": "lu'",
+            "passwordPlaceholder": "vo'ral"
+        }
+    },
+    "chat": {
+        "title": "ja'chuq",
+        "inputPlaceholder": "ja'chuq yIqon...",
+        "send": "ngeH",
+        "noMessages": "ja'chuq tu'be'lu'. wa'DIch yIja'!",
+        "loadMore": "latlh ja'chuqmey ghoSmoH",
+        "loadingMessages": "ja'chuqmey ghoStaH...",
+        "errorLoading": "ja'chuqmey ghoSlu'be'",
+        "errorSending": "ja'chuq ngeHpu'be'",
+        "retry": "qen nID",
+        "slowModeActive": "Qop mIw qap. {seconds} lup pagh ja'chuq DangeHlaH.",
+        "rateLimited": "nom ja'chuq DangeHtaH. yIloS.",
+        "messageBlocked": "ja'chuqlIj bepwI'vetlh votlh."
+    },
+    "chatSettings": {
+        "title": "ja'chuq nabmey",
+        "contentFiltering": {
+            "title": "De' bepwI'",
+            "blockedWords": "mu' bepwI'",
+            "blockedWordsHelp": "bepmeH mu'mey yIja', HochvaD wa' tay'",
+            "regexFilters": "regex bepwI'mey",
+            "regexFiltersHelp": "wuqmeH Seghmey",
+            "addFilter": "bepwI' chel",
+            "pattern": "Seghmey",
+            "filterAction": "bepwI' vang",
+            "block": "ja'chuq bep",
+            "censor": "naDev (*** lo')",
+            "flag": "loSmoH tIS",
+            "allowUrls": "URL chaw'",
+            "allowUrlsHelp": "jaghDI', URL ghajbogh ja'chuq bep"
+        },
+        "spam": {
+            "title": "moD De' Sam",
+            "repeatThreshold": "qenqa' vuS",
+            "repeatThresholdHelp": "moD bejlu'DI' rurbogh ja'chuq mI'",
+            "windowSeconds": "Sam poH (lup)",
+            "windowSecondsHelp": "rurbogh ja'chuq tollu'meH poH"
+        },
+        "rateLimiting": {
+            "title": "tlhoy' vuS",
+            "messages": "poH ghajbogh ja'chuq",
+            "messagesHelp": "poH ghajbogh ja'chuq mI' law'qu'",
+            "windowSeconds": "poH taH (lup)",
+            "windowSecondsHelp": "tlhoy' vuSmeH poH"
+        },
+        "slowMode": {
+            "title": "Qop mIw",
+            "enabled": "Qop mIw jagh",
+            "cooldownSeconds": "loS poH (lup)",
+            "cooldownSecondsHelp": "lo'wI' ja'chuqmey joj poH puS",
+            "autoEnabled": "Qop mIw jaghchoHmoH",
+            "autoThreshold": "jagh vuS",
+            "autoThresholdHelp": "Qop mIw jaghmeH Hoch lo'wI'pu' nob ja'chuq jav"
+        },
+        "presets": {
+            "title": "bepwI' DaHlu'bogh",
+            "description": "lu'be'bogh De' bepmeH Segh jagh",
+            "words": "mu'",
+            "alwaysActive": "reH qap",
+            "nsfwMode": "NSFW mIw",
+            "nsfwModeHelp": "jaghDI', qoH 'ej tlhutlh bepmey jom, 'ach puq, Ha'DIbaH, ghot/che' 'ej HIv bepmey taHqu'."
+        },
+        "saved": "ja'chuq nabmey polpu'"
+    },
+    "activeUsers": {
+        "title": "lo'wI'pu' vang",
+        "noUsers": "lo'wI'pu' vangbe'",
+        "muteTimed": "tammoH (poH)",
+        "mutePermanent": "reH tammoH",
+        "muteReason": "meq",
+        "muteDuration": "taH (tup)",
+        "showInLanCore": "LanCore 'aghmoH",
+        "unmute": "tammoHHa'",
+        "muteSuccess": "lo'wI' tammoHlu'pu'",
+        "unmuteSuccess": "lo'wI' tammoHHa'lu'pu'",
+        "actions": "vangmey"
+    },
+    "muted": {
+        "title": "bItammoHlu'pu'",
+        "reason": "meq: {reason}",
+        "until": "naDev: {until}",
+        "permanent": "tammoH reH qap",
+        "contact": "latlh De' DaghajmeH che'wI' yI'uch"
+    },
+    "dashboard": {
+        "title": "De' jIH",
+        "welcome": "narghmo' nuqneH!",
+        "stats": {
+            "totalUsers": "lo'wI'pu' Hoch",
+            "totalMessages": "ja'chuqmey Hoch",
+            "activeNow": "DaH vangbogh"
+        },
+        "chart": {
+            "hourly": "rep",
+            "daily": "jaj",
+            "weekly": "Hogh",
+            "messages": "ja'chuqmey",
+            "users": "lo'wI'pu'",
+            "sessions": "vum",
+            "hour": "rep",
+            "day": "jaj",
+            "week": "Hogh",
+            "loading": "qubtetlh De' ghoStaH...",
+            "noData": "De' tu'be'"
+        }
+    },
+    "settings": {
+        "title": "nabmey",
+        "profile": {
+            "title": "pong De'",
+            "pageTitle": "pong De' nabmey",
+            "information": "pong De' De'",
+            "description": "ponglIj 'ej De'wI' ngeblIj yIchu'",
+            "name": "pong",
+            "namePlaceholder": "pong naQ",
+            "email": "De'wI' ngeb",
+            "emailPlaceholder": "De'wI' ngeb",
+            "chatColor": "ja'chuq pong nguv",
+            "chatColorDescription": "ja'chuq ponglIjvaD nguv yIwIv",
+            "language": "Hol / Language",
+            "updateButton": "pol",
+            "saved": "polpu'.",
+            "updated": "pong De' chu'pu'",
+            "emailUnverified": "De'wI' ngeblIj ngu'lu'be'pu'.",
+            "resendLink": "naDev yI'uch: De'wI' ngu'meH De' qenqa'.",
+            "verificationSent": "De'wI' ngu'meH De' chu' ngeHta'."
+        },
+        "password": {
+            "title": "vo'ral chu'",
+            "pageTitle": "vo'ral nabmey",
+            "description": "tIq 'ej Sambe'bogh vo'ral lo'qu' 'e' 'aghmoH Hup",
+            "currentPassword": "DaH vo'ral",
+            "currentPasswordPlaceholder": "DaH vo'ral",
+            "newPassword": "vo'ral chu'",
+            "newPasswordPlaceholder": "vo'ral chu'",
+            "confirmPassword": "vo'ral luH",
+            "confirmPasswordPlaceholder": "vo'ral luH",
+            "updateButton": "vo'ral pol",
+            "saved": "polpu'.",
+            "updated": "vo'ral chu'pu'"
+        },
+        "appearance": {
+            "title": "boch nabmey",
+            "description": "De'wI'lIj boch nabmey yIchu'",
+            "theme": "Dotlh",
+            "light": "wovbogh",
+            "dark": "Hurghbogh",
+            "system": "patlIj",
+            "updated": "boch chu'pu'"
+        }
+    },
+    "admin": {
+        "title": "che' Hol",
+        "users": {
+            "title": "lo'wI'pu'",
+            "list": "lo'wI' tetlh",
+            "name": "pong",
+            "email": "De'wI' ngeb",
+            "role": "patlh",
+            "createdAt": "chenmoHlu'pu'",
+            "actions": "vangmey",
+            "view": "legh",
+            "edit": "choH",
+            "delete": "Qaw'",
+            "confirmDelete": "lo'wI'vam Daqaw' DaneH'a'?",
+            "deleteSuccess": "lo'wI' Qaw'lu'pu'",
+            "deleteError": "lo'wI' Qaw'lu'be'",
+            "noUsers": "lo'wI'pu' tu'lu'be'"
+        }
+    },
+    "navigation": {
+        "home": "juH",
+        "chat": "ja'chuq",
+        "dashboard": "De' jIH",
+        "settings": "nabmey",
+        "admin": "che'wI'",
+        "users": "lo'wI'pu'",
+        "profile": "pong De'",
+        "appearance": "boch",
+        "password": "vo'ral",
+        "github": "GitHub",
+        "menu": "HeS He"
+    },
+    "validation": {
+        "required": "yab vam poQlu'",
+        "email": "De'wI' ngeb lu'lu'bogh yIja'",
+        "minLength": "loQ {min} tetlh law'",
+        "maxLength": "law'be' {max} tetlh law'",
+        "passwordMatch": "vo'ralmey rurnIS"
+    }
+}

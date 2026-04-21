@@ -1,0 +1,302 @@
+{
+    "common": {
+        "appName": "LanShout",
+        "loading": "Laddar...",
+        "error": "Fel",
+        "success": "Klart",
+        "save": "Spara",
+        "cancel": "Avbryt",
+        "delete": "Radera",
+        "edit": "Redigera",
+        "close": "Stäng",
+        "submit": "Skicka",
+        "search": "Sök",
+        "settings": "Inställningar",
+        "logout": "Logga ut",
+        "profile": "Profil",
+        "dashboard": "Översikt",
+        "admin": "Administration",
+        "users": "Användare",
+        "back": "Tillbaka"
+    },
+    "landing": {
+        "title": "Välkommen till LanShout",
+        "subtitle": "En enkel chatt i realtid designad för LAN-partyn och evenemang. Låt alla dela meddelanden, koordinera spel och hålla kontakten under ditt evenemang.",
+        "getStarted": "Kom igång",
+        "createAccount": "Skapa konto",
+        "logIn": "Logga in",
+        "register": "Registrera",
+        "features": {
+            "title": "Funktioner",
+            "simpleMessaging": {
+                "title": "Enkel meddelandehantering",
+                "description": "Posta snabba meddelanden och uppdateringar som alla på ditt LAN kan se direkt."
+            },
+            "realTimeUpdates": {
+                "title": "Uppdateringar i realtid",
+                "description": "Meddelanden visas omedelbart för alla användare med synkronisering i realtid."
+            },
+            "builtForEvents": {
+                "title": "Byggd för evenemang",
+                "description": "Perfekt för LAN-partyn, speltillfällen och gemenskapsträffar."
+            }
+        },
+        "cta": {
+            "title": "Redo att ansluta till din gemenskap?",
+            "description": "Logga in för att börja chatta eller skapa ett konto för att delta i samtalet.",
+            "button": "Logga in för att chatta"
+        },
+        "footer": "LanShout – Enkel chatt i realtid för dina evenemang"
+    },
+    "auth": {
+        "login": {
+            "title": "Logga in på ditt konto",
+            "description": "Ange din e-post och ditt lösenord nedan för att logga in",
+            "email": "E-postadress",
+            "password": "Lösenord",
+            "rememberMe": "Kom ihåg mig",
+            "forgotPassword": "Glömt lösenordet?",
+            "button": "Logga in",
+            "noAccount": "Har du inget konto?",
+            "signUp": "Registrera dig",
+            "emailPlaceholder": "epost@exempel.se",
+            "passwordPlaceholder": "Lösenord"
+        },
+        "register": {
+            "title": "Skapa ett konto",
+            "description": "Ange dina uppgifter för att skapa ett konto",
+            "name": "Namn",
+            "email": "E-postadress",
+            "password": "Lösenord",
+            "confirmPassword": "Bekräfta lösenord",
+            "button": "Registrera",
+            "hasAccount": "Har du redan ett konto?",
+            "logIn": "Logga in",
+            "namePlaceholder": "Anna Svensson",
+            "emailPlaceholder": "epost@exempel.se",
+            "passwordPlaceholder": "Lösenord"
+        },
+        "forgotPassword": {
+            "title": "Glömt ditt lösenord?",
+            "description": "Ange din e-postadress så skickar vi en länk för att återställa lösenordet.",
+            "email": "E-postadress",
+            "button": "Skicka återställningslänk",
+            "backToLogin": "Tillbaka till inloggning",
+            "emailPlaceholder": "epost@exempel.se"
+        },
+        "resetPassword": {
+            "title": "Återställ ditt lösenord",
+            "description": "Ange ditt nya lösenord nedan",
+            "email": "E-postadress",
+            "password": "Lösenord",
+            "confirmPassword": "Bekräfta lösenord",
+            "button": "Återställ lösenord",
+            "emailPlaceholder": "epost@exempel.se",
+            "passwordPlaceholder": "Lösenord"
+        },
+        "verifyEmail": {
+            "title": "Verifiera din e-postadress",
+            "description": "Tack för att du registrerat dig! Innan du kommer igång, kan du verifiera din e-postadress genom att klicka på länken vi just skickade? Om du inte fick e-postmeddelandet skickar vi gärna ett nytt.",
+            "resendButton": "Skicka verifieringsmejl igen",
+            "linkSent": "En ny verifieringslänk har skickats till din e-postadress.",
+            "logout": "Logga ut"
+        },
+        "confirmPassword": {
+            "title": "Bekräfta ditt lösenord",
+            "description": "Detta är ett säkert område i programmet. Bekräfta ditt lösenord innan du fortsätter.",
+            "password": "Lösenord",
+            "button": "Bekräfta",
+            "passwordPlaceholder": "Lösenord"
+        }
+    },
+    "chat": {
+        "title": "Chatt",
+        "inputPlaceholder": "Skriv ett meddelande...",
+        "send": "Skicka",
+        "noMessages": "Inga meddelanden ännu. Bli den första att säga något!",
+        "loadMore": "Ladda fler meddelanden",
+        "loadingMessages": "Laddar meddelanden...",
+        "errorLoading": "Kunde inte ladda meddelanden",
+        "errorSending": "Kunde inte skicka meddelandet",
+        "retry": "Försök igen",
+        "slowModeActive": "Långsamt läge är aktivt. Du kan skicka ett meddelande om {seconds} sekunder.",
+        "rateLimited": "Du skickar meddelanden för snabbt. Vänta lite.",
+        "messageBlocked": "Ditt meddelande blockerades av innehållsfiltren."
+    },
+    "chatSettings": {
+        "title": "Chattinställningar",
+        "contentFiltering": {
+            "title": "Innehållsfiltrering",
+            "blockedWords": "Blockerade ord",
+            "blockedWordsHelp": "Ange ord att blockera, ett per rad",
+            "regexFilters": "Regex-filter",
+            "regexFiltersHelp": "Avancerade mönsterbaserade filter",
+            "addFilter": "Lägg till filter",
+            "pattern": "Mönster",
+            "filterAction": "Filteråtgärd",
+            "block": "Blockera meddelande",
+            "censor": "Censurera (ersätt med ***)",
+            "flag": "Flagga för granskning",
+            "allowUrls": "Tillåt URL:er",
+            "allowUrlsHelp": "När det är inaktiverat filtreras meddelanden som innehåller URL:er"
+        },
+        "spam": {
+            "title": "Skräppostdetektering",
+            "repeatThreshold": "Upprepningsgräns",
+            "repeatThresholdHelp": "Antal identiska meddelanden innan de flaggas som skräp",
+            "windowSeconds": "Detekteringsfönster (sekunder)",
+            "windowSecondsHelp": "Tidsfönster för att räkna upprepade meddelanden"
+        },
+        "rateLimiting": {
+            "title": "Hastighetsbegränsning",
+            "messages": "Meddelanden per fönster",
+            "messagesHelp": "Maximalt antal meddelanden en användare kan skicka per fönster",
+            "windowSeconds": "Fönstrets varaktighet (sekunder)",
+            "windowSecondsHelp": "Tidsfönster för hastighetsbegränsning"
+        },
+        "slowMode": {
+            "title": "Långsamt läge",
+            "enabled": "Aktivera långsamt läge",
+            "cooldownSeconds": "Avsvalning (sekunder)",
+            "cooldownSecondsHelp": "Minsta tid mellan meddelanden per användare",
+            "autoEnabled": "Aktivera långsamt läge automatiskt",
+            "autoThreshold": "Auto-utlösningströskel",
+            "autoThresholdHelp": "Meddelanden per minut över alla användare för att automatiskt utlösa långsamt läge"
+        },
+        "presets": {
+            "title": "Filterförinställningar",
+            "description": "Aktivera fördefinierade filterkategorier för att automatiskt blockera olämpligt innehåll",
+            "words": "ord",
+            "alwaysActive": "Alltid aktivt",
+            "nsfwMode": "NSFW-läge",
+            "nsfwModeHelp": "När det är aktiverat lättar det på svordoms- och sexinnehållsfilter medan filter för barnsäkerhet, djursäkerhet, ras/politik och våld förblir aktiva."
+        },
+        "saved": "Chattinställningarna har sparats"
+    },
+    "activeUsers": {
+        "title": "Aktiva användare",
+        "noUsers": "Inga aktiva användare",
+        "muteTimed": "Tysta (tidsbegränsat)",
+        "mutePermanent": "Tysta permanent",
+        "muteReason": "Anledning",
+        "muteDuration": "Varaktighet (minuter)",
+        "showInLanCore": "Visa i LanCore",
+        "unmute": "Häv tystad",
+        "muteSuccess": "Användaren har tystats",
+        "unmuteSuccess": "Användaren har ohajdats",
+        "actions": "Åtgärder"
+    },
+    "muted": {
+        "title": "Du är tystad",
+        "reason": "Anledning: {reason}",
+        "until": "Till: {until}",
+        "permanent": "Denna tystnad är permanent",
+        "contact": "Kontakta en moderator för mer information"
+    },
+    "dashboard": {
+        "title": "Översikt",
+        "welcome": "Välkommen tillbaka!",
+        "stats": {
+            "totalUsers": "Totalt antal användare",
+            "totalMessages": "Totalt antal meddelanden",
+            "activeNow": "Aktiva just nu"
+        },
+        "chart": {
+            "hourly": "Per timme",
+            "daily": "Dagligen",
+            "weekly": "Veckovis",
+            "messages": "Meddelanden",
+            "users": "Användare",
+            "sessions": "Sessioner",
+            "hour": "Timme",
+            "day": "Dag",
+            "week": "Vecka",
+            "loading": "Laddar diagramdata...",
+            "noData": "Ingen data tillgänglig"
+        }
+    },
+    "settings": {
+        "title": "Inställningar",
+        "profile": {
+            "title": "Profil",
+            "pageTitle": "Profilinställningar",
+            "information": "Profilinformation",
+            "description": "Uppdatera ditt namn och din e-postadress",
+            "name": "Namn",
+            "namePlaceholder": "Fullständigt namn",
+            "email": "E-postadress",
+            "emailPlaceholder": "E-postadress",
+            "chatColor": "Färg på chattanvändarnamn",
+            "chatColorDescription": "Välj en färg för ditt användarnamn i chattmeddelanden",
+            "language": "Språk / Language",
+            "updateButton": "Spara",
+            "saved": "Sparat.",
+            "updated": "Profilen har uppdaterats",
+            "emailUnverified": "Din e-postadress är inte verifierad.",
+            "resendLink": "Klicka här för att skicka verifieringsmejlet igen.",
+            "verificationSent": "En ny verifieringslänk har skickats till din e-postadress."
+        },
+        "password": {
+            "title": "Uppdatera lösenord",
+            "pageTitle": "Lösenordsinställningar",
+            "description": "Se till att ditt konto använder ett långt, slumpmässigt lösenord för god säkerhet",
+            "currentPassword": "Nuvarande lösenord",
+            "currentPasswordPlaceholder": "Nuvarande lösenord",
+            "newPassword": "Nytt lösenord",
+            "newPasswordPlaceholder": "Nytt lösenord",
+            "confirmPassword": "Bekräfta lösenord",
+            "confirmPasswordPlaceholder": "Bekräfta lösenord",
+            "updateButton": "Spara lösenord",
+            "saved": "Sparat.",
+            "updated": "Lösenordet har uppdaterats"
+        },
+        "appearance": {
+            "title": "Utseendeinställningar",
+            "description": "Uppdatera kontots utseendeinställningar",
+            "theme": "Tema",
+            "light": "Ljust",
+            "dark": "Mörkt",
+            "system": "System",
+            "updated": "Utseendet har uppdaterats"
+        }
+    },
+    "admin": {
+        "title": "Adminpanel",
+        "users": {
+            "title": "Användare",
+            "list": "Användarlista",
+            "name": "Namn",
+            "email": "E-post",
+            "role": "Roll",
+            "createdAt": "Skapad",
+            "actions": "Åtgärder",
+            "view": "Visa",
+            "edit": "Redigera",
+            "delete": "Radera",
+            "confirmDelete": "Är du säker på att du vill radera denna användare?",
+            "deleteSuccess": "Användaren har raderats",
+            "deleteError": "Kunde inte radera användaren",
+            "noUsers": "Inga användare hittades"
+        }
+    },
+    "navigation": {
+        "home": "Hem",
+        "chat": "Chatt",
+        "dashboard": "Översikt",
+        "settings": "Inställningar",
+        "admin": "Administration",
+        "users": "Användare",
+        "profile": "Profil",
+        "appearance": "Utseende",
+        "password": "Lösenord",
+        "github": "GitHub",
+        "menu": "Navigeringsmeny"
+    },
+    "validation": {
+        "required": "Detta fält är obligatoriskt",
+        "email": "Ange en giltig e-postadress",
+        "minLength": "Måste vara minst {min} tecken",
+        "maxLength": "Får inte vara fler än {max} tecken",
+        "passwordMatch": "Lösenorden måste stämma överens"
+    }
+}

@@ -1,0 +1,302 @@
+{
+    "common": {
+        "appName": "LanShout",
+        "loading": "Lädd...",
+        "error": "Fähler",
+        "success": "Glabbt",
+        "save": "Speischorn",
+        "cancel": "Abbrechn",
+        "delete": "Läschn",
+        "edit": "Beorbeiden",
+        "close": "Zumachn",
+        "submit": "Abschiggn",
+        "search": "Suchn",
+        "settings": "Eistellungn",
+        "logout": "Abmeln",
+        "profile": "Brofiel",
+        "dashboard": "Iebersischd",
+        "admin": "Administrasjon",
+        "users": "Bonutzor",
+        "back": "Zurigge"
+    },
+    "landing": {
+        "title": "Willgommn bei LanShout",
+        "subtitle": "Ne einfache Lifoh-Schwätzbox fer LAN-Bardys un Vorangschdaldungn. Lass alle Nachrischdn deiln, Sbiele orgahnisiern un verbund bleim.",
+        "getStarted": "Losgeehn",
+        "createAccount": "Gondo erstelln",
+        "logIn": "Anmeln",
+        "register": "Registriern",
+        "features": {
+            "title": "Funggsjonen",
+            "simpleMessaging": {
+                "title": "Einfache Nachrischdn",
+                "description": "Poste schnelle Nachrischdn, die jedor in deim LAN sofordd siehd."
+            },
+            "realTimeUpdates": {
+                "title": "Lifoh-Aggduhalisiorungn",
+                "description": "Nachrischdn gommm sofordd bei alle Bonutzor an."
+            },
+            "builtForEvents": {
+                "title": "Fer Vorangschdaldungn gemachd",
+                "description": "Borfäggd fer LAN-Bardys, Sbiel-Vorangschdaldungn un Gommunidy-Drefn."
+            }
+        },
+        "cta": {
+            "title": "Fertsch, dich mit deiner Gommunidy zu vorbindn?",
+            "description": "Meldde dich an, um zu schwätzn, oder leesch dir een Gondo an.",
+            "button": "Anmeln un schwätzn"
+        },
+        "footer": "LanShout — Einfache Lifoh-Nachrischdn fer deine Vorangschdaldungn"
+    },
+    "auth": {
+        "login": {
+            "title": "Meldde dich an bei dein Gondo",
+            "description": "Giff Mähl un Basswort ei, um dich anzumeln",
+            "email": "Mähl-Adrässe",
+            "password": "Basswort",
+            "rememberMe": "Merg mich dir",
+            "forgotPassword": "Basswort vorgässn?",
+            "button": "Anmeln",
+            "noAccount": "Haste geen Gondo?",
+            "signUp": "Aanmeln",
+            "emailPlaceholder": "mähl@beispiel.de",
+            "passwordPlaceholder": "Basswort"
+        },
+        "register": {
+            "title": "Leesch dir een Gondo an",
+            "description": "Giff deine Informasjon ei",
+            "name": "Nohme",
+            "email": "Mähl-Adrässe",
+            "password": "Basswort",
+            "confirmPassword": "Basswort bestähtschen",
+            "button": "Registriern",
+            "hasAccount": "Haste schonn een Gondo?",
+            "logIn": "Anmeln",
+            "namePlaceholder": "Sebbl Müllor",
+            "emailPlaceholder": "mähl@beispiel.de",
+            "passwordPlaceholder": "Basswort"
+        },
+        "forgotPassword": {
+            "title": "Basswort vorgässn?",
+            "description": "Giff deine Mähl ei un mir schiggn dir een Ling.",
+            "email": "Mähl-Adrässe",
+            "button": "Ling abschiggn",
+            "backToLogin": "Zurigge zor Anmäldung",
+            "emailPlaceholder": "mähl@beispiel.de"
+        },
+        "resetPassword": {
+            "title": "Setz dein Basswort zrigge",
+            "description": "Giff dein neues Basswort ei",
+            "email": "Mähl-Adrässe",
+            "password": "Basswort",
+            "confirmPassword": "Basswort bestähtschen",
+            "button": "Basswort zrigsetzn",
+            "emailPlaceholder": "mähl@beispiel.de",
+            "passwordPlaceholder": "Basswort"
+        },
+        "verifyEmail": {
+            "title": "Bestähtsche deine Mähl-Adrässe",
+            "description": "Dangge fers Anmäldn! Glick uff den Ling in dor Mähl, die mir dir schiggd hamm.",
+            "resendButton": "Bestähtschungs-Mähl nochmal schiggn",
+            "linkSent": "Een neuer Bestähtschungs-Ling wurde geschiggt.",
+            "logout": "Abmeln"
+        },
+        "confirmPassword": {
+            "title": "Bestähtsche dein Basswort",
+            "description": "Das is een sischrer Bereich. Bestähtsche dein Basswort.",
+            "password": "Basswort",
+            "button": "Bestähtschen",
+            "passwordPlaceholder": "Basswort"
+        }
+    },
+    "chat": {
+        "title": "Schwätz",
+        "inputPlaceholder": "Schreim mol ne Nachrischd...",
+        "send": "Abschiggn",
+        "noMessages": "Noch geene Nachrischdn. Sei dor erschde!",
+        "loadMore": "Mähr Nachrischdn ladn",
+        "loadingMessages": "Nachrischdn werrn geladn...",
+        "errorLoading": "Nachrischdn gingn nich zu ladn",
+        "errorSending": "Nachrischd gonnde nich abgeschiggd werrn",
+        "retry": "Nochmal bobiern",
+        "slowModeActive": "Langsam-Modus is an. In {seconds} Sehgunn gannsde widder schreim.",
+        "rateLimited": "Du schreibsd zu schnell. Warde mol.",
+        "messageBlocked": "Deine Nachrischd gudde vom Filtor gschbärrt."
+    },
+    "chatSettings": {
+        "title": "Schwätz-Eistellungn",
+        "contentFiltering": {
+            "title": "Ihnhaltsfilter",
+            "blockedWords": "Gschbärrde Weerder",
+            "blockedWordsHelp": "Giff Weerder ei, eens bro Zeile",
+            "regexFilters": "Regex-Filter",
+            "regexFiltersHelp": "Vortaggsde Mustorfilter",
+            "addFilter": "Filter dazutun",
+            "pattern": "Mustor",
+            "filterAction": "Filter-Aggsjon",
+            "block": "Nachrischd gschbärrn",
+            "censor": "Zensor (mit *** ersetzn)",
+            "flag": "Fers Brüfn morgiern",
+            "allowUrls": "URLs erlaubn",
+            "allowUrlsHelp": "Aussgeschalded werrn Nachrischdn mit URLs filterd"
+        },
+        "spam": {
+            "title": "Sbam-Erkäänung",
+            "repeatThreshold": "Wiederhohl-Grenze",
+            "repeatThresholdHelp": "Anzahl gleischer Nachrischdn, bevor als Sbam morgierd wird",
+            "windowSeconds": "Erkäänungs-Fenschdor (Sehgunn)",
+            "windowSecondsHelp": "Zeid-Fenschdor fer wiederhohlde Nachrischdn"
+        },
+        "rateLimiting": {
+            "title": "Schnellschgeidsgrenze",
+            "messages": "Nachrischdn bro Fenschdor",
+            "messagesHelp": "Maxmahl Nachrischdn, wo een Bonutzor schiggn derf",
+            "windowSeconds": "Fenschdor (Sehgunn)",
+            "windowSecondsHelp": "Zeid-Fenschdor zum Begrenzn"
+        },
+        "slowMode": {
+            "title": "Langsam-Modus",
+            "enabled": "Langsam-Modus anschalden",
+            "cooldownSeconds": "Baue (Sehgunn)",
+            "cooldownSecondsHelp": "Mindesdzeid zwischn Nachrischdn bro Bonutzor",
+            "autoEnabled": "Langsam-Modus automaadisch anschalden",
+            "autoThreshold": "Audo-Lööse-Grenze",
+            "autoThresholdHelp": "Nachrischdn bro Minude fer Audo-Langsam-Modus"
+        },
+        "presets": {
+            "title": "Filter-Vorreinschdellungn",
+            "description": "Schalde vorgebaude Filter-Gadegoriehn an, um unbassnden Ihnhalt zu blocgiern",
+            "words": "Weerder",
+            "alwaysActive": "Immor aggdief",
+            "nsfwMode": "NSFW-Modus",
+            "nsfwModeHelp": "Wenn an, werrn Schimpf- un Säggsihnhalt-Filter logger, abor Gindersischerheid, Dierswohl, Rasse/Bolidigg un Gwald bleim an."
+        },
+        "saved": "Schwätz-Eistellungn gespeischord"
+    },
+    "activeUsers": {
+        "title": "Aggdiewe Bonutzor",
+        "noUsers": "Geene aggdiewn Bonutzor",
+        "muteTimed": "Schdumm schalden (Zeid)",
+        "mutePermanent": "Fer immor schdumm",
+        "muteReason": "Grund",
+        "muteDuration": "Dauor (Minudn)",
+        "showInLanCore": "In LanCore zeeschn",
+        "unmute": "Schdumm uffhehm",
+        "muteSuccess": "Bonutzor wurde schdumm geschalded",
+        "unmuteSuccess": "Bonutzor is widder fraih",
+        "actions": "Aggsjonn"
+    },
+    "muted": {
+        "title": "Du bisdd schdumm geschalded",
+        "reason": "Grund: {reason}",
+        "until": "Bis: {until}",
+        "permanent": "Das Schdummschaldn is fer immor",
+        "contact": "Melddde dich bei eem Moderador"
+    },
+    "dashboard": {
+        "title": "Iebersischd",
+        "welcome": "Scheen, dassde widder dah bisd!",
+        "stats": {
+            "totalUsers": "Bonutzor insgesamd",
+            "totalMessages": "Nachrischdn insgesamd",
+            "activeNow": "Gerade aggdief"
+        },
+        "chart": {
+            "hourly": "Schdindlsch",
+            "daily": "Dähslsch",
+            "weekly": "Wöschndlsch",
+            "messages": "Nachrischdn",
+            "users": "Bonutzor",
+            "sessions": "Siddzungn",
+            "hour": "Schdunde",
+            "day": "Dag",
+            "week": "Wosche",
+            "loading": "Diagramm-Dahdn werrn geladn...",
+            "noData": "Geene Dahdn dah"
+        }
+    },
+    "settings": {
+        "title": "Eistellungn",
+        "profile": {
+            "title": "Brofiel",
+            "pageTitle": "Brofiel-Eistellungn",
+            "information": "Brofiel-Informasjon",
+            "description": "Aggduhalisiere dein Nohme un deine Mähl",
+            "name": "Nohme",
+            "namePlaceholder": "Ganzer Nohme",
+            "email": "Mähl-Adrässe",
+            "emailPlaceholder": "Mähl-Adrässe",
+            "chatColor": "Schwätz-Nohme-Farm",
+            "chatColorDescription": "Such ne Farm fer dein Nohme in dor Schwätzbox",
+            "language": "Sbrache / Language",
+            "updateButton": "Speischorn",
+            "saved": "Abgespeischord.",
+            "updated": "Brofiel aggduhalisiert",
+            "emailUnverified": "Deine Mähl is nisch bestähtscht.",
+            "resendLink": "Glick hier, um de Bestähtschungs-Mähl nochmal zu schiggn.",
+            "verificationSent": "Een neuer Bestähtschungs-Ling wurde geschiggt."
+        },
+        "password": {
+            "title": "Basswort aggduhalisiern",
+            "pageTitle": "Basswort-Eistellungn",
+            "description": "Sorsch fer een sischres Basswort",
+            "currentPassword": "Aggduhelles Basswort",
+            "currentPasswordPlaceholder": "Aggduhelles Basswort",
+            "newPassword": "Neues Basswort",
+            "newPasswordPlaceholder": "Neues Basswort",
+            "confirmPassword": "Basswort bestähtschen",
+            "confirmPasswordPlaceholder": "Basswort bestähtschen",
+            "updateButton": "Basswort speischorn",
+            "saved": "Abgespeischord.",
+            "updated": "Basswort aggduhalisiert"
+        },
+        "appearance": {
+            "title": "Aussähn-Eistellungn",
+            "description": "Aggduhalisiere de Aussähn-Eistellungn",
+            "theme": "Dehmah",
+            "light": "Hell",
+            "dark": "Dungl",
+            "system": "Sysdehm",
+            "updated": "Aussähn aggduhalisiert"
+        }
+    },
+    "admin": {
+        "title": "Admin-Bereisch",
+        "users": {
+            "title": "Bonutzor",
+            "list": "Bonutzor-Liste",
+            "name": "Nohme",
+            "email": "Mähl",
+            "role": "Rolle",
+            "createdAt": "Anglechd am",
+            "actions": "Aggsjon",
+            "view": "Anguggn",
+            "edit": "Beorbeiden",
+            "delete": "Läschn",
+            "confirmDelete": "Biste sischer, dassde dn Bonutzor läschn willsd?",
+            "deleteSuccess": "Bonutzor geläschd",
+            "deleteError": "Bonutzor gonnde nich geläschd werrn",
+            "noUsers": "Geene Bonutzor gefunn"
+        }
+    },
+    "navigation": {
+        "home": "Zuhause",
+        "chat": "Schwätz",
+        "dashboard": "Iebersischd",
+        "settings": "Eistellungn",
+        "admin": "Administrasjon",
+        "users": "Bonutzor",
+        "profile": "Brofiel",
+        "appearance": "Aussähn",
+        "password": "Basswort",
+        "github": "GitHub",
+        "menu": "Mehnü"
+    },
+    "validation": {
+        "required": "Das Feld mussde ausfilln",
+        "email": "Giff ne orndlsche Mähl-Adrässe ei",
+        "minLength": "Mussde mindesdns {min} Zeischn lang sei",
+        "maxLength": "Derf nisch mähr als {max} Zeischn lang sei",
+        "passwordMatch": "Bassweerder misstn zusommbassn"
+    }
+}
