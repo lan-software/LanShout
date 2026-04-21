@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AnnouncementBanner from '@/components/announcements/AnnouncementBanner.vue';
 import DemoBanner from '@/components/demo/DemoBanner.vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const bannersEl = ref<HTMLDivElement | null>(null);
 let observer: ResizeObserver | null = null;

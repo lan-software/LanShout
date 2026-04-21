@@ -64,7 +64,9 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                             class="mt-1 block w-full"
                             autocomplete="current-password"
                             :placeholder="
-                                $t('settings.password.currentPasswordPlaceholder')
+                                $t(
+                                    'settings.password.currentPasswordPlaceholder',
+                                )
                             "
                         />
                         <InputError :message="errors.current_password" />
@@ -99,7 +101,9 @@ const currentPasswordInput = ref<HTMLInputElement | null>(null);
                             class="mt-1 block w-full"
                             autocomplete="new-password"
                             :placeholder="
-                                $t('settings.password.confirmPasswordPlaceholder')
+                                $t(
+                                    'settings.password.confirmPasswordPlaceholder',
+                                )
                             "
                         />
                         <InputError :message="errors.password_confirmation" />

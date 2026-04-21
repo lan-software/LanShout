@@ -53,7 +53,9 @@ const user = page.props.auth.user;
                     v-slot="{ errors, processing, recentlySuccessful }"
                 >
                     <div class="grid gap-2">
-                        <Label for="name">{{ $t('settings.profile.name') }}</Label>
+                        <Label for="name">{{
+                            $t('settings.profile.name')
+                        }}</Label>
                         <Input
                             id="name"
                             class="mt-1 block w-full"
@@ -61,13 +63,17 @@ const user = page.props.auth.user;
                             :default-value="user.name"
                             required
                             autocomplete="name"
-                            :placeholder="$t('settings.profile.namePlaceholder')"
+                            :placeholder="
+                                $t('settings.profile.namePlaceholder')
+                            "
                         />
                         <InputError class="mt-2" :message="errors.name" />
                     </div>
 
                     <div class="grid gap-2">
-                        <Label for="email">{{ $t('settings.profile.email') }}</Label>
+                        <Label for="email">{{
+                            $t('settings.profile.email')
+                        }}</Label>
                         <Input
                             id="email"
                             type="email"
@@ -76,7 +82,9 @@ const user = page.props.auth.user;
                             :default-value="user.email"
                             required
                             autocomplete="username"
-                            :placeholder="$t('settings.profile.emailPlaceholder')"
+                            :placeholder="
+                                $t('settings.profile.emailPlaceholder')
+                            "
                         />
                         <InputError class="mt-2" :message="errors.email" />
                     </div>
@@ -94,7 +102,9 @@ const user = page.props.auth.user;
                                 value="#fafafafa"
                             />
                             <span class="text-sm text-muted-foreground">
-                                {{ $t('settings.profile.chatColorDescription') }}
+                                {{
+                                    $t('settings.profile.chatColorDescription')
+                                }}
                             </span>
                         </div>
                         <InputError class="mt-2" :message="errors.chat_color" />
