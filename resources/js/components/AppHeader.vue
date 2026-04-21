@@ -37,6 +37,7 @@ import type { BreadcrumbItem, NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 import { Github, LayoutGrid, Menu, Shield } from 'lucide-vue-next';
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
@@ -46,6 +47,7 @@ const props = withDefaults(defineProps<Props>(), {
     breadcrumbs: () => [],
 });
 
+const { t } = useI18n();
 const page = usePage();
 const auth = computed(() => page.props.auth);
 
@@ -68,7 +70,7 @@ const hasAnyRole = (roles: string[]): boolean => {
 const mainNavItems = computed<NavItem[]>(() => {
     const items: NavItem[] = [
         {
-            title: 'Chat',
+            title: t('navigation.chat'),
             href: '/chat',
         },
     ];
@@ -76,7 +78,7 @@ const mainNavItems = computed<NavItem[]>(() => {
     // Only show Dashboard to Moderator, Admin, or Super Admin
     if (hasAnyRole(['moderator', 'admin', 'super_admin'])) {
         items.push({
-            title: 'Dashboard',
+            title: t('navigation.dashboard'),
             href: dashboard(),
             icon: LayoutGrid,
         });
@@ -85,7 +87,7 @@ const mainNavItems = computed<NavItem[]>(() => {
     // Only show Admin to Moderator, Admin, or Super Admin
     if (hasAnyRole(['moderator', 'admin', 'super_admin'])) {
         items.push({
-            title: 'Admin',
+            title: t('navigation.admin'),
             href: admin.index().url,
             icon: Shield,
         });
@@ -94,13 +96,13 @@ const mainNavItems = computed<NavItem[]>(() => {
     return items;
 });
 
-const rightNavItems: NavItem[] = [
+const rightNavItems = computed<NavItem[]>(() => [
     {
-        title: 'GitHub',
+        title: t('navigation.github'),
         href: 'https://github.com/LANShout/lanshout',
         icon: Github,
     },
-];
+]);
 
 const toUrl = (href: string) => href;
 </script>
@@ -122,9 +124,9 @@ const toUrl = (href: string) => href;
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="left" class="w-[300px] p-6">
-                            <SheetTitle class="sr-only"
-                                >Navigation Menu</SheetTitle
-                            >
+                            <SheetTitle class="sr-only">{{
+                                $t('navigation.menu')
+                            }}</SheetTitle>
                             <SheetHeader class="flex justify-start text-left">
                                 <AppLogoIcon
                                     class="size-6 fill-current text-black dark:text-white"

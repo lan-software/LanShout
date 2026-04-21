@@ -90,11 +90,11 @@ const metricLabels = computed(() => ({
 const chartTitle = computed(() => {
     const resolutionText =
         selectedResolution.value === 'hour'
-            ? 'Hourly'
+            ? t('dashboard.chart.hourly')
             : selectedResolution.value === 'day'
-              ? 'Daily'
-              : 'Weekly';
-    return `${resolutionText} ${metricLabels[selectedMetric.value]}`;
+              ? t('dashboard.chart.daily')
+              : t('dashboard.chart.weekly');
+    return `${resolutionText} ${metricLabels.value[selectedMetric.value]}`;
 });
 </script>
 
@@ -206,7 +206,7 @@ const chartTitle = computed(() => {
                                 @click="selectedMetric = 'messages'"
                                 class="text-xs"
                             >
-                                Messages
+                                {{ $t('dashboard.chart.messages') }}
                             </Button>
                             <Button
                                 size="sm"
@@ -218,7 +218,7 @@ const chartTitle = computed(() => {
                                 @click="selectedMetric = 'users'"
                                 class="text-xs"
                             >
-                                Users
+                                {{ $t('dashboard.chart.users') }}
                             </Button>
                             <Button
                                 size="sm"
@@ -230,7 +230,7 @@ const chartTitle = computed(() => {
                                 @click="selectedMetric = 'sessions'"
                                 class="text-xs"
                             >
-                                Sessions
+                                {{ $t('dashboard.chart.sessions') }}
                             </Button>
                         </div>
 
@@ -248,7 +248,7 @@ const chartTitle = computed(() => {
                                 @click="selectedResolution = 'hour'"
                                 class="text-xs"
                             >
-                                Hour
+                                {{ $t('dashboard.chart.hour') }}
                             </Button>
                             <Button
                                 size="sm"
@@ -260,7 +260,7 @@ const chartTitle = computed(() => {
                                 @click="selectedResolution = 'day'"
                                 class="text-xs"
                             >
-                                Day
+                                {{ $t('dashboard.chart.day') }}
                             </Button>
                             <Button
                                 size="sm"
@@ -272,7 +272,7 @@ const chartTitle = computed(() => {
                                 @click="selectedResolution = 'week'"
                                 class="text-xs"
                             >
-                                Week
+                                {{ $t('dashboard.chart.week') }}
                             </Button>
                         </div>
                     </div>
@@ -283,7 +283,7 @@ const chartTitle = computed(() => {
                         v-if="loading"
                         class="flex h-full items-center justify-center text-muted-foreground"
                     >
-                        Loading chart data...
+                        {{ $t('dashboard.chart.loading') }}
                     </div>
                     <AreaChart
                         v-else-if="chartData.length > 0"
@@ -295,7 +295,7 @@ const chartTitle = computed(() => {
                         v-else
                         class="flex h-full items-center justify-center text-muted-foreground"
                     >
-                        No data available
+                        {{ $t('dashboard.chart.noData') }}
                     </div>
                 </div>
             </div>

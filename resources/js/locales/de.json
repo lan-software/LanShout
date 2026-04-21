@@ -200,31 +200,59 @@
             "totalUsers": "Benutzer gesamt",
             "totalMessages": "Nachrichten gesamt",
             "activeNow": "Aktuell aktiv"
+        },
+        "chart": {
+            "hourly": "Stündlich",
+            "daily": "Täglich",
+            "weekly": "Wöchentlich",
+            "messages": "Nachrichten",
+            "users": "Benutzer",
+            "sessions": "Sitzungen",
+            "hour": "Stunde",
+            "day": "Tag",
+            "week": "Woche",
+            "loading": "Diagramm wird geladen...",
+            "noData": "Keine Daten verfügbar"
         }
     },
     "settings": {
         "title": "Einstellungen",
         "profile": {
             "title": "Profil",
-            "description": "Aktualisiere deine Profilinformationen",
+            "pageTitle": "Profileinstellungen",
+            "information": "Profilinformationen",
+            "description": "Aktualisiere deinen Namen und deine E-Mail-Adresse",
             "name": "Name",
+            "namePlaceholder": "Vollständiger Name",
             "email": "E-Mail-Adresse",
-            "chatColor": "Chat-Farbe",
-            "updateButton": "Profil aktualisieren",
-            "updated": "Profil erfolgreich aktualisiert"
+            "emailPlaceholder": "E-Mail-Adresse",
+            "chatColor": "Chat-Namensfarbe",
+            "chatColorDescription": "Wähle eine Farbe für deinen Namen in Chat-Nachrichten",
+            "language": "Sprache / Language",
+            "updateButton": "Speichern",
+            "saved": "Gespeichert.",
+            "updated": "Profil erfolgreich aktualisiert",
+            "emailUnverified": "Deine E-Mail-Adresse ist nicht verifiziert.",
+            "resendLink": "Klicke hier, um die Bestätigungs-E-Mail erneut zu senden.",
+            "verificationSent": "Ein neuer Bestätigungslink wurde an deine E-Mail-Adresse gesendet."
         },
         "password": {
             "title": "Passwort ändern",
-            "description": "Stelle sicher, dass dein Konto ein langes, zufälliges Passwort verwendet, um sicher zu bleiben.",
+            "pageTitle": "Passwort-Einstellungen",
+            "description": "Stelle sicher, dass dein Konto ein langes, zufälliges Passwort verwendet, um sicher zu bleiben",
             "currentPassword": "Aktuelles Passwort",
+            "currentPasswordPlaceholder": "Aktuelles Passwort",
             "newPassword": "Neues Passwort",
+            "newPasswordPlaceholder": "Neues Passwort",
             "confirmPassword": "Passwort bestätigen",
-            "updateButton": "Passwort aktualisieren",
+            "confirmPasswordPlaceholder": "Passwort bestätigen",
+            "updateButton": "Passwort speichern",
+            "saved": "Gespeichert.",
             "updated": "Passwort erfolgreich aktualisiert"
         },
         "appearance": {
-            "title": "Erscheinungsbild",
-            "description": "Passe das Erscheinungsbild der Anwendung an",
+            "title": "Erscheinungsbild-Einstellungen",
+            "description": "Passe die Erscheinungsbild-Einstellungen deines Kontos an",
             "theme": "Thema",
             "light": "Hell",
             "dark": "Dunkel",
@@ -260,7 +288,9 @@
         "users": "Benutzer",
         "profile": "Profil",
         "appearance": "Erscheinungsbild",
-        "password": "Passwort"
+        "password": "Passwort",
+        "github": "GitHub",
+        "menu": "Navigationsmenü"
     },
     "validation": {
         "required": "Dieses Feld ist erforderlich",

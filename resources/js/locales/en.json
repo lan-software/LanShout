@@ -200,31 +200,59 @@
             "totalUsers": "Total Users",
             "totalMessages": "Total Messages",
             "activeNow": "Active Now"
+        },
+        "chart": {
+            "hourly": "Hourly",
+            "daily": "Daily",
+            "weekly": "Weekly",
+            "messages": "Messages",
+            "users": "Users",
+            "sessions": "Sessions",
+            "hour": "Hour",
+            "day": "Day",
+            "week": "Week",
+            "loading": "Loading chart data...",
+            "noData": "No data available"
         }
     },
     "settings": {
         "title": "Settings",
         "profile": {
             "title": "Profile",
-            "description": "Update your profile information",
+            "pageTitle": "Profile settings",
+            "information": "Profile information",
+            "description": "Update your name and email address",
             "name": "Name",
+            "namePlaceholder": "Full name",
             "email": "Email address",
-            "chatColor": "Chat Color",
-            "updateButton": "Update Profile",
-            "updated": "Profile updated successfully"
+            "emailPlaceholder": "Email address",
+            "chatColor": "Chat username color",
+            "chatColorDescription": "Choose a color for your username in chat messages",
+            "language": "Language / Sprache",
+            "updateButton": "Save",
+            "saved": "Saved.",
+            "updated": "Profile updated successfully",
+            "emailUnverified": "Your email address is unverified.",
+            "resendLink": "Click here to resend the verification email.",
+            "verificationSent": "A new verification link has been sent to your email address."
         },
         "password": {
-            "title": "Update Password",
-            "description": "Ensure your account is using a long, random password to stay secure.",
-            "currentPassword": "Current Password",
-            "newPassword": "New Password",
-            "confirmPassword": "Confirm Password",
-            "updateButton": "Update Password",
+            "title": "Update password",
+            "pageTitle": "Password settings",
+            "description": "Ensure your account is using a long, random password to stay secure",
+            "currentPassword": "Current password",
+            "currentPasswordPlaceholder": "Current password",
+            "newPassword": "New password",
+            "newPasswordPlaceholder": "New password",
+            "confirmPassword": "Confirm password",
+            "confirmPasswordPlaceholder": "Confirm password",
+            "updateButton": "Save password",
+            "saved": "Saved.",
             "updated": "Password updated successfully"
         },
         "appearance": {
-            "title": "Appearance",
-            "description": "Customize the appearance of the application",
+            "title": "Appearance settings",
+            "description": "Update your account's appearance settings",
             "theme": "Theme",
             "light": "Light",
             "dark": "Dark",
@@ -260,7 +288,9 @@
         "users": "Users",
         "profile": "Profile",
         "appearance": "Appearance",
-        "password": "Password"
+        "password": "Password",
+        "github": "GitHub",
+        "menu": "Navigation menu"
     },
     "validation": {
         "required": "This field is required",

@@ -200,31 +200,59 @@
             "totalUsers": "Utilisateurs totaux",
             "totalMessages": "Messages totaux",
             "activeNow": "Actifs maintenant"
+        },
+        "chart": {
+            "hourly": "Horaire",
+            "daily": "Quotidien",
+            "weekly": "Hebdomadaire",
+            "messages": "Messages",
+            "users": "Utilisateurs",
+            "sessions": "Sessions",
+            "hour": "Heure",
+            "day": "Jour",
+            "week": "Semaine",
+            "loading": "Chargement du graphique...",
+            "noData": "Aucune donnée disponible"
         }
     },
     "settings": {
         "title": "Paramètres",
         "profile": {
             "title": "Profil",
-            "description": "Mettez à jour vos informations de profil",
+            "pageTitle": "Paramètres du profil",
+            "information": "Informations du profil",
+            "description": "Mettez à jour votre nom et votre adresse e-mail",
             "name": "Nom",
+            "namePlaceholder": "Nom complet",
             "email": "Adresse e-mail",
-            "chatColor": "Couleur du chat",
-            "updateButton": "Mettre à jour le profil",
-            "updated": "Profil mis à jour avec succès"
+            "emailPlaceholder": "Adresse e-mail",
+            "chatColor": "Couleur du nom dans le chat",
+            "chatColorDescription": "Choisissez une couleur pour votre nom dans les messages du chat",
+            "language": "Langue / Sprache",
+            "updateButton": "Enregistrer",
+            "saved": "Enregistré.",
+            "updated": "Profil mis à jour avec succès",
+            "emailUnverified": "Votre adresse e-mail n'est pas vérifiée.",
+            "resendLink": "Cliquez ici pour renvoyer l'e-mail de vérification.",
+            "verificationSent": "Un nouveau lien de vérification a été envoyé à votre adresse e-mail."
         },
         "password": {
             "title": "Mettre à jour le mot de passe",
-            "description": "Assurez-vous que votre compte utilise un mot de passe long et aléatoire pour rester sécurisé.",
+            "pageTitle": "Paramètres du mot de passe",
+            "description": "Assurez-vous que votre compte utilise un mot de passe long et aléatoire pour rester sécurisé",
             "currentPassword": "Mot de passe actuel",
+            "currentPasswordPlaceholder": "Mot de passe actuel",
             "newPassword": "Nouveau mot de passe",
+            "newPasswordPlaceholder": "Nouveau mot de passe",
             "confirmPassword": "Confirmer le mot de passe",
-            "updateButton": "Mettre à jour le mot de passe",
+            "confirmPasswordPlaceholder": "Confirmer le mot de passe",
+            "updateButton": "Enregistrer le mot de passe",
+            "saved": "Enregistré.",
             "updated": "Mot de passe mis à jour avec succès"
         },
         "appearance": {
-            "title": "Apparence",
-            "description": "Personnalisez l'apparence de l'application",
+            "title": "Paramètres d'apparence",
+            "description": "Mettez à jour les paramètres d'apparence de votre compte",
             "theme": "Thème",
             "light": "Clair",
             "dark": "Sombre",
@@ -260,7 +288,9 @@
         "users": "Utilisateurs",
         "profile": "Profil",
         "appearance": "Apparence",
-        "password": "Mot de passe"
+        "password": "Mot de passe",
+        "github": "GitHub",
+        "menu": "Menu de navigation"
     },
     "validation": {
         "required": "Ce champ est obligatoire",
