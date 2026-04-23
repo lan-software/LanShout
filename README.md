@@ -8,103 +8,109 @@
   <a href="https://codecov.io/gh/lan-software/LanShout"><img src="https://codecov.io/gh/lan-software/LanShout/graph/badge.svg" alt="Coverage" /></a>
 </p>
 
+LanShout is a satellite app in the Lan-Software platform. It integrates with **LanCore** for SSO, user directory, announcements, and role updates via the shared `lancore-client` package.
+
 ## Local Development Quick Start
 
-This guide helps you start the application locally using the included Docker infrastructure (Postgres, Redis, MailHog) while running Laravel and Vite on your host.
+LanShout runs inside **Laravel Sail** and connects to the **shared development infrastructure** provided by the `platform/` repository (PostgreSQL, Redis, Mailpit). Do not run a standalone database or mail container per app — all Lan\* apps share the same Postgres/Redis/Mailpit containers and join the external `lanparty` Docker network.
 
+### Prerequisites
 
-Prerequisites
 - Docker and Docker Compose
-- PHP 8.2+ with required extensions (pdo_pgsql, openssl, mbstring, tokenizer, xml, ctype, json)
-- Composer
-- Node.js 20+ and npm 10+
+- The full monorepo checkout, with `LanCore/`, `LanShout/`, and `platform/` as sibling directories
 
-1) Start infrastructure
-- docker compose up -d
-  - Postgres: localhost:5432 (db=lanshout, user=lanshout, pass=lanshout)
-  - Redis: localhost:6379
-  - MailHog: SMTP on 1025, Web UI at http://localhost:8025
+### 1) Start the shared infrastructure (once)
 
-You can also use npm helpers:
-- npm run infra:up
-- npm run infra:down
+From the monorepo root:
 
-2) Environment configuration
-This repo already includes an .env configured for the Docker services:
-- DB_CONNECTION=pgsql
-- DB_HOST=localhost
-- DB_PORT=5432
-- DB_DATABASE=lanshout
-- DB_USERNAME=lanshout
-- DB_PASSWORD=lanshout
-- SESSION_DRIVER=redis
-- SESSION_STORE=redis
-- REDIS_HOST=localhost
-- MAIL_MAILER=smtp
-- MAIL_HOST=localhost
-- MAIL_PORT=1025
+```bash
+cd platform/dev
+./setup.sh
+```
 
-If you don't have an .env yet (fresh clone), copy from the example and generate an app key:
-- cp .env.example .env
-- php artisan key:generate
+This creates the external `lanparty` network and starts `infrastructure-pgsql` (port 5430), `infrastructure-redis` (port 6370), and `infrastructure-mailpit` (ports 1025 SMTP / 8021 UI). See [`platform/README.md`](../platform/README.md) for details.
 
-3) Install dependencies
-- composer install
-- npm install
+### 2) Start LanCore
 
-4) Prepare the database
-Run migrations (and seeds):
-- php artisan migrate --seed
-The seed creates a test user: test@example.com with password password.
+LanShout depends on LanCore for authentication and user data. Bring LanCore up first so its container (`lancore.test`) is resolvable on the `lanparty` network:
 
-5) Run the application
-Option A — one command (Laravel + Vite):
-- npm start
-  - Alias of npm run dev:app which runs php artisan serve and Vite together.
+```bash
+cd LanCore
+cp .env.example .env
+vendor/bin/sail up -d
+vendor/bin/sail artisan key:generate
+vendor/bin/sail artisan migrate --seed
+vendor/bin/sail artisan integrations:sync   # seeds the integration app rows + tokens
+```
 
-Option B — separate terminals:
-- php artisan serve
-- npm run dev
+Copy the token minted for `lanshout` (visible in LanCore's integration admin UI, or via `vendor/bin/sail artisan tinker`) — you will paste it into LanShout's `.env` in the next step.
 
-Then open http://localhost:8000 in your browser.
+### 3) Start LanShout
 
-**Important Ports:**
-- Laravel (main app): http://localhost:8000 ← **Use this URL**
-- Vite dev server: http://localhost:5172 (automatically used by Laravel)
-- Note: Vite port is 5172, NOT 5712
+```bash
+cd LanShout
+cp .env.example .env
+vendor/bin/sail up -d
+vendor/bin/sail artisan key:generate
+vendor/bin/sail artisan migrate --seed
+vendor/bin/sail npm install
+```
 
-6) Log in and try the Chat
-- Visit the home page → Log in (or Register) → Dashboard → Open Chat
-- Post a message and see it appear in the list.
+LanShout is then reachable at **http://localhost:82** (Vite on 5175). The frontend build runs automatically via the shared `platform/dev/dev-entrypoint.sh`, so no separate `npm run dev` on the host is needed.
 
-Email verification
-- With MAIL_MAILER=smtp and MailHog running, check verification emails in http://localhost:8025.
-- If a route requires verified email and you skipped verifying, you may see a 403 until verified.
+### 4) Wire up the LanCore integration
 
-Sessions using Redis
-- The app uses Redis for sessions by default. Ensure the PHP Redis client is available locally.
-  - .env defaults to REDIS_CLIENT=phpredis. If the extension is missing, either install it or switch to Predis:
-    - Set REDIS_CLIENT=predis and run composer require predis/predis
-- For more details, see doc/Sessions.md.
+Edit `.env` with the values from step 2. The `LANCORE_BASE_URL` is the browser-facing URL (used for SSO redirects); `LANCORE_INTERNAL_URL` is the in-network hostname used for server-to-server calls:
 
-Troubleshooting
-- 419 Page Expired / CSRF errors:
-  - php artisan config:clear && php artisan cache:clear && php artisan route:clear
-  - Ensure APP_KEY exists and Redis is running
-  - Clear browser cookies for localhost
-- DB connection errors:
-  - Ensure docker compose up -d is running and ports 5432/6379 are free
-  - Verify credentials in .env match docker-compose.yml
-- Vite or PHP server port already in use:
-  - php artisan serve --port=8001 and/or vite --port 5174
-- Node or PHP version mismatch:
-  - node -v should be 20+, php -v should be 8.2+
+```env
+LANCORE_ENABLED=true
+LANCORE_BASE_URL=http://localhost
+LANCORE_INTERNAL_URL=http://lancore.test
+LANCORE_TOKEN=lci_...              # from LanCore integrations:sync
+LANCORE_APP_SLUG=lanshout
+LANCORE_CALLBACK_URL=${APP_URL}/auth/lancore/callback
+LANCORE_WEBHOOK_SECRET=...          # matches LANSHOUT_ANNOUNCEMENT_WEBHOOK_SECRET on LanCore
+```
 
-Handy scripts
-- npm run infra:up — start Postgres/Redis/MailHog
-- npm run infra:down — stop infra
-- npm run dev:app — run php artisan serve and Vite together
-- npm start — alias of dev:app
-- composer run dev — alternative dev runner with queue and logs (see composer.json)
+Restart the container so the new env is picked up:
 
-That's it! If you hit any issues, file them with logs and your OS/PHP/Node versions.
+```bash
+vendor/bin/sail restart
+```
+
+### Default test user
+
+The seeder creates `test@example.com` / `password`.
+
+### Important ports
+
+| Service | URL |
+|---------|-----|
+| LanShout (browser) | http://localhost:82 |
+| LanCore (browser, for SSO) | http://localhost |
+| Mailpit UI | http://localhost:8021 |
+| LanCore (from inside containers) | http://lancore.test |
+| LanShout (from inside containers) | http://lanshout.test |
+
+### Teardown
+
+```bash
+# Stop LanShout only
+cd LanShout && vendor/bin/sail down
+
+# Stop the whole platform (shared infra)
+cd platform/dev && docker compose down
+# Add -v to also destroy shared Postgres / Redis / Mailpit data
+```
+
+## Troubleshooting
+
+- **`Could not resolve host: lancore.test`** from the LanShout container — LanCore isn't running, or its compose stack isn't on the `lanparty` network. Run `vendor/bin/sail up -d` in `LanCore/` and verify with `docker network inspect lanparty`.
+- **`SQLSTATE[08006] could not translate host name "infrastructure-pgsql"`** — the shared infrastructure isn't running. Run `./platform/dev/setup.sh`.
+- **401 from LanCore during SSO** — `LANCORE_TOKEN` in LanShout's `.env` doesn't match the token stored in LanCore. Re-run `vendor/bin/sail artisan integrations:sync` on LanCore and copy the fresh token.
+- **Webhook signature mismatch** — `LANCORE_WEBHOOK_SECRET` on LanShout must equal `LANSHOUT_ANNOUNCEMENT_WEBHOOK_SECRET` (and/or `LANSHOUT_ROLES_WEBHOOK_SECRET`) on LanCore.
+- **Vite manifest missing** — the shared entrypoint normally runs `npm run build` on boot; if it failed, run `vendor/bin/sail npm run build` manually.
+
+## Legacy standalone setup
+
+Earlier releases of LanShout included an app-local `docker-compose.yml` that bundled its own Postgres/Redis/MailHog and expected `php artisan serve` + `npm run dev` on the host. That flow has been removed — the file is preserved as `docker-compose.yml.orig` for reference only and is no longer supported.
