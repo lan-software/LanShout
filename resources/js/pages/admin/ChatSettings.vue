@@ -25,14 +25,6 @@ interface RegexFilter {
     pattern: string;
 }
 
-interface FilterPreset {
-    key: string;
-    label: string;
-    description: string;
-    wordCount: number;
-    alwaysActiveInNsfw: boolean;
-}
-
 interface ChatSettings {
     blocked_words: string[];
     regex_filters: RegexFilter[];
@@ -46,14 +38,12 @@ interface ChatSettings {
     slow_mode_cooldown_seconds: number;
     slow_mode_auto_enabled: boolean;
     slow_mode_auto_threshold: number;
-    active_filter_presets: string[];
-    nsfw_mode: boolean;
+    profanity_filter_enabled: boolean;
 }
 
 const props = defineProps<{
     settings: ChatSettings;
     canEdit: boolean;
-    filterPresets: FilterPreset[];
 }>();
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => [
@@ -74,22 +64,12 @@ const slowModeEnabled = ref(props.settings.slow_mode_enabled);
 const slowModeCooldownSeconds = ref(props.settings.slow_mode_cooldown_seconds);
 const slowModeAutoEnabled = ref(props.settings.slow_mode_auto_enabled);
 const slowModeAutoThreshold = ref(props.settings.slow_mode_auto_threshold);
-const activeFilterPresets = ref<string[]>([
-    ...(props.settings.active_filter_presets ?? []),
-]);
-const nsfwMode = ref(props.settings.nsfw_mode ?? false);
+const profanityFilterEnabled = ref(
+    props.settings.profanity_filter_enabled ?? true,
+);
 
 const saving = ref(false);
 const saveError = ref<string | null>(null);
-
-function togglePreset(key: string) {
-    const index = activeFilterPresets.value.indexOf(key);
-    if (index === -1) {
-        activeFilterPresets.value.push(key);
-    } else {
-        activeFilterPresets.value.splice(index, 1);
-    }
-}
 
 const blockedWords = computed(() =>
     blockedWordsText.value
@@ -125,8 +105,7 @@ function save() {
             slow_mode_cooldown_seconds: slowModeCooldownSeconds.value,
             slow_mode_auto_enabled: slowModeAutoEnabled.value,
             slow_mode_auto_threshold: slowModeAutoThreshold.value,
-            active_filter_presets: activeFilterPresets.value,
-            nsfw_mode: nsfwMode.value,
+            profanity_filter_enabled: profanityFilterEnabled.value,
         },
         {
             preserveScroll: true,
@@ -311,91 +290,50 @@ function save() {
                     </CardContent>
                 </Card>
 
-                <!-- Filter Presets -->
+                <!-- Profanity Filter -->
                 <Card>
                     <CardHeader>
                         <CardTitle>{{
-                            $t('chatSettings.presets.title')
+                            $t('chatSettings.profanityFilter.title')
                         }}</CardTitle>
                         <CardDescription>{{
-                            $t('chatSettings.presets.description')
+                            $t('chatSettings.profanityFilter.description')
                         }}</CardDescription>
                     </CardHeader>
                     <CardContent class="space-y-4">
-                        <div
-                            v-for="preset in filterPresets"
-                            :key="preset.key"
-                            class="flex items-start gap-3 rounded-md border p-3"
-                        >
+                        <div class="flex items-start gap-3">
                             <input
+                                id="profanity_filter_enabled"
                                 type="checkbox"
-                                :id="`preset-${preset.key}`"
-                                :value="preset.key"
-                                :checked="
-                                    activeFilterPresets.includes(preset.key)
-                                "
+                                :checked="profanityFilterEnabled"
                                 :disabled="!canEdit"
                                 class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                @change="togglePreset(preset.key)"
+                                @change="
+                                    profanityFilterEnabled = (
+                                        $event.target as HTMLInputElement
+                                    ).checked
+                                "
                             />
-                            <div class="flex-1">
-                                <div class="flex items-center gap-2">
-                                    <span class="text-sm font-medium">{{
-                                        preset.label
-                                    }}</span>
-                                    <Badge
-                                        variant="outline"
-                                        class="text-[10px]"
-                                    >
-                                        {{ preset.wordCount }}
-                                        {{ $t('chatSettings.presets.words') }}
-                                    </Badge>
-                                    <Badge
-                                        v-if="preset.alwaysActiveInNsfw"
-                                        variant="secondary"
-                                        class="text-[10px]"
-                                    >
-                                        {{
-                                            $t(
-                                                'chatSettings.presets.alwaysActive',
-                                            )
-                                        }}
-                                    </Badge>
-                                </div>
-                                <p class="mt-1 text-xs text-muted-foreground">
-                                    {{ preset.description }}
+                            <div>
+                                <Label for="profanity_filter_enabled">{{
+                                    $t(
+                                        'chatSettings.profanityFilter.enabledLabel',
+                                    )
+                                }}</Label>
+                                <p class="text-xs text-muted-foreground">
+                                    {{
+                                        $t(
+                                            'chatSettings.profanityFilter.enabledHelp',
+                                        )
+                                    }}
                                 </p>
                             </div>
                         </div>
-
-                        <div class="border-t pt-4">
-                            <div class="flex items-center gap-2">
-                                <input
-                                    id="nsfw_mode"
-                                    type="checkbox"
-                                    :checked="nsfwMode"
-                                    :disabled="!canEdit"
-                                    class="mt-0.5 size-4 shrink-0 rounded-[4px] border border-input accent-primary"
-                                    @change="
-                                        nsfwMode = (
-                                            $event.target as HTMLInputElement
-                                        ).checked
-                                    "
-                                />
-                                <div>
-                                    <Label>{{
-                                        $t('chatSettings.presets.nsfwMode')
-                                    }}</Label>
-                                    <p class="text-xs text-muted-foreground">
-                                        {{
-                                            $t(
-                                                'chatSettings.presets.nsfwModeHelp',
-                                            )
-                                        }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="text-xs text-muted-foreground">
+                            {{
+                                $t('chatSettings.profanityFilter.safetyNotice')
+                            }}
+                        </p>
                     </CardContent>
                 </Card>
 

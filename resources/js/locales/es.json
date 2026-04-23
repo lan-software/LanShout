@@ -163,13 +163,12 @@
             "autoThreshold": "Umbral de activación automática",
             "autoThresholdHelp": "Mensajes por minuto entre todos los usuarios para activar automáticamente el modo lento"
         },
-        "presets": {
-            "title": "Ajustes preestablecidos de filtros",
-            "description": "Activa categorías de filtros preconfigurados para bloquear automáticamente contenido inapropiado",
-            "words": "palabras",
-            "alwaysActive": "Siempre activo",
-            "nsfwMode": "Modo NSFW",
-            "nsfwModeHelp": "Cuando está activado, relaja los filtros de lenguaje ofensivo y contenido sexual, manteniendo activos los filtros de seguridad infantil, protección animal, raciales/políticos y de violencia."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Ajustes del chat guardados correctamente"
     },

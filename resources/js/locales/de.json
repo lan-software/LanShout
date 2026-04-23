@@ -163,13 +163,12 @@
             "autoThreshold": "Auto-Auslöseschwelle",
             "autoThresholdHelp": "Nachrichten pro Minute aller Benutzer zum automatischen Auslösen"
         },
-        "presets": {
-            "title": "Filter-Vorlagen",
-            "description": "Aktiviere vorgefertigte Filterkategorien, um unangemessene Inhalte automatisch zu blockieren",
-            "words": "Wörter",
-            "alwaysActive": "Immer aktiv",
-            "nsfwMode": "NSFW-Modus",
-            "nsfwModeHelp": "Wenn aktiviert, werden Schimpfwort- und sexuelle Inhaltsfilter gelockert, während Kindersicherheit, Tierschutz, rassistische/politische und Gewaltfilter aktiv bleiben."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Chat-Einstellungen erfolgreich gespeichert"
     },

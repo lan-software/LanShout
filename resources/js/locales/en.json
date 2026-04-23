@@ -186,13 +186,12 @@
             "autoThreshold": "Auto-Trigger Threshold",
             "autoThresholdHelp": "Messages per minute across all users to auto-trigger slow mode"
         },
-        "presets": {
-            "title": "Filter Presets",
-            "description": "Enable pre-built filter categories to automatically block inappropriate content",
-            "words": "words",
-            "alwaysActive": "Always active",
-            "nsfwMode": "NSFW Mode",
-            "nsfwModeHelp": "When enabled, relaxes profanity and sexual content filters while keeping child safety, animal safety, racial/political, and violence filters active."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Chat settings saved successfully"
     },

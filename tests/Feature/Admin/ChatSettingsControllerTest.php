@@ -87,8 +87,7 @@ test('admin can update chat settings', function () {
         'slow_mode_cooldown_seconds' => 10,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
-        'active_filter_presets' => [],
-        'nsfw_mode' => false,
+        'profanity_filter_enabled' => true,
     ]);
 
     $response->assertRedirect();
@@ -118,8 +117,7 @@ test('moderator cannot update chat settings', function () {
         'slow_mode_cooldown_seconds' => 5,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
-        'active_filter_presets' => [],
-        'nsfw_mode' => false,
+        'profanity_filter_enabled' => true,
     ]);
 
     $response->assertForbidden();
@@ -142,12 +140,33 @@ test('validation rejects invalid chat settings', function () {
         'slow_mode_cooldown_seconds' => 5,
         'slow_mode_auto_enabled' => false,
         'slow_mode_auto_threshold' => 50,
-        'active_filter_presets' => [],
-        'nsfw_mode' => false,
+        'profanity_filter_enabled' => true,
     ]);
 
     $response->assertUnprocessable();
     $response->assertJsonValidationErrors(['filter_action', 'spam_repeat_threshold', 'spam_window_seconds', 'rate_limit_messages']);
+});
+
+test('safety presets are always included in effective blocked words', function () {
+    $settings = seedChatSettings(['profanity_filter_enabled' => false]);
+
+    $words = $settings->effectiveBlockedWords();
+
+    // A sampling from each safety preset.
+    expect($words)->toContain('pedophile');
+    expect($words)->toContain('bestiality');
+    expect($words)->toContain('white power');
+    expect($words)->toContain('kys');
+});
+
+test('profanity presets are gated by profanity_filter_enabled', function () {
+    $enabled = seedChatSettings(['profanity_filter_enabled' => true]);
+    expect($enabled->effectiveBlockedWords())->toContain('fuck');
+
+    $enabled->delete();
+
+    $disabled = seedChatSettings(['profanity_filter_enabled' => false]);
+    expect($disabled->effectiveBlockedWords())->not->toContain('fuck');
 });
 
 test('settings changes are persisted', function () {
@@ -167,8 +186,7 @@ test('settings changes are persisted', function () {
         'slow_mode_cooldown_seconds' => 15,
         'slow_mode_auto_enabled' => true,
         'slow_mode_auto_threshold' => 100,
-        'active_filter_presets' => [],
-        'nsfw_mode' => false,
+        'profanity_filter_enabled' => true,
     ]);
 
     $settings = ChatSetting::first();

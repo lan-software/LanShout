@@ -18,20 +18,9 @@ class ChatSettingsController extends Controller
             403,
         );
 
-        $presets = collect(config('chat-filters', []))->map(function (array $preset, string $key) {
-            return [
-                'key' => $key,
-                'label' => $preset['label'] ?? $key,
-                'description' => $preset['description'] ?? '',
-                'wordCount' => count($preset['words'] ?? []),
-                'alwaysActiveInNsfw' => $preset['always_active_in_nsfw'] ?? false,
-            ];
-        })->values()->all();
-
         return Inertia::render('admin/ChatSettings', [
             'settings' => ChatSetting::current(),
             'canEdit' => auth()->user()->hasAnyRole(['super_admin', 'admin']),
-            'filterPresets' => $presets,
         ]);
     }
 
@@ -42,7 +31,6 @@ class ChatSettingsController extends Controller
             403,
         );
 
-        // Fetch directly from DB (not cache) to ensure update works
         $settings = ChatSetting::firstOrFail();
         $settings->fill($request->validated());
         $settings->save();

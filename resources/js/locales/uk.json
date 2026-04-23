@@ -163,13 +163,12 @@
             "autoThreshold": "Поріг автоматичного спрацьовування",
             "autoThresholdHelp": "Повідомлень за хвилину серед усіх користувачів для автоматичного вмикання повільного режиму"
         },
-        "presets": {
-            "title": "Попередньо налаштовані фільтри",
-            "description": "Увімкніть попередньо налаштовані категорії фільтрів, щоб автоматично блокувати невідповідний вміст",
-            "words": "слів",
-            "alwaysActive": "Завжди активно",
-            "nsfwMode": "Режим NSFW",
-            "nsfwModeHelp": "Коли ввімкнено, пом'якшує фільтри нецензурних висловів і сексуального вмісту, зберігаючи активними фільтри безпеки дітей, безпеки тварин, расові/політичні та насильства."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Налаштування чату успішно збережено"
     },

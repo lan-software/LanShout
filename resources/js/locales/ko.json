@@ -163,13 +163,12 @@
             "autoThreshold": "자동 트리거 임계값",
             "autoThresholdHelp": "느린 모드를 자동으로 트리거하는 모든 사용자 간 분당 메시지 수"
         },
-        "presets": {
-            "title": "필터 프리셋",
-            "description": "사전 구축된 필터 카테고리를 활성화하여 부적절한 콘텐츠를 자동으로 차단하세요",
-            "words": "단어",
-            "alwaysActive": "항상 활성",
-            "nsfwMode": "NSFW 모드",
-            "nsfwModeHelp": "활성화되면 욕설 및 성적 콘텐츠 필터가 완화되지만 어린이 안전, 동물 안전, 인종/정치 및 폭력 필터는 활성 상태로 유지됩니다."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "채팅 설정이 성공적으로 저장되었습니다"
     },

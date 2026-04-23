@@ -163,13 +163,12 @@
             "autoThreshold": "Auto-Lös-Grenz",
             "autoThresholdHelp": "Narichten per Minuut för automaatschen Langsam-Modus"
         },
-        "presets": {
-            "title": "Filter-Vörinstellungen",
-            "description": "Schalt vörbuut Filter-Kategorien aan, üm ungeignet Inhalt to blockéren",
-            "words": "Wöör",
-            "alwaysActive": "Jümmers aan",
-            "nsfwMode": "NSFW-Modus",
-            "nsfwModeHelp": "Wenn aan, ward Floken- un Sex-Filter locker, wiel Kinnerseker, Deerseker, Rasse/Politik un Gewalt-Filter anblifft."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Snack-Instellungen sekert"
     },

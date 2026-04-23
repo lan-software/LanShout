@@ -10,8 +10,7 @@ class ChatSetting extends Model
     protected $attributes = [
         'blocked_words' => '[]',
         'regex_filters' => '[]',
-        'active_filter_presets' => '[]',
-        'nsfw_mode' => false,
+        'profanity_filter_enabled' => true,
     ];
 
     protected $fillable = [
@@ -27,8 +26,7 @@ class ChatSetting extends Model
         'slow_mode_cooldown_seconds',
         'slow_mode_auto_enabled',
         'slow_mode_auto_threshold',
-        'active_filter_presets',
-        'nsfw_mode',
+        'profanity_filter_enabled',
     ];
 
     protected function casts(): array
@@ -39,34 +37,25 @@ class ChatSetting extends Model
             'allow_urls' => 'boolean',
             'slow_mode_enabled' => 'boolean',
             'slow_mode_auto_enabled' => 'boolean',
-            'active_filter_presets' => 'array',
-            'nsfw_mode' => 'boolean',
+            'profanity_filter_enabled' => 'boolean',
         ];
     }
 
     /**
-     * Get all blocked words: custom list + words from active filter presets.
-     * In NSFW mode, only presets marked `always_active_in_nsfw` contribute.
+     * Get all blocked words: admin-defined list plus every safety preset.
+     * Non-safety presets (profanity/sexual/ldnoobw) are included only when
+     * the profanity filter toggle is enabled.
      */
     public function effectiveBlockedWords(): array
     {
         $words = $this->blocked_words ?? [];
+        $profanityEnabled = $this->profanity_filter_enabled ?? true;
 
-        $presets = config('chat-filters', []);
-        $activePresets = $this->active_filter_presets ?? [];
-
-        foreach ($activePresets as $presetKey) {
-            if (! isset($presets[$presetKey])) {
+        foreach (config('chat-filters', []) as $preset) {
+            $isSafety = $preset['safety'] ?? false;
+            if (! $isSafety && ! $profanityEnabled) {
                 continue;
             }
-
-            $preset = $presets[$presetKey];
-
-            // In NSFW mode, skip presets that are not always-active
-            if ($this->nsfw_mode && ! ($preset['always_active_in_nsfw'] ?? false)) {
-                continue;
-            }
-
             $words = array_merge($words, $preset['words'] ?? []);
         }
 
@@ -79,8 +68,7 @@ class ChatSetting extends Model
             return self::firstOrCreate([], [
                 'blocked_words' => [],
                 'regex_filters' => [],
-                'active_filter_presets' => [],
-                'nsfw_mode' => false,
+                'profanity_filter_enabled' => true,
             ]);
         });
     }

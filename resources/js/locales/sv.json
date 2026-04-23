@@ -163,13 +163,12 @@
             "autoThreshold": "Auto-utlösningströskel",
             "autoThresholdHelp": "Meddelanden per minut över alla användare för att automatiskt utlösa långsamt läge"
         },
-        "presets": {
-            "title": "Filterförinställningar",
-            "description": "Aktivera fördefinierade filterkategorier för att automatiskt blockera olämpligt innehåll",
-            "words": "ord",
-            "alwaysActive": "Alltid aktivt",
-            "nsfwMode": "NSFW-läge",
-            "nsfwModeHelp": "När det är aktiverat lättar det på svordoms- och sexinnehållsfilter medan filter för barnsäkerhet, djursäkerhet, ras/politik och våld förblir aktiva."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "Chattinställningarna har sparats"
     },

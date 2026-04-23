@@ -13,7 +13,7 @@ class UpdateChatSettingsRequest extends FormRequest
             'allow_urls' => $this->boolean('allow_urls'),
             'slow_mode_enabled' => $this->boolean('slow_mode_enabled'),
             'slow_mode_auto_enabled' => $this->boolean('slow_mode_auto_enabled'),
-            'nsfw_mode' => $this->boolean('nsfw_mode'),
+            'profanity_filter_enabled' => $this->boolean('profanity_filter_enabled'),
         ]);
     }
 
@@ -34,9 +34,7 @@ class UpdateChatSettingsRequest extends FormRequest
             'slow_mode_cooldown_seconds' => ['required', 'integer', 'min:1', 'max:300'],
             'slow_mode_auto_enabled' => ['required', 'boolean'],
             'slow_mode_auto_threshold' => ['required', 'integer', 'min:5', 'max:1000'],
-            'active_filter_presets' => ['present', 'array'],
-            'active_filter_presets.*' => ['string', Rule::in(array_keys(config('chat-filters', [])))],
-            'nsfw_mode' => ['required', 'boolean'],
+            'profanity_filter_enabled' => ['required', 'boolean'],
         ];
     }
 }

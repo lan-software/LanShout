@@ -163,13 +163,12 @@
             "autoThreshold": "jagh vuS",
             "autoThresholdHelp": "Qop mIw jaghmeH Hoch lo'wI'pu' nob ja'chuq jav"
         },
-        "presets": {
-            "title": "bepwI' DaHlu'bogh",
-            "description": "lu'be'bogh De' bepmeH Segh jagh",
-            "words": "mu'",
-            "alwaysActive": "reH qap",
-            "nsfwMode": "NSFW mIw",
-            "nsfwModeHelp": "jaghDI', qoH 'ej tlhutlh bepmey jom, 'ach puq, Ha'DIbaH, ghot/che' 'ej HIv bepmey taHqu'."
+        "profanityFilter": {
+            "title": "Profanity Filter",
+            "description": "Controls whether general profanity and explicit sexual language are blocked.",
+            "enabledLabel": "Filter profanity and explicit language",
+            "enabledHelp": "When disabled, general swearing and explicit terms are allowed through.",
+            "safetyNotice": "Safety word lists (child, animal, racial, and violence protections) are always applied and cannot be disabled."
         },
         "saved": "ja'chuq nabmey polpu'"
     },
