@@ -13,6 +13,8 @@ import {
     Mail,
     XCircle,
 } from 'lucide-vue-next';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface Permission {
     id: number;
@@ -44,20 +46,22 @@ interface Props {
 
 defineProps<Props>();
 
-const breadcrumbs: BreadcrumbItem[] = [
+const { t } = useI18n();
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
     {
-        title: 'Admin',
+        title: t('common.admin'),
         href: admin.index().url,
     },
     {
-        title: 'Users',
+        title: t('admin.users.title'),
         href: '/admin/users',
     },
     {
-        title: 'User Details',
+        title: t('admin.userDetails.title'),
         href: '#',
     },
-];
+]);
 
 const getRoleBadgeVariant = (roleName: string) => {
     switch (roleName) {
@@ -84,7 +88,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-    <Head :title="`User: ${user.name}`" />
+    <Head :title="`${$t('admin.userDetails.title')}: ${user.name}`" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-6 p-4">
@@ -112,13 +116,11 @@ const formatDate = (dateString: string) => {
             <div
                 class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
             >
-                <h2 class="mb-4 text-lg font-semibold">User Information</h2>
+                <h2 class="mb-4 text-lg font-semibold">{{ $t('admin.userDetails.information') }}</h2>
 
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground"
-                            >Email Verification</span
-                        >
+                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.emailVerification') }}</span>
                         <div class="flex items-center gap-2">
                             <Badge
                                 :variant="
@@ -138,8 +140,8 @@ const formatDate = (dateString: string) => {
                                 />
                                 {{
                                     user.email_verified_at
-                                        ? 'Verified'
-                                        : 'Unverified'
+                                        ? $t('admin.users.verified')
+                                        : $t('admin.users.unverified')
                                 }}
                             </Badge>
                         </div>
@@ -148,9 +150,7 @@ const formatDate = (dateString: string) => {
                     <Separator />
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground"
-                            >Member Since</span
-                        >
+                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.memberSince') }}</span>
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.created_at) }}
@@ -158,9 +158,7 @@ const formatDate = (dateString: string) => {
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground"
-                            >Last Updated</span
-                        >
+                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.lastUpdated') }}</span>
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.updated_at) }}
@@ -173,7 +171,7 @@ const formatDate = (dateString: string) => {
             <div
                 class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
             >
-                <h2 class="mb-4 text-lg font-semibold">Roles</h2>
+                <h2 class="mb-4 text-lg font-semibold">{{ $t('admin.userDetails.roles') }}</h2>
 
                 <div v-if="user.roles.length > 0" class="space-y-4">
                     <div
@@ -198,7 +196,7 @@ const formatDate = (dateString: string) => {
                             <p
                                 class="mb-2 text-xs font-medium text-muted-foreground"
                             >
-                                Permissions:
+                                {{ $t('admin.userDetails.permissions') }}
                             </p>
                             <div class="flex flex-wrap gap-1">
                                 <Badge
@@ -221,7 +219,7 @@ const formatDate = (dateString: string) => {
                     </div>
                 </div>
                 <div v-else class="py-4 text-center text-muted-foreground">
-                    No roles assigned
+                    {{ $t('admin.userDetails.noRoles') }}
                 </div>
             </div>
         </div>

@@ -11,10 +11,10 @@ import { LoaderCircle } from 'lucide-vue-next';
 
 <template>
     <AuthLayout
-        title="Confirm your password"
-        description="This is a secure area of the application. Please confirm your password before continuing."
+        :title="$t('auth.confirmPassword.title')"
+        :description="$t('auth.confirmPassword.description')"
     >
-        <Head title="Confirm password" />
+        <Head :title="$t('auth.confirmPassword.title')" />
 
         <Form
             v-bind="store.form()"
@@ -23,7 +23,7 @@ import { LoaderCircle } from 'lucide-vue-next';
         >
             <div class="space-y-6">
                 <div class="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label for="password">{{ $t('auth.confirmPassword.password') }}</Label>
                     <Input
                         id="password"
                         type="password"
@@ -32,6 +32,7 @@ import { LoaderCircle } from 'lucide-vue-next';
                         required
                         autocomplete="current-password"
                         autofocus
+                        :placeholder="$t('auth.confirmPassword.passwordPlaceholder')"
                     />
 
                     <InputError :message="errors.password" />
@@ -47,7 +48,7 @@ import { LoaderCircle } from 'lucide-vue-next';
                             v-if="processing"
                             class="h-4 w-4 animate-spin"
                         />
-                        Confirm Password
+                        {{ $t('auth.confirmPassword.button') }}
                     </Button>
                 </div>
             </div>

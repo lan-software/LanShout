@@ -17,7 +17,12 @@
         "dashboard": "Dashboard",
         "admin": "Admin",
         "users": "Users",
-        "back": "Back"
+        "back": "Back",
+        "dismiss": "Dismiss",
+        "platform": "Platform",
+        "readOnly": "Read-only",
+        "comingSoon": "Coming soon",
+        "somethingWentWrong": "Something went wrong."
     },
     "landing": {
         "title": "Welcome to LanShout",
@@ -26,6 +31,12 @@
         "createAccount": "Create Account",
         "logIn": "Log in",
         "register": "Register",
+        "signIn": "Sign in",
+        "heroTitle": "Real-time chat for your LAN event.",
+        "heroDescription": "LanShout is a live chat platform for LAN parties. Coordinate with other attendees, get announcements from organizers, and stay connected throughout the event.",
+        "joinConversation": "Join the conversation",
+        "loginViaLanCore": "Login via LanCore",
+        "poweredBy": "Powered by LanShout — Part of the Lan-Software ecosystem",
         "features": {
             "title": "Features",
             "simpleMessaging": {
@@ -39,6 +50,18 @@
             "builtForEvents": {
                 "title": "Built for Events",
                 "description": "Perfect for LAN parties, gaming events, and community gatherings."
+            },
+            "liveChat": {
+                "title": "Live Chat",
+                "description": "Real-time messaging with all event attendees in one shared space."
+            },
+            "moderation": {
+                "title": "Moderation",
+                "description": "Staff tools for content moderation and role-based permissions."
+            },
+            "lanCoreSso": {
+                "title": "LanCore SSO",
+                "description": "Sign in with your LanCore account. Roles and identity synced automatically."
             }
         },
         "cta": {
@@ -262,8 +285,10 @@
     },
     "admin": {
         "title": "Admin Panel",
+        "description": "Manage your LanShout instance",
         "users": {
             "title": "Users",
+            "description": "Manage user accounts and roles",
             "list": "User List",
             "name": "Name",
             "email": "Email",
@@ -276,8 +301,44 @@
             "confirmDelete": "Are you sure you want to delete this user?",
             "deleteSuccess": "User deleted successfully",
             "deleteError": "Failed to delete user",
-            "noUsers": "No users found"
+            "noUsers": "No users found",
+            "noRoles": "No roles",
+            "verified": "Verified",
+            "unverified": "Unverified",
+            "joined": "Joined"
+        },
+        "userManagement": {
+            "title": "User Management",
+            "description": "View and manage user accounts and roles"
+        },
+        "chatSettingsCard": {
+            "description": "Configure message filters, rate limits, and slow mode"
+        },
+        "rolesPermissions": {
+            "title": "Roles & Permissions"
+        },
+        "userDetails": {
+            "title": "User Details",
+            "information": "User Information",
+            "emailVerification": "Email Verification",
+            "memberSince": "Member Since",
+            "lastUpdated": "Last Updated",
+            "roles": "Roles",
+            "noRoles": "No roles assigned",
+            "permissions": "Permissions:"
         }
+    },
+    "deleteUser": {
+        "title": "Delete account",
+        "description": "Delete your account and all of its resources",
+        "warning": "Warning",
+        "warningText": "Please proceed with caution, this cannot be undone.",
+        "confirmTitle": "Are you sure you want to delete your account?",
+        "confirmDescription": "Once your account is deleted, all of its resources and data will also be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "cancelButton": "Cancel",
+        "deleteButton": "Delete account"
     },
     "navigation": {
         "home": "Home",
@@ -290,7 +351,13 @@
         "appearance": "Appearance",
         "password": "Password",
         "github": "GitHub",
+        "githubRepo": "Github Repo",
+        "documentation": "Documentation",
         "menu": "Navigation menu"
+    },
+    "settingsLayout": {
+        "title": "Settings",
+        "description": "Manage your profile and account settings"
     },
     "validation": {
         "required": "This field is required",

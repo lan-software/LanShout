@@ -5,13 +5,16 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import { MessageSquare, Shield, Users } from 'lucide-vue-next';
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const breadcrumbs: BreadcrumbItem[] = [
+const { t } = useI18n();
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
     {
-        title: 'Admin',
+        title: t('common.admin'),
         href: admin.index().url,
     },
-];
+]);
 
 const page = usePage();
 const auth = computed(() => page.props.auth);
@@ -28,14 +31,14 @@ const canViewChatSettings = computed(() =>
 </script>
 
 <template>
-    <Head title="Admin" />
+    <Head :title="$t('common.admin')" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div>
-                <h1 class="text-2xl font-bold">Admin Panel</h1>
+                <h1 class="text-2xl font-bold">{{ $t('admin.title') }}</h1>
                 <p class="mt-2 text-muted-foreground">
-                    Manage your LanShout instance
+                    {{ $t('admin.description') }}
                 </p>
             </div>
 
@@ -54,9 +57,9 @@ const canViewChatSettings = computed(() =>
                             <Users class="h-6 w-6" />
                         </div>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold">User Management</h3>
+                    <h3 class="mt-4 text-lg font-semibold">{{ $t('admin.userManagement.title') }}</h3>
                     <p class="mt-2 text-sm text-muted-foreground">
-                        View and manage user accounts and roles
+                        {{ $t('admin.userManagement.description') }}
                     </p>
                 </Link>
 
@@ -73,9 +76,9 @@ const canViewChatSettings = computed(() =>
                             <MessageSquare class="h-6 w-6" />
                         </div>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold">Chat Settings</h3>
+                    <h3 class="mt-4 text-lg font-semibold">{{ $t('chatSettings.title') }}</h3>
                     <p class="mt-2 text-sm text-muted-foreground">
-                        Configure message filters, rate limits, and slow mode
+                        {{ $t('admin.chatSettingsCard.description') }}
                     </p>
                 </Link>
 
@@ -91,10 +94,10 @@ const canViewChatSettings = computed(() =>
                         </div>
                     </div>
                     <h3 class="mt-4 text-lg font-semibold">
-                        Roles & Permissions
+                        {{ $t('admin.rolesPermissions.title') }}
                     </h3>
                     <p class="mt-2 text-sm text-muted-foreground">
-                        Coming soon
+                        {{ $t('common.comingSoon') }}
                     </p>
                 </div>
             </div>

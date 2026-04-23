@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
 import { MessageSquare } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
 
 defineProps<{
     canRegister: boolean;
 }>();
+
+const { t } = useI18n();
 </script>
 
 <template>
-    <Head title="LanShout — Event Chat" />
+    <Head :title="$t('common.appName') + ' — Event Chat'" />
 
     <div class="flex min-h-screen flex-col bg-background text-foreground">
         <header
@@ -20,23 +23,21 @@ defineProps<{
                 >
                     <MessageSquare class="h-5 w-5 text-primary-foreground" />
                 </div>
-                <span class="text-lg font-semibold tracking-tight"
-                    >LanShout</span
-                >
+                <span class="text-lg font-semibold tracking-tight">{{ $t('common.appName') }}</span>
             </div>
             <div class="flex items-center gap-3">
                 <Link
                     href="/login"
                     class="rounded-full border border-border px-5 py-2 text-sm font-medium text-muted-foreground transition hover:border-primary hover:text-foreground"
                 >
-                    Sign in
+                    {{ $t('landing.signIn') }}
                 </Link>
                 <Link
                     v-if="canRegister"
                     href="/register"
                     class="rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
                 >
-                    Register
+                    {{ $t('landing.register') }}
                 </Link>
             </div>
         </header>
@@ -52,14 +53,12 @@ defineProps<{
             <h1
                 class="mt-6 max-w-2xl text-4xl leading-tight font-bold sm:text-5xl"
             >
-                Real-time chat for your LAN event.
+                {{ $t('landing.heroTitle') }}
             </h1>
             <p
                 class="mt-4 max-w-lg text-lg leading-relaxed text-muted-foreground"
             >
-                LanShout is a live chat platform for LAN parties. Coordinate
-                with other attendees, get announcements from organizers, and
-                stay connected throughout the event.
+                {{ $t('landing.heroDescription') }}
             </p>
 
             <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -67,13 +66,13 @@ defineProps<{
                     href="/login"
                     class="rounded-xl bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
                 >
-                    Join the conversation
+                    {{ $t('landing.joinConversation') }}
                 </Link>
                 <a
                     href="/auth/redirect"
                     class="rounded-xl border border-border px-7 py-3 text-sm font-medium text-muted-foreground transition hover:border-primary hover:text-foreground"
                 >
-                    Login via LanCore
+                    {{ $t('landing.loginViaLanCore') }}
                 </a>
             </div>
 
@@ -99,12 +98,11 @@ defineProps<{
                             />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">Live Chat</h3>
+                    <h3 class="text-sm font-semibold">{{ $t('landing.features.liveChat.title') }}</h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >
-                        Real-time messaging with all event attendees in one
-                        shared space.
+                        {{ $t('landing.features.liveChat.description') }}
                     </p>
                 </div>
                 <div
@@ -129,12 +127,11 @@ defineProps<{
                             <circle cx="12" cy="12" r="3" />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">Moderation</h3>
+                    <h3 class="text-sm font-semibold">{{ $t('landing.features.moderation.title') }}</h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >
-                        Staff tools for content moderation and role-based
-                        permissions.
+                        {{ $t('landing.features.moderation.description') }}
                     </p>
                 </div>
                 <div
@@ -160,19 +157,18 @@ defineProps<{
                             <line x1="15" x2="3" y1="12" y2="12" />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">LanCore SSO</h3>
+                    <h3 class="text-sm font-semibold">{{ $t('landing.features.lanCoreSso.title') }}</h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >
-                        Sign in with your LanCore account. Roles and identity
-                        synced automatically.
+                        {{ $t('landing.features.lanCoreSso.description') }}
                     </p>
                 </div>
             </div>
         </main>
 
         <footer class="py-8 text-center text-xs text-muted-foreground">
-            Powered by LanShout &mdash; Part of the Lan-Software ecosystem
+            {{ $t('landing.poweredBy') }}
         </footer>
     </div>
 </template>

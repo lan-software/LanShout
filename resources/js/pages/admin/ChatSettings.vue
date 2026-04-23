@@ -56,10 +56,10 @@ const props = defineProps<{
     filterPresets: FilterPreset[];
 }>();
 
-const breadcrumbs: BreadcrumbItem[] = [
-    { title: 'Admin', href: admin.index().url },
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
+    { title: t('common.admin'), href: admin.index().url },
     { title: t('chatSettings.title'), href: '/admin/chat-settings' },
-];
+]);
 
 // Form state
 const blockedWordsText = ref(props.settings.blocked_words.join('\n'));
@@ -155,7 +155,7 @@ function save() {
                         {{ $t('chatSettings.title') }}
                     </h1>
                     <p v-if="!canEdit" class="mt-1 text-muted-foreground">
-                        <Badge variant="secondary">Read-only</Badge>
+                        <Badge variant="secondary">{{ $t('common.readOnly') }}</Badge>
                     </p>
                 </div>
                 <div class="flex items-center gap-3">

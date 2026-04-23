@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { usePage } from '@inertiajs/vue3';
 import { computed, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 type SharedAnnouncement = {
     id: number;
@@ -13,6 +14,7 @@ type SharedAnnouncement = {
     dismissible: boolean;
 };
 
+const { t } = useI18n();
 const page = usePage<{ announcements: SharedAnnouncement[] | null }>();
 
 const initial = computed<SharedAnnouncement[]>(
@@ -67,7 +69,7 @@ const dismiss = (announcement: SharedAnnouncement): void => {
                 class="shrink-0 rounded px-2 py-1 text-xs font-medium underline-offset-2 hover:underline"
                 @click="dismiss(announcement)"
             >
-                Dismiss
+                {{ t('common.dismiss') }}
             </button>
         </div>
     </div>

@@ -8,21 +8,25 @@ import { edit as editProfile } from '@/routes/profile';
 import { edit as editPassword } from '@/routes/user-password';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const sidebarNavItems: NavItem[] = [
+const { t } = useI18n();
+
+const sidebarNavItems = computed<NavItem[]>(() => [
     {
-        title: 'Profile',
+        title: t('navigation.profile'),
         href: editProfile(),
     },
     {
-        title: 'Password',
+        title: t('navigation.password'),
         href: editPassword(),
     },
     {
-        title: 'Appearance',
+        title: t('navigation.appearance'),
         href: editAppearance(),
     },
-];
+]);
 
 const currentPath = typeof window !== undefined ? window.location.pathname : '';
 </script>
@@ -30,8 +34,8 @@ const currentPath = typeof window !== undefined ? window.location.pathname : '';
 <template>
     <div class="px-4 py-6">
         <Heading
-            title="Settings"
-            description="Manage your profile and account settings"
+            :title="$t('settingsLayout.title')"
+            :description="$t('settingsLayout.description')"
         />
 
         <div class="flex flex-col lg:flex-row lg:space-x-12">

@@ -14,6 +14,8 @@ import admin from '@/routes/admin';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
 import { Eye } from 'lucide-vue-next';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface Role {
     id: number;
@@ -36,16 +38,18 @@ interface Props {
 
 defineProps<Props>();
 
-const breadcrumbs: BreadcrumbItem[] = [
+const { t } = useI18n();
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => [
     {
-        title: 'Admin',
+        title: t('common.admin'),
         href: admin.index().url,
     },
     {
-        title: 'Users',
+        title: t('admin.users.title'),
         href: '/admin/users',
     },
-];
+]);
 
 const getRoleBadgeVariant = (roleName: string) => {
     switch (roleName) {
@@ -70,15 +74,15 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-    <Head title="Users" />
+    <Head :title="$t('admin.users.title')" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold">Users</h1>
+                    <h1 class="text-2xl font-bold">{{ $t('admin.users.title') }}</h1>
                     <p class="mt-1 text-muted-foreground">
-                        Manage user accounts and roles
+                        {{ $t('admin.users.description') }}
                     </p>
                 </div>
             </div>
@@ -89,12 +93,12 @@ const formatDate = (dateString: string) => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Name</TableHead>
-                            <TableHead>Email</TableHead>
-                            <TableHead>Roles</TableHead>
-                            <TableHead>Verified</TableHead>
-                            <TableHead>Joined</TableHead>
-                            <TableHead class="text-right">Actions</TableHead>
+                            <TableHead>{{ $t('admin.users.name') }}</TableHead>
+                            <TableHead>{{ $t('admin.users.email') }}</TableHead>
+                            <TableHead>{{ $t('admin.users.role') }}</TableHead>
+                            <TableHead>{{ $t('admin.userDetails.emailVerification') }}</TableHead>
+                            <TableHead>{{ $t('admin.users.joined') }}</TableHead>
+                            <TableHead class="text-right">{{ $t('admin.users.actions') }}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -122,7 +126,7 @@ const formatDate = (dateString: string) => {
                                         variant="outline"
                                         class="text-xs"
                                     >
-                                        No roles
+                                        {{ $t('admin.users.noRoles') }}
                                     </Badge>
                                 </div>
                             </TableCell>
@@ -137,8 +141,8 @@ const formatDate = (dateString: string) => {
                                 >
                                     {{
                                         user.email_verified_at
-                                            ? 'Verified'
-                                            : 'Unverified'
+                                            ? $t('admin.users.verified')
+                                            : $t('admin.users.unverified')
                                     }}
                                 </Badge>
                             </TableCell>
@@ -149,7 +153,7 @@ const formatDate = (dateString: string) => {
                                 <Button variant="ghost" size="sm" as-child>
                                     <Link :href="`/admin/users/${user.id}`">
                                         <Eye class="mr-1 h-4 w-4" />
-                                        View
+                                        {{ $t('admin.users.view') }}
                                     </Link>
                                 </Button>
                             </TableCell>
@@ -159,7 +163,7 @@ const formatDate = (dateString: string) => {
                                 colspan="6"
                                 class="py-8 text-center text-muted-foreground"
                             >
-                                No users found
+                                {{ $t('admin.users.noUsers') }}
                             </TableCell>
                         </TableRow>
                     </TableBody>
