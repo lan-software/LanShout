@@ -17,7 +17,8 @@
         "dashboard": "Dashboard",
         "admin": "Admin",
         "users": "Benutzer",
-        "back": "Zurück"
+        "back": "Zurück",
+        "platform": "Plattform"
     },
     "landing": {
         "title": "Willkommen bei LanShout",
@@ -39,6 +40,9 @@
             "builtForEvents": {
                 "title": "Für Events entwickelt",
                 "description": "Perfekt für LAN-Partys, Gaming-Events und Community-Treffen."
+            },
+            "lanCoreSso": {
+                "title": "LanCore SSO"
             }
         },
         "cta": {
@@ -46,7 +50,9 @@
             "description": "Melde dich an, um zu chatten, oder erstelle ein Konto, um der Unterhaltung beizutreten.",
             "button": "Zum Chat anmelden"
         },
-        "footer": "LanShout - Einfache Echtzeit-Nachrichten für deine Events"
+        "footer": "LanShout - Einfache Echtzeit-Nachrichten für deine Events",
+        "loginViaLanCore": "Mit LanCore anmelden",
+        "signIn": "Anmelden"
     },
     "auth": {
         "login": {
