@@ -14,6 +14,7 @@ use LanSoftware\LanCoreClient\Exceptions\LanCoreDisabledException;
 use LanSoftware\LanCoreClient\Exceptions\LanCoreRequestException;
 use LanSoftware\LanCoreClient\Exceptions\LanCoreUnavailableException;
 use LanSoftware\LanCoreClient\LanCoreClient;
+use Symfony\Component\HttpFoundation\Response;
 
 class LanCoreAuthController extends Controller
 {
@@ -23,7 +24,7 @@ class LanCoreAuthController extends Controller
         private readonly SyncUserRolesFromLanCore $syncRoles,
     ) {}
 
-    public function redirect(): \Symfony\Component\HttpFoundation\Response
+    public function redirect(): Response
     {
         try {
             return Inertia::location($this->client->ssoAuthorizeUrl());

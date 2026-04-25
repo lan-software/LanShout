@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
 import { MessageSquare } from 'lucide-vue-next';
-import { useI18n } from 'vue-i18n';
 
 defineProps<{
     canRegister: boolean;
 }>();
 
-const { t } = useI18n();
 </script>
 
 <template>
@@ -23,7 +21,9 @@ const { t } = useI18n();
                 >
                     <MessageSquare class="h-5 w-5 text-primary-foreground" />
                 </div>
-                <span class="text-lg font-semibold tracking-tight">{{ $t('common.appName') }}</span>
+                <span class="text-lg font-semibold tracking-tight">{{
+                    $t('common.appName')
+                }}</span>
             </div>
             <div class="flex items-center gap-3">
                 <Link
@@ -98,7 +98,9 @@ const { t } = useI18n();
                             />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">{{ $t('landing.features.liveChat.title') }}</h3>
+                    <h3 class="text-sm font-semibold">
+                        {{ $t('landing.features.liveChat.title') }}
+                    </h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >
@@ -127,7 +129,9 @@ const { t } = useI18n();
                             <circle cx="12" cy="12" r="3" />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">{{ $t('landing.features.moderation.title') }}</h3>
+                    <h3 class="text-sm font-semibold">
+                        {{ $t('landing.features.moderation.title') }}
+                    </h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >
@@ -157,7 +161,9 @@ const { t } = useI18n();
                             <line x1="15" x2="3" y1="12" y2="12" />
                         </svg>
                     </div>
-                    <h3 class="text-sm font-semibold">{{ $t('landing.features.lanCoreSso.title') }}</h3>
+                    <h3 class="text-sm font-semibold">
+                        {{ $t('landing.features.lanCoreSso.title') }}
+                    </h3>
                     <p
                         class="mt-2 text-sm leading-relaxed text-muted-foreground"
                     >

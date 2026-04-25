@@ -198,7 +198,7 @@ class DashboardController extends Controller
             $label = match ($resolution) {
                 'hour' => $date->format('H:00'),
                 'day' => $date->format('M d'),
-                'week' => 'Week ' . $date->format('W'),
+                'week' => 'Week '.$date->format('W'),
             };
 
             $data[] = [

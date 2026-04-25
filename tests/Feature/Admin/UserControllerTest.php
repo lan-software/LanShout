@@ -9,6 +9,7 @@ function createUserWithRole(string $roleName): User
     $role = Role::create(['name' => $roleName, 'display_name' => ucfirst($roleName)]);
     $user = User::factory()->create();
     $user->roles()->attach($role);
+
     return $user;
 }
 

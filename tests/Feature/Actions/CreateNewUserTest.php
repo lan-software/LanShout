@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 */
 
 test('creates a new user with valid input', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $user = $action->create([
         'name' => 'Jane Doe',
@@ -27,7 +27,7 @@ test('creates a new user with valid input', function () {
 });
 
 test('fails with missing name', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'email' => 'jane@example.com',
@@ -37,7 +37,7 @@ test('fails with missing name', function () {
 })->throws(ValidationException::class);
 
 test('fails with missing email', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'name' => 'Jane Doe',
@@ -47,7 +47,7 @@ test('fails with missing email', function () {
 })->throws(ValidationException::class);
 
 test('fails with invalid email format', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'name' => 'Jane Doe',
@@ -60,7 +60,7 @@ test('fails with invalid email format', function () {
 test('fails with duplicate email', function () {
     User::factory()->create(['email' => 'taken@example.com']);
 
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'name' => 'Jane Doe',
@@ -71,7 +71,7 @@ test('fails with duplicate email', function () {
 })->throws(ValidationException::class);
 
 test('fails with password mismatch', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'name' => 'Jane Doe',
@@ -82,7 +82,7 @@ test('fails with password mismatch', function () {
 })->throws(ValidationException::class);
 
 test('fails with missing password', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $action->create([
         'name' => 'Jane Doe',
@@ -91,7 +91,7 @@ test('fails with missing password', function () {
 })->throws(ValidationException::class);
 
 test('password is hashed when user is created', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $user = $action->create([
         'name' => 'Jane Doe',

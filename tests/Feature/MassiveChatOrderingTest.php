@@ -39,7 +39,7 @@ test('messages are returned in newest-first order across 500 messages', function
     // Verify ordering: each message should be newer than the next one
     for ($i = 0; $i < count($data) - 1; $i++) {
         expect($data[$i]['created_at'] >= $data[$i + 1]['created_at'])->toBeTrue(
-            "Message at index {$i} should be >= message at index " . ($i + 1)
+            "Message at index {$i} should be >= message at index ".($i + 1)
         );
     }
 
@@ -225,7 +225,7 @@ test('client-side reversal reconstructs chronological order from paginated API',
     // Should be in ascending chronological order (oldest to newest)
     for ($i = 0; $i < count($chatWall) - 1; $i++) {
         expect($chatWall[$i]['created_at'] <= $chatWall[$i + 1]['created_at'])->toBeTrue(
-            "Chat wall message at {$i} should be before message at " . ($i + 1)
+            "Chat wall message at {$i} should be before message at ".($i + 1)
         );
     }
 

@@ -5,6 +5,7 @@ use App\Models\ChatSetting;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\UserMute;
+use App\Services\ContentModeration;
 
 // --- MessageController@index ---
 
@@ -306,7 +307,7 @@ test('checkSpam returns true when threshold exceeded', function () {
         'created_at' => now(),
     ]);
 
-    $moderation = new \App\Services\ContentModeration();
+    $moderation = new ContentModeration;
     expect($moderation->checkSpam($user->id, 'spam message'))->toBeTrue();
 });
 
@@ -334,6 +335,6 @@ test('checkSpam returns false below threshold', function () {
         'created_at' => now(),
     ]);
 
-    $moderation = new \App\Services\ContentModeration();
+    $moderation = new ContentModeration;
     expect($moderation->checkSpam($user->id, 'repeated message'))->toBeFalse();
 });

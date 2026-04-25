@@ -24,7 +24,7 @@ test('slow mode is inactive by default', function () {
         'slow_mode_cooldown_seconds' => 5,
     ]);
 
-    $service = new SlowModeService();
+    $service = new SlowModeService;
 
     expect($service->isSlowModeActive())->toBeFalse();
 });
@@ -37,7 +37,7 @@ test('slow mode is active when manually enabled', function () {
         'slow_mode_cooldown_seconds' => 5,
     ]);
 
-    $service = new SlowModeService();
+    $service = new SlowModeService;
 
     expect($service->isSlowModeActive())->toBeTrue();
 });
@@ -50,7 +50,7 @@ test('user can send when no recent message', function () {
         'slow_mode_cooldown_seconds' => 10,
     ]);
 
-    $service = new SlowModeService();
+    $service = new SlowModeService;
 
     expect($service->canUserSend(999))->toBeTrue();
 });
@@ -63,7 +63,7 @@ test('user is blocked during cooldown period', function () {
         'slow_mode_cooldown_seconds' => 30,
     ]);
 
-    $service = new SlowModeService();
+    $service = new SlowModeService;
     $service->recordMessage(42);
 
     $result = $service->canUserSend(42);
@@ -81,7 +81,7 @@ test('cooldown expires correctly', function () {
         'slow_mode_cooldown_seconds' => 2,
     ]);
 
-    $service = new SlowModeService();
+    $service = new SlowModeService;
 
     // Record a message with a timestamp in the past beyond the cooldown
     Cache::put('slow-mode:42', now()->timestamp - 3, 2);

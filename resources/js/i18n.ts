@@ -17,16 +17,7 @@ const defaultLocale = (import.meta.env.VITE_DEFAULT_LOCALE as string) || 'en';
 
 const i18n = createI18n<
     [MessageSchema],
-    | 'en'
-    | 'de'
-    | 'fr'
-    | 'es'
-    | 'sv'
-    | 'uk'
-    | 'ko'
-    | 'tlh'
-    | 'nds'
-    | 'sxu'
+    'en' | 'de' | 'fr' | 'es' | 'sv' | 'uk' | 'ko' | 'tlh' | 'nds' | 'sxu'
 >({
     legacy: false,
     locale: defaultLocale,

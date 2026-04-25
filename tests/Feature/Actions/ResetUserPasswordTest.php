@@ -13,7 +13,7 @@ use Illuminate\Validation\ValidationException;
 test('resets user password with valid input', function () {
     $user = User::factory()->create();
 
-    $action = new ResetUserPassword();
+    $action = new ResetUserPassword;
     $action->reset($user, [
         'password' => 'new-password',
         'password_confirmation' => 'new-password',
@@ -25,14 +25,14 @@ test('resets user password with valid input', function () {
 
 test('fails with missing password', function () {
     $user = User::factory()->create();
-    $action = new ResetUserPassword();
+    $action = new ResetUserPassword;
 
     $action->reset($user, []);
 })->throws(ValidationException::class);
 
 test('fails with password mismatch', function () {
     $user = User::factory()->create();
-    $action = new ResetUserPassword();
+    $action = new ResetUserPassword;
 
     $action->reset($user, [
         'password' => 'new-password',
@@ -42,7 +42,7 @@ test('fails with password mismatch', function () {
 
 test('password is hashed after reset', function () {
     $user = User::factory()->create();
-    $action = new ResetUserPassword();
+    $action = new ResetUserPassword;
 
     $action->reset($user, [
         'password' => 'my-new-password',

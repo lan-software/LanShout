@@ -24,7 +24,7 @@ class UserController extends Controller
                 'email' => $user->email,
                 'email_verified_at' => $user->email_verified_at,
                 'created_at' => $user->created_at,
-                'roles' => $user->roles->map(fn($role) => [
+                'roles' => $user->roles->map(fn ($role) => [
                     'id' => $role->id,
                     'name' => $role->name,
                     'display_name' => $role->display_name,
@@ -70,12 +70,12 @@ class UserController extends Controller
                 'email_verified_at' => $user->email_verified_at,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
-                'roles' => $user->roles->map(fn($role) => [
+                'roles' => $user->roles->map(fn ($role) => [
                     'id' => $role->id,
                     'name' => $role->name,
                     'display_name' => $role->display_name,
                     'description' => $role->description,
-                    'permissions' => $role->permissions->map(fn($permission) => [
+                    'permissions' => $role->permissions->map(fn ($permission) => [
                         'id' => $permission->id,
                         'name' => $permission->name,
                         'display_name' => $permission->display_name,

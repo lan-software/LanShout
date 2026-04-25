@@ -13,8 +13,9 @@
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "lint:check": "eslint .",
-        "test": "vitest",
-        "test:run": "vitest run",
+        "types:check": "vue-tsc --noEmit",
+        "test": "vitest run",
+        "test:watch": "vitest",
         "test:coverage": "vitest run --coverage",
         "test:e2e": "playwright test"
     },

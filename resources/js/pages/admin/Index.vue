@@ -57,7 +57,9 @@ const canViewChatSettings = computed(() =>
                             <Users class="h-6 w-6" />
                         </div>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold">{{ $t('admin.userManagement.title') }}</h3>
+                    <h3 class="mt-4 text-lg font-semibold">
+                        {{ $t('admin.userManagement.title') }}
+                    </h3>
                     <p class="mt-2 text-sm text-muted-foreground">
                         {{ $t('admin.userManagement.description') }}
                     </p>
@@ -76,7 +78,9 @@ const canViewChatSettings = computed(() =>
                             <MessageSquare class="h-6 w-6" />
                         </div>
                     </div>
-                    <h3 class="mt-4 text-lg font-semibold">{{ $t('chatSettings.title') }}</h3>
+                    <h3 class="mt-4 text-lg font-semibold">
+                        {{ $t('chatSettings.title') }}
+                    </h3>
                     <p class="mt-2 text-sm text-muted-foreground">
                         {{ $t('admin.chatSettingsCard.description') }}
                     </p>

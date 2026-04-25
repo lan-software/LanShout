@@ -2,8 +2,6 @@
 
 use App\Models\Message;
 use App\Models\User;
-use Database\Factories\MessageFactory;
-use Database\Factories\UserFactory;
 
 /*
 |--------------------------------------------------------------------------

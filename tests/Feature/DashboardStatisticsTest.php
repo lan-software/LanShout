@@ -9,6 +9,7 @@ function createAdminUser(): User
     $role = Role::create(['name' => 'admin', 'display_name' => 'Admin']);
     $user = User::factory()->create();
     $user->roles()->attach($role);
+
     return $user;
 }
 

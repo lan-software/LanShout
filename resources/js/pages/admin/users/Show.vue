@@ -116,11 +116,15 @@ const formatDate = (dateString: string) => {
             <div
                 class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
             >
-                <h2 class="mb-4 text-lg font-semibold">{{ $t('admin.userDetails.information') }}</h2>
+                <h2 class="mb-4 text-lg font-semibold">
+                    {{ $t('admin.userDetails.information') }}
+                </h2>
 
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.emailVerification') }}</span>
+                        <span class="text-sm text-muted-foreground">{{
+                            $t('admin.userDetails.emailVerification')
+                        }}</span>
                         <div class="flex items-center gap-2">
                             <Badge
                                 :variant="
@@ -150,7 +154,9 @@ const formatDate = (dateString: string) => {
                     <Separator />
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.memberSince') }}</span>
+                        <span class="text-sm text-muted-foreground">{{
+                            $t('admin.userDetails.memberSince')
+                        }}</span>
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.created_at) }}
@@ -158,7 +164,9 @@ const formatDate = (dateString: string) => {
                     </div>
 
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-muted-foreground">{{ $t('admin.userDetails.lastUpdated') }}</span>
+                        <span class="text-sm text-muted-foreground">{{
+                            $t('admin.userDetails.lastUpdated')
+                        }}</span>
                         <div class="flex items-center gap-2 text-sm">
                             <Calendar class="h-4 w-4 text-muted-foreground" />
                             {{ formatDate(user.updated_at) }}
@@ -171,7 +179,9 @@ const formatDate = (dateString: string) => {
             <div
                 class="rounded-lg border border-sidebar-border/70 bg-card p-6 dark:border-sidebar-border"
             >
-                <h2 class="mb-4 text-lg font-semibold">{{ $t('admin.userDetails.roles') }}</h2>
+                <h2 class="mb-4 text-lg font-semibold">
+                    {{ $t('admin.userDetails.roles') }}
+                </h2>
 
                 <div v-if="user.roles.length > 0" class="space-y-4">
                     <div

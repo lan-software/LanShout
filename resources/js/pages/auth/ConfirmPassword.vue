@@ -23,7 +23,9 @@ import { LoaderCircle } from 'lucide-vue-next';
         >
             <div class="space-y-6">
                 <div class="grid gap-2">
-                    <Label for="password">{{ $t('auth.confirmPassword.password') }}</Label>
+                    <Label for="password">{{
+                        $t('auth.confirmPassword.password')
+                    }}</Label>
                     <Input
                         id="password"
                         type="password"
@@ -32,7 +34,9 @@ import { LoaderCircle } from 'lucide-vue-next';
                         required
                         autocomplete="current-password"
                         autofocus
-                        :placeholder="$t('auth.confirmPassword.passwordPlaceholder')"
+                        :placeholder="
+                            $t('auth.confirmPassword.passwordPlaceholder')
+                        "
                     />
 
                     <InputError :message="errors.password" />

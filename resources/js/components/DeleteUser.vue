@@ -2,7 +2,6 @@
 import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
 import { Form } from '@inertiajs/vue3';
 import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
 
 // Components
 import HeadingSmall from '@/components/HeadingSmall.vue';
@@ -21,7 +20,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-const { t } = useI18n();
 const passwordInput = ref<InstanceType<typeof Input> | null>(null);
 </script>
 
@@ -42,7 +40,11 @@ const passwordInput = ref<InstanceType<typeof Input> | null>(null);
             </div>
             <Dialog>
                 <DialogTrigger as-child>
-                    <Button variant="destructive" data-test="delete-user-button">{{ $t('deleteUser.deleteButton') }}</Button>
+                    <Button
+                        variant="destructive"
+                        data-test="delete-user-button"
+                        >{{ $t('deleteUser.deleteButton') }}</Button
+                    >
                 </DialogTrigger>
                 <DialogContent>
                     <Form
@@ -56,20 +58,26 @@ const passwordInput = ref<InstanceType<typeof Input> | null>(null);
                         v-slot="{ errors, processing, reset, clearErrors }"
                     >
                         <DialogHeader class="space-y-3">
-                            <DialogTitle>{{ $t('deleteUser.confirmTitle') }}</DialogTitle>
+                            <DialogTitle>{{
+                                $t('deleteUser.confirmTitle')
+                            }}</DialogTitle>
                             <DialogDescription>
                                 {{ $t('deleteUser.confirmDescription') }}
                             </DialogDescription>
                         </DialogHeader>
 
                         <div class="grid gap-2">
-                            <Label for="password" class="sr-only">{{ $t('deleteUser.passwordLabel') }}</Label>
+                            <Label for="password" class="sr-only">{{
+                                $t('deleteUser.passwordLabel')
+                            }}</Label>
                             <Input
                                 id="password"
                                 type="password"
                                 name="password"
                                 ref="passwordInput"
-                                :placeholder="$t('deleteUser.passwordPlaceholder')"
+                                :placeholder="
+                                    $t('deleteUser.passwordPlaceholder')
+                                "
                             />
                             <InputError :message="errors.password" />
                         </div>

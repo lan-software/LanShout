@@ -4,7 +4,7 @@ use App\Models\ChatSetting;
 use App\Services\ContentModeration;
 
 beforeEach(function () {
-    $this->moderation = new ContentModeration();
+    $this->moderation = new ContentModeration;
 });
 
 test('trims leading and trailing whitespace', function () {

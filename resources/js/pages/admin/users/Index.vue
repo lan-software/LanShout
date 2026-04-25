@@ -80,7 +80,9 @@ const formatDate = (dateString: string) => {
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold">{{ $t('admin.users.title') }}</h1>
+                    <h1 class="text-2xl font-bold">
+                        {{ $t('admin.users.title') }}
+                    </h1>
                     <p class="mt-1 text-muted-foreground">
                         {{ $t('admin.users.description') }}
                     </p>
@@ -96,9 +98,15 @@ const formatDate = (dateString: string) => {
                             <TableHead>{{ $t('admin.users.name') }}</TableHead>
                             <TableHead>{{ $t('admin.users.email') }}</TableHead>
                             <TableHead>{{ $t('admin.users.role') }}</TableHead>
-                            <TableHead>{{ $t('admin.userDetails.emailVerification') }}</TableHead>
-                            <TableHead>{{ $t('admin.users.joined') }}</TableHead>
-                            <TableHead class="text-right">{{ $t('admin.users.actions') }}</TableHead>
+                            <TableHead>{{
+                                $t('admin.userDetails.emailVerification')
+                            }}</TableHead>
+                            <TableHead>{{
+                                $t('admin.users.joined')
+                            }}</TableHead>
+                            <TableHead class="text-right">{{
+                                $t('admin.users.actions')
+                            }}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

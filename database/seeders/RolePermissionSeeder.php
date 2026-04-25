@@ -75,7 +75,7 @@ class RolePermissionSeeder extends Seeder
         // User can only view and send chat messages
         $userPermissions = Permission::whereIn('name', [
             'view_chat',
-            'send_chat_message'
+            'send_chat_message',
         ])->get();
         $user->permissions()->sync($userPermissions);
     }
