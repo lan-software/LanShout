@@ -46,6 +46,7 @@ class HandleInertiaRequests extends Middleware
             'name' => config('app.name'),
             'locale' => fn () => app()->getLocale(),
             'availableLocales' => SetLocale::AVAILABLE,
+            'experimentalLocales' => SetLocale::EXPERIMENTAL,
             'quote' => ['message' => trim($message), 'author' => trim($author)],
             'auth' => [
                 'user' => $user ? [
