@@ -5,7 +5,6 @@ import { MessageSquare } from 'lucide-vue-next';
 defineProps<{
     canRegister: boolean;
 }>();
-
 </script>
 
 <template>
