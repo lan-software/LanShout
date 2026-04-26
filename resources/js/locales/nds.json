@@ -39,6 +39,9 @@
             "builtForEvents": {
                 "title": "För Evenementen baut",
                 "description": "Passt för LAN-Partys, Spelevenementen un Gemeinschapstreffen."
+            },
+            "lanCoreSso": {
+                "title": "LanCore SSO"
             }
         },
         "cta": {
@@ -46,7 +49,9 @@
             "description": "Meld di an, üm to snacken, oder legg en Konto an, üm mitantosnacken.",
             "button": "Anmellen un snacken"
         },
-        "footer": "LanShout — Infache Echttiet-Narichten för diene Evenementen"
+        "footer": "LanShout — Infache Echttiet-Narichten för diene Evenementen",
+        "signIn": "Anmellen",
+        "loginViaLanCore": "Över LanCore anmellen"
     },
     "auth": {
         "login": {
