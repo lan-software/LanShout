@@ -295,7 +295,8 @@
         "appearance": "Erscheinungsbild",
         "password": "Passwort",
         "github": "GitHub",
-        "menu": "Navigationsmenü"
+        "menu": "Navigationsmenü",
+        "documentation": "Dokumentation"
     },
     "validation": {
         "required": "Dieses Feld ist erforderlich",
@@ -303,5 +304,18 @@
         "minLength": "Muss mindestens {min} Zeichen lang sein",
         "maxLength": "Darf höchstens {max} Zeichen lang sein",
         "passwordMatch": "Passwörter müssen übereinstimmen"
+    },
+    "deleteUser": {
+        "title": "Konto löschen",
+        "description": "Lösche dein Konto und alle zugehörigen Daten",
+        "confirmTitle": "Bist du sicher, dass du dein Konto löschen möchtest?",
+        "passwordLabel": "Passwort",
+        "passwordPlaceholder": "Passwort",
+        "cancelButton": "Abbrechen",
+        "deleteButton": "Konto löschen"
+    },
+    "settingsLayout": {
+        "title": "Einstellungen",
+        "description": "Verwalte dein Profil und deine Kontoeinstellungen"
     }
 }
