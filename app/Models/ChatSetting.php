@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class ChatSetting extends Model
 {
+    use HasUlids;
+
     protected $attributes = [
         'blocked_words' => '[]',
         'regex_filters' => '[]',

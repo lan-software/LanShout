@@ -1,10 +1,10 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 
 export interface ActiveUser {
-    id: number;
+    id: string;
     name: string;
     chat_color?: string | null;
-    lancore_user_id?: number | null;
+    lancore_user_id?: string | null;
     roles: string[];
 }
 

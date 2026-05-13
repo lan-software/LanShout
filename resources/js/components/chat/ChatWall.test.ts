@@ -17,7 +17,7 @@ const i18n = createI18n({
     },
 });
 
-function makeMessage(id: number, body: string, minutesAgo = 0) {
+function makeMessage(id: string, body: string, minutesAgo = 0) {
     return {
         id,
         body,

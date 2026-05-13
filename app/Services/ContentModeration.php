@@ -45,7 +45,7 @@ class ContentModeration
         return ModerationResult::passed($clean);
     }
 
-    public function checkSpam(int $userId, string $body): bool
+    public function checkSpam(string $userId, string $body): bool
     {
         $settings = $this->settings ?? ChatSetting::current();
 

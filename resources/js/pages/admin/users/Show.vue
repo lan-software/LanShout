@@ -17,13 +17,13 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 interface Permission {
-    id: number;
+    id: string;
     name: string;
     display_name: string;
 }
 
 interface Role {
-    id: number;
+    id: string;
     name: string;
     display_name: string;
     description: string;
@@ -31,7 +31,7 @@ interface Role {
 }
 
 interface User {
-    id: number;
+    id: string;
     name: string;
     email: string;
     email_verified_at: string | null;

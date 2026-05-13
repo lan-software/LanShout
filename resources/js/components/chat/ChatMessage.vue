@@ -4,13 +4,13 @@ import { getUserColor, needsPillBackground } from '@/composables/useChatColor';
 import { computed } from 'vue';
 
 type User = {
-    id: number;
+    id: string;
     name: string;
     chat_color?: string | null;
 };
 
 type Message = {
-    id: number;
+    id: string;
     body: string;
     created_at: string;
     user: User;

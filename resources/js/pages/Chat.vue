@@ -11,12 +11,12 @@ import ChatWall from '../components/chat/ChatWall.vue';
 const { t } = useI18n();
 
 interface User {
-    id: number;
+    id: string;
     name: string;
     chat_color?: string | null;
 }
 interface Message {
-    id: number;
+    id: string;
     body: string;
     created_at: string;
     user: User;

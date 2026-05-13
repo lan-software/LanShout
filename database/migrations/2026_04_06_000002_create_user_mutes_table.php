@@ -9,9 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_mutes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('muted_by')->constrained('users')->cascadeOnDelete();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUlid('muted_by')->constrained('users')->cascadeOnDelete();
             $table->text('reason')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();

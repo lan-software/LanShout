@@ -10,7 +10,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chat_settings', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
 
             // Content filtering
             $table->jsonb('blocked_words')->default('[]');

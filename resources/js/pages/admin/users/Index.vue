@@ -18,13 +18,13 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 interface Role {
-    id: number;
+    id: string;
     name: string;
     display_name: string;
 }
 
 interface User {
-    id: number;
+    id: string;
     name: string;
     email: string;
     email_verified_at: string | null;

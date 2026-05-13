@@ -26,7 +26,7 @@ class SlowModeService
     /**
      * @return true|int True if user can send, or remaining cooldown seconds.
      */
-    public function canUserSend(int $userId): true|int
+    public function canUserSend(string $userId): true|int
     {
         if (! $this->isSlowModeActive()) {
             return true;
@@ -44,7 +44,7 @@ class SlowModeService
         return $remaining > 0 ? $remaining : true;
     }
 
-    public function recordMessage(int $userId): void
+    public function recordMessage(string $userId): void
     {
         $settings = ChatSetting::current();
         Cache::put(

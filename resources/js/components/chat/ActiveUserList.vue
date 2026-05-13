@@ -152,7 +152,7 @@ function getRoleDisplay(role: string): string {
     }
 }
 
-function getLanCoreUrl(userId: number | null | undefined): string | null {
+function getLanCoreUrl(userId: string | null | undefined): string | null {
     if (!userId || !props.lancoreBaseUrl) return null;
     return `${props.lancoreBaseUrl}/users/${userId}`;
 }
